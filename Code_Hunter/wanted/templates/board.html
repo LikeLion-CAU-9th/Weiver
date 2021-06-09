@@ -2,8 +2,36 @@
 {% load static %}
 
 {% block htmlHead %}
+<link rel="stylesheet" href="{% static 'css/board.css' %}">
+<style>
+    .nav-board a{
+        color: #92009D;
+    }
+</style>
+
 {% endblock %}
 
 {% block mainContent %}
-인덱스페이지
+<ul class="filter-box">
+    <li class="filter-item">
+        최신순
+    </li>
+    <li class="filter-item">
+        높은 금액순
+    </li>
+    <li class="filter-item">
+        답변 완료
+    </li>
+</ul>
+
+<ul class="quest-list">
+    {% for quest in quests %}
+    <li class="quest-box">
+        <a href="#">
+        <h3> {{ quest.title }} </h3>
+        <p> {{ quest.author }} </p>
+    </li>
+{% endfor %}
+</ul>
+
 {% endblock %}

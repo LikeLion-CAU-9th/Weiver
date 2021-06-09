@@ -13,11 +13,25 @@
 <body>
     
     
-    <div class="header" style="background-color: rgb(255, 217, 0); height: 80px; text-align: center;">
-        <div class="navbar" style="text-align: right;">
-            <a href="{% url 'board' %}">코드리뷰</a>
+    <div class="navbar">
+        <ul class="nav-box">
+            <li class="nav-item nav-board">
+                <a href="{% url 'board' %}">게시판</a>
+            </li>
+            <li class="nav-item nav-community">
+                <a href="{% url 'community' %}">커뮤니티</a>
+            </li>
+            <li class="nav-item nav-ranking">
+                <a href="{% url 'ranking' %}">랭킹</a>
+            </li>
+        </ul>
+        <div class="logo-box">
+            <a href="{% url 'index' %}">CODE HUNTER</a>
+
         </div>
-        헤더 테스트
+        <div class="user-box">
+            OOO님
+        </div>
     </div>
     
     {% block mainContent %}

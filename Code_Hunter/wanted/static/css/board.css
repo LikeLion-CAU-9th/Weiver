@@ -1,0 +1,14 @@
+.filter-box {
+    list-style: none;    
+    display: flex;
+    margin: 170px 0px 0px 150px;
+}
+
+.filter-item {
+    border-right: 1px solid black;
+    padding: 0px 5px;
+}
+
+.filter-item:last-child{
+    border-right: 0px;
+}
