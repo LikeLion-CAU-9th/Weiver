@@ -12,26 +12,63 @@
 {% endblock %}
 
 {% block mainContent %}
-<ul class="filter-box">
-    <li class="filter-item">
-        최신순
-    </li>
-    <li class="filter-item">
-        높은 금액순
-    </li>
-    <li class="filter-item">
-        답변 완료
-    </li>
-</ul>
+<div class="board">
+    <div class="quest-area">
+        <ul class="filter-box">
+            <li class="filter-item">
+                최신순
+            </li>
+            <li class="filter-item">
+                높은 금액순
+            </li>
+            <li class="filter-item">
+                답변 완료
+            </li>
+        </ul>
 
-<ul class="quest-list">
-    {% for quest in quests %}
-    <li class="quest-box">
-        <a href="#">
-        <h3> {{ quest.title }} </h3>
-        <p> {{ quest.author }} </p>
-    </li>
-{% endfor %}
-</ul>
+        <ul class="quest-list">
+            {% for quest in quests %}
+            <li class="quest-box">
+                <div class="quest-left">
+                    <div class="quest-author">
+                        ID: {{ quest.author }}
+                    </div>
+                    <div class="quest-bounty">
+                        {{ quest.bounty }}원
+                    </div>
+                </div>
+                <div class="quest-right">
+                    <div class="quest-tags">
+                        {% for tag in quest.tags %}
+                        <span class="tag">
+                            #{{ tag }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                    <div class="quest-title">
+                        <a href="#">
+                        <span>Q.</span> {{ quest.title }}
+                        </a>                
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="tag-area">
+
+        <div class="category">
+            #언어
+        </div>
+        <div class="category-tags">
+            <span class="tag">#python</span>
+            <span class="tag">#C#</span>
+            <span class="tag">#C++</span>
+            <span class="tag">#Java</span>
+            <span class="tag">#JavaScript</span>
+            <span class="tag">#html/css</span>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

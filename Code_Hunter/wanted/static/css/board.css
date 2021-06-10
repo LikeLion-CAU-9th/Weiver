@@ -1,14 +1,174 @@
+.board {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+.quest-area {
+    width: 75%;
+    padding: 0px 55px 0px 8%;
+    border-right: 1px solid #707070;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.tag-area {
+    width: 25%;
+    padding: 21px 0px 0px 20px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
 .filter-box {
     list-style: none;    
     display: flex;
-    margin: 170px 0px 0px 150px;
+    padding: 0
 }
 
 .filter-item {
     border-right: 1px solid black;
-    padding: 0px 5px;
+    padding: 0px 15px;
+    font-size: 20px;
 }
+
+
 
 .filter-item:last-child{
     border-right: 0px;
+}
+
+.quest-list {
+    list-style: none;
+    color: black;
+    text-decoration: none;
+    padding: 0;
+}
+
+.quest-box {
+    background-color: #FAF7F4;
+    border-radius: 60px;
+    box-shadow: 3px 3px 2px 2px #cfcfcf;
+    padding: 10px;
+    margin: 30px 0px;
+    height: 170px;
+    display: flex;
+    flex-direction: row;
+}
+
+.quest-left {
+    width: 225px;
+    padding: 25px 0px 0px 75px;
+    font-size: 33px;
+}
+
+.quest-right {
+    padding-top: 15px;
+}
+
+.quest-author {
+    width: 180px;
+    height: 45px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #707070;
+    white-space: nowrap;
+}
+
+.quest-title span {font-size: 57px;}
+
+.quest-title {
+    /* white-space: nowrap; */
+}
+
+.quest-bounty {
+    background-color: #F37877;
+    width: 180px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    color: white;
+    border-radius: 20px;
+}
+
+
+.quest-tags {
+    display: flex;
+}
+
+.tag {
+    display: inline-block;
+    margin: 0px 15px 15px 0px;
+    background-color: #2793e6ab;
+    border-radius: 26px;
+    padding: 10px 30px;
+    font-size: 25px;
+    color: white;
+}
+
+.quest-box a {
+    color: black;
+    text-decoration: none;
+    font-size: 32px;    
+}
+
+.category {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 880px) {
+    .board {
+        margin-top: 10px;
+    }
+
+    .tag-area{
+        display: none;
+    }
+
+    .quest-area {
+        width: 100%;
+    }
+
+    .quest-box {
+        height: 120px;
+    }
+
+    .quest-left {
+        padding: 15px 0px 0px 15px;
+        width: 150px;
+    }
+
+    .quest-right {
+        padding: 10px 20px 0px 20px;
+    }
+
+    .quest-author{
+        font-size: 20px;
+        width: 150px;
+        margin-bottom: 0;
+    }
+
+    .quest-bounty {
+        width: 130px;
+        margin: 0 auto;
+        font-size: 20px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .tag {
+        font-size: 16px;
+        padding: 5px 15px;
+        margin-bottom: 0px;
+    }
+
+    .quest-title {
+        height: 80px;
+    }
+
+    .quest-title a {
+        font-size: 20px;
+    }
+
+    .quest-title span {font-size: 30px;}
 }
