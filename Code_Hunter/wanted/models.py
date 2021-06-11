@@ -17,7 +17,7 @@ class Quest(models.Model):
     ]
     author = models.CharField(max_length=8, verbose_name='닉네임')
     title = models.CharField(max_length=50, verbose_name='제목')
-    date = models.DateTimeField(auto_now_add=True )
+    date = models.DateTimeField(auto_now_add=True)
     show = models.CharField(max_length = 10, choices=SHOW_TYPES, default='PUBLIC', help_text="비공개 여부")
     tags = MultiSelectField(choices=TAGS)
     bounty = models.IntegerField(verbose_name='현상금', default='0')
@@ -27,3 +27,9 @@ class Quest(models.Model):
 
     def __str__(self):
         return self.title
+
+class QuestComment(models.Model):
+    quest = models.ForeignKey(Quest, on_delete=models.CASCADE)
+    author =  models.CharField(max_length=8)
+    body = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)

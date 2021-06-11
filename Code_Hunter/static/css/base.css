@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    width: 100%;
+}
+
+.navbar {
+    background-color: #F9F9F9;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+    height: 120px;
+    top:0;
+    left: 12.5%;
+    box-shadow: 0px 5px 5px 2px #cfcfcf;
+    font-family: Noto Sans KR;
+}
+
+.menu {
+    display: none;
+    width: calc(50% - 75px);
+    box-sizing: border-box;
+    padding-left: 60px;
+    line-height: 120px;
+}
+
+.menu img{
+    vertical-align: middle;
+}
+
+.nav-box {
+    list-style: none;    
+    display: flex;
+    justify-content: space-around;
+    height: 88px;
+    width: calc(50% - 150px);
+    box-sizing: border-box;
+    padding: 0px calc(50% - 450px) 0px 40px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.nav-item a {
+    color: black;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 20px;
+}
+
+.logo-box{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    justify-content: center;
+    box-sizing: border-box;
+    font-size: 40px;
+}
+
+.logo-box a{
+    color: #651902;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: Cactus;
+}
+
+.user-box{
+    display: flex;
+    align-items: center;
+    width: calc(50% - 150px);
+    justify-content: flex-end;
+    box-sizing: border-box;
+    padding: 0px 40px 0px 0px;
+}
+
+.user-box a {
+    color: black;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 20px;
+}
+
+.nav-item a:hover {
+    color: #92009D;
+  }
+
+@media screen and (max-width: 1280px) and (min-width: 880px) {
+    .logo-box {
+        font-size: 30px;
+        width: 150px;
+    }
+
+    .nav-box {
+        width: calc(50% - 75px);
+        padding: 0px calc(50% - 300px) 0px 20px;
+    }
+
+    .nav-box a {
+        font-size: 16px;
+    }
+
+    .user-box {
+        width: calc(50% - 75px);
+    }
+
+    .user-box a {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .navbar{
+        width: 100%;
+        left: 0%;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .logo-box {
+        font-size: 30px;
+        width: 150px;
+    }
+
+    .nav-box {
+        display: none;
+    }
+
+    .user-box {
+        width: calc(50% - 75px);
+    }
+
+    .user-box a {
+        font-size: 16px;
+    }
+}
+
+@font-face { 
+    font-family:'Cactus'; 
+    src:url('../fonts/Cactus\ Regular.otf') format('truetype'); 
+}

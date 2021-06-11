@@ -1,0 +1,93 @@
+.quest-head {
+    border-radius: 10px;
+    padding: 0px;
+    margin: 15px 0px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.quest-top {
+    border-radius: 10px 10px 0px 0px;
+    height: 60px;
+    width: 100%;
+    background-color: #F9F9F9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.quest-bottom {
+    border-radius: 0px 0px 10px 10px;
+    height: 60px;
+    width: 100%;
+    background-color: #F1F1F1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.quest-head img {
+    margin: 0px 35px;
+}
+
+.quest-title {
+    padding-right: 10px;
+}
+
+.quest-tags {
+    flex-grow: 1;
+}
+
+.quest-deadline {
+    margin: 0px 45px 0px 0px;
+}
+
+.quest-bounty {
+    margin: 0 0 0 10px;
+    font-size: 15px;
+}
+
+.quest-author {
+    margin: 0;
+    padding: 0 20px;
+}
+
+.quest-date {
+    flex-grow: 1;
+}
+
+.quest-stat {
+    font-size: 15px;
+    color: #707070;
+    text-align: center;
+    width: 107px;
+}
+
+.quest-text {
+    padding: 20px;
+}
+
+.quest-code {
+    background-color: #343434;
+    color: #C25A98;
+    margin: 20px 0px 20px 20px;
+    padding: 40px 20px;
+    border-radius: 10px;
+}
+
+.comment-head {
+    background-color: #ECECEC;
+    width: 100%;
+    height: 45px;
+    border-radius: 10px 10px 0px 0px;
+    box-sizing: border-box;
+    font-size: 19px;
+    padding: 10px;
+
+}
+
+.create {
+    margin-top: 50px;
+    height: 120px;
+}

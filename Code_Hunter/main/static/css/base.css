@@ -112,6 +112,67 @@ body {
     }
 }
 
+
+.footer {
+    box-sizing: border-box;
+    width:75%;
+    height: 270px;
+    margin: 0px auto;
+    background-color: #411740;
+    color: white;
+    padding: 30px 50px 0px 50px;
+}
+
+.footer-title {
+    font-family: Cactus;
+    font-size: 45px;
+    border-bottom: 1px solid #F9F9F9;
+}
+
+.footer-menu {
+    display: flex;
+    height: 45px;
+}
+
+.footer-menu-left, .footer-menu-right{
+    list-style: none;
+    display: flex;
+}
+
+.footer-menu-right {
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.footer-menu-right ul {
+    padding-right: 0;
+}
+
+.footer-item {
+    padding: 0 50px 0 0;
+}
+
+.footer-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 23px;
+    font-family: Consolas;
+}
+
+.footer-team {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 18px;
+}
+
+.footer-team span {
+    font-family: Consolas;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
 @media screen and (max-width: 880px) {
     .navbar{
         width: 100%;
@@ -136,6 +197,15 @@ body {
     }
 
     .user-box a {
+        font-size: 16px;
+    }
+
+    .footer {
+        width: 100%;
+        margin: 0;
+    }
+
+    .footer-item a {
         font-size: 16px;
     }
 }
