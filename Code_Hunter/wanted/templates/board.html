@@ -12,26 +12,102 @@
 {% endblock %}
 
 {% block mainContent %}
-<ul class="filter-box">
-    <li class="filter-item">
-        최신순
-    </li>
-    <li class="filter-item">
-        높은 금액순
-    </li>
-    <li class="filter-item">
-        답변 완료
-    </li>
-</ul>
+<div class="board">
+    <div class="quest-area">
+        <div class="filter-area">
+            <div class="introduction">
+                <span>리뷰</span>를 기다리는 질문들
+            </div>
+            <ul class="filter-box">
+                <li class="filter-item">
+                    <a href="{% url 'sort-date' %}">최신순</a>
+                </li>
+                <li class="filter-item">
+                    <a href="#">추천순</a>
+                </li>
+                <li class="filter-item">
+                    <a href="#">조회순</a>
+                </li>
+                <li class="filter-item">
+                    <a href="{% url 'sort-bounty' %}">금액순</a>
+                </li>
+                <li class="filter-item">
+                    <a href="#">답변 완료</a>
+                </li>
+            </ul>
+        </div>
 
-<ul class="quest-list">
-    {% for quest in quests %}
-    <li class="quest-box">
+        <ul class="quest-list">
+            {% for quest in quests %}
+            <li class="quest-box">
+                <div class="quest-left">
+                    <img src="{% static 'img/check.png' %}">
+                    <div class="quest-status">
+                        답변완료!
+                    </div>
+                    <div class="quest-bounty">
+                        {{ quest.bounty }}원
+                    </div>
+                    <span>
+                        현상금
+                    </span>
+                </div>
+                <div class="quest-body">
+                    <div class="quest-date">
+                        {{ quest.date | date:'Y.m.d H:i' }}
+                    </div>
+                    <div class="quest-title">
+                        <a href="{% url 'questdetail' quest.id %}">
+                        {{ quest.title }}
+                    </div>
+                    <p>
+                        {{ quest.body | truncatechars:100 }}
+                    </p>
+                        </a>                
+                    <div class="quest-tags">
+                        {% for tag in quest.tags %}
+                        <span class="tag">
+                            #{{ tag }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="quest-right">
+                    <div class="quest-deadline">
+                        마감기한<br>
+                        {{ quest.duedate | date:'Y년 m월 d일' }}
+                    </div>
+                    <div class="quest-statistics">
+                        <span class="likes">
+                            추천 OO
+                        </span>
+                        <span class="views">
+                            OO views
+                        </span>
+                    </div>
+                    <div class="quest-author">
+                        ID: {{ quest.author }}
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+
+        <div class="explore-area">
+            검색창은 나중에..
+        </div>
+    </div>
+    
+    <div class="tag-area">
         <a href="#">
-        <h3> {{ quest.title }} </h3>
-        <p> {{ quest.author }} </p>
-    </li>
-{% endfor %}
-</ul>
+            <div class="create">
+                코드리뷰 요청하기
+            </div>
+        </a>
+    </div>
+</div>
+
+
 
 {% endblock %}
+

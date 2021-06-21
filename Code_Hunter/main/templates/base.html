@@ -14,6 +14,9 @@
     
     
     <div class="navbar">
+        <div class="menu">
+            <img src="{% static 'img/menubutton.png' %}">
+        </div>
         <ul class="nav-box">
             <li class="nav-item nav-board">
                 <a href="{% url 'board' %}">게시판</a>
@@ -30,12 +33,50 @@
 
         </div>
         <div class="user-box">
-            OOO님
+            <a href="#">타라큐님</a>
         </div>
     </div>
     
     {% block mainContent %}
     {% endblock %}
 
+    <div class="footer">
+        <div class="footer-title">
+            CODE HUNTER
+        </div>
+        <div class="footer-menu">
+            <li class="footer-menu-left">                
+                <ul class="footer-item">
+                    <a href="#">About</a>
+                </ul>
+                <ul class="footer-item">
+                    <a href="#">Help</a>
+                </ul>
+                <ul class="footer-item">
+                    <a href="#">Advertise</a>
+                </ul>
+                <ul class="footer-item">
+                    <a href="#">Private Policy</a>
+                </ul>
+                <ul class="footer-item">
+                    <a href="#">Service Team</a>
+                </ul>
+            </li>
+            <li class="footer-menu-right">
+                <ul class="footer-item">
+                    <a href="#">Contact Us</a>
+                </ul>
+            </li>
+        </div>
+        <div class="footer-team">
+            LikeLion 9th, CAU<br>
+            Team "너의코드를여기와서맞춰보지않으련"<br>
+            <span>ⓒ2021 CodeHunter</span>
+        </div>
+    </div>
+
+
 </body>
+
+
 </html>

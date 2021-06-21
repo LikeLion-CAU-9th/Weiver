@@ -48,11 +48,6 @@
     font-size: 15px;
 }
 
-.filter-item a {
-    text-decoration: none;
-    color: black;
-}
-
 .filter-item button, button:active, button:focus, button:hover {
     appearance: none;
     -moz-appearance: none;
@@ -73,14 +68,13 @@
     list-style: none;
     color: black;
     text-decoration: none;
-    padding: 0 0 30px 0;
-    border-bottom: 2px solid #707070;
+    padding: 0;
 }
 
 .quest-box {
     background-color: #f5f5f5;
     border-radius: 10px;
-    padding: 5px 0 0 0;
+    padding: 0px;
     margin: 15px 0px;
     height: 150px;
     display: flex;
@@ -145,9 +139,9 @@
 }
 
 .quest-body p {
-    margin: 4px 0px 14px 0px;
+    margin: 11px 0px 14px 0px;
     display: block;
-    height: 45px;
+    height: 40px;
 }
 
 .quest-bounty {
@@ -206,14 +200,6 @@
     width: 63px
 }
 
-.explore-area {
-    background-color: #F5F5F5;
-    height: 156px;
-    margin: 30px 0 65px 0;
-    border-radius: 10px;
-    text-align: center;
-}
-
 .create {
     width: 256px;
     height: 150px;
@@ -232,13 +218,57 @@
 
 @media screen and (max-width: 880px) {
     .board {
-        width: 100%;
+        margin-top: 10px;
     }
 
-    .tag-area {
+    .tag-area{
         display: none;
     }
+
     .quest-area {
         width: 100%;
     }
+
+    .quest-box {
+        height: 120px;
+    }
+
+    .quest-left {
+        padding: 15px 0px 0px 15px;
+        width: 150px;
+    }
+
+    .quest-right {
+        padding: 10px 20px 0px 20px;
+    }
+
+    .quest-author{
+        font-size: 20px;
+        width: 150px;
+        margin-bottom: 0;
+    }
+
+    .quest-bounty {
+        width: 130px;
+        margin: 0 auto;
+        font-size: 20px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .tag {
+        font-size: 16px;
+        padding: 5px 15px;
+        margin-bottom: 0px;
+    }
+
+    .quest-title {
+        height: 80px;
+    }
+
+    .quest-title a {
+        font-size: 20px;
+    }
+
+    .quest-title span {font-size: 30px;}
 }
