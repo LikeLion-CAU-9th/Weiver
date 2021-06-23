@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'community',
     'search',
     'accounts',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -141,4 +142,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+##############summernote############
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'width': '100%',
+        'height': '480',
+    }
+}
+##############summernote############

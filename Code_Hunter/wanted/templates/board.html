@@ -41,10 +41,18 @@
             {% for quest in quests %}
             <li class="quest-box">
                 <div class="quest-left">
+                    {% if quest.status == 'SOLVED' %}
                     <img src="{% static 'img/check.png' %}">
                     <div class="quest-status">
                         답변완료!
                     </div>
+                    {% endif %}
+                    {% if quest.status == 'UNSOLVED' %}
+                    <img src="{% static 'img/check.png' %}">
+                    <div class="quest-status">
+                        답변 대기중
+                    </div>
+                    {% endif %}
                     <div class="quest-bounty">
                         {{ quest.bounty }}원
                     </div>
@@ -61,7 +69,7 @@
                         {{ quest.title }}
                     </div>
                     <p>
-                        {{ quest.body | truncatechars:100 }}
+                        {{ quest.body | truncatechars:100 | striptags }}
                     </p>
                         </a>                
                     <div class="quest-tags">
@@ -99,7 +107,7 @@
     </div>
     
     <div class="tag-area">
-        <a href="#">
+        <a href="{% url 'createquest' %}">
             <div class="create">
                 코드리뷰 요청하기
             </div>

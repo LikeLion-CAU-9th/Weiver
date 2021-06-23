@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block htmlHead %}
+<script src="{% static 'js/codemirror.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/codemirror.css' %}">
+<script src="{% static 'js/python.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/seti.css' %}">
+<link rel="stylesheet" href="{% static 'css/midnight.css' %}">
+<link rel="stylesheet" href="{% static 'css/board.css' %}">
+<link rel="stylesheet" href="{% static 'css/newquest.css' %}">
+{% endblock %}
+
+{% block mainContent %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="newquest">
+
+        <div class="questionside">
+            <div class="question">
+                <div class="question-title">
+                    <input name="{{ form.title.name }}" placeholder="제목을 입력해주세요.">
+                </div>
+                {{ form.body }}
+            </div>
+            {{ form.duedate }}
+            <input type="submit" class="submit" value="등록">
+        </div>
+
+        <div class="codeside">
+            <span class="wanted">Wanted</span>
+            <textarea name="{{ form.code.name }}" id="codeeditor" class="code-editor"></textarea>
+            <span class="wanted"> REWARD </span>
+            <div class="bountyarea">
+                <div class="bountyarea-bounty">
+                    <input name="{{ form.bounty.name }}" type="number" class="bounty-input" placeholder="의뢰 가격">
+                    <span>원</span>
+
+                </div>
+                <div class="bountyarea-file">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("codeeditor"), {
+            lineNumbers: true,
+            mode: "python",
+            theme: "midnight",
+            indentUnit: "4"
+
+        });
+
+    </script>
+
+    
+</form>
+
+
+
+
+{% endblock %}

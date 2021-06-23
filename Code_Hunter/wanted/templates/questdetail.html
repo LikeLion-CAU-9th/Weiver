@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block htmlHead %}
+<script src="{% static 'js/codemirror.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/codemirror.css' %}">
+<script src="{% static 'js/python.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/seti.css' %}">
+<link rel="stylesheet" href="{% static 'css/midnight.css' %}">
 <link rel="stylesheet" href="{% static 'css/board.css' %}">
 <link rel="stylesheet" href="{% static 'css/questdetail.css' %}">
 <style>
@@ -65,10 +70,10 @@
                 </div>
             </div>
             <div class="quest-text">
-                {{ quest.body }}
+                {{ quest.body | safe }}
             </div>
-            <div class="quest-code">
-                Code Space
+            <div class="code-box">
+                <div id="codeeditor" class="code-editor"></div>
             </div>
         </div>
         <div class="comment-area">
@@ -77,27 +82,40 @@
             </div>
             {% for comment in comments %}
             <div class="comment">
-                <div class="comment-author">
-                    {{ comment.author }}
+                <div class="comment-left">
+                    <div class="comment-author">
+                        {{ comment.author }}
+                    </div>
+                    <div class="comment-body">
+                        <pre>{{ comment.body }}</pre>
+                    </div>
                 </div>
-                <div class="comment-body">
-                    {{ comment.body }}
+                <div class="comment-right">
+                    <div class="comment-date">
+                        {{comment.date | date:'Y.m.d H:i' }}
+                    </div>
+                    <div class="comment-menu">
+                        <span class="comment-menu-item">댓글</span>
+                        <span class="comment-menu-item">수정</span>
+                        <span class="comment-menu-item">신고</span>
+                    </div>
                 </div>
             </div>
             {% endfor %}
-            <form method = "post" action = "{% url 'newcomment' %}" enctype="multipart/form-data" class = "col-lg-8 col-md-10 mx-auto">
-                {% csrf_token %}
-                <input type = "hidden" name = "quest_id" value = "{{quest.id}}">
-                <div class = "form-group row">
-                    <textarea class = "form-control" name = "body" rows = "7"></textarea>
-                </div>
-                <div class = "form-group row">
-                    <input class = "form-control" name = "author">
-                </div>
-                <div class = "form-group row float-right">
-                    <button type = "submit" class = "btn btn-primary">저장하기</button>
-                </div>
-            </form>
+            <div class="newcomment">
+                <form method = "post" action = "{% url 'newcomment' %}" enctype="multipart/form-data">
+                    <div class="newcomment-left">
+                        댓글쓰기
+                        {% csrf_token %}
+                        <input type = "hidden" name = "quest_id" value = "{{quest.id}}">
+                            <input class = "newcomment-author" name = "author" placeholder="닉네임" required>
+                            <textarea class = "newcomment-body" name = "body" placeholder="댓글을 남겨보세요." required></textarea>
+                    </div>
+                    <div class="newcomment-right">
+                            <button type = "submit" class = "newcomment-button">등록</button>                       
+                    </div>
+                </form>
+            </div>  
         </div>
 
     </div>
@@ -110,5 +128,20 @@
         </a>
     </div>
 </div>
+
+
+<script>
+    var code = "{{ quest.code | escapejs }}";
+</script>
+<script type="text/javascript">    
+    var editor = CodeMirror(document.getElementById("codeeditor"), {
+        lineNumbers: true,
+        mode: "python",
+        theme: "midnight",
+        indentUnit: "4",
+        value: "{{ quest.code | escapejs }}"       
+    });
+
+</script>
 
 {% endblock %}

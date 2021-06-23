@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Quest, QuestComment
-from .forms import CommentForm
+from .forms import QuestForm, CommentForm
 from django.urls import reverse
 
 def board(request):
@@ -14,6 +14,9 @@ def sort_date(request):
 def sort_bounty(request):
     quests = Quest.objects.all().order_by('-bounty')
     return render(request,'board.html', {'quests':quests})
+
+def newquest(request):
+    return render(request, 'newquest.html')
 
 def questdetail(request, quest_id):
     quest_detail = get_object_or_404(Quest, pk=quest_id)
@@ -31,6 +34,20 @@ def newcomment(request):
             body = body
         )
         return redirect(reverse('questdetail', kwargs={'quest_id':comment.quest_id}))
+
+def createquest(request):
+    if request.method == 'POST':
+        form = QuestForm(request.POST)
+        if form.is_valid():
+            quest = form.save(commit=False)
+            quest.save()
+            return redirect('board')
+        else:
+            return redirect('board')
+    else:
+        form = QuestForm()
+        return render(request, 'newquest.html', {'form':form})
+
 
 
 
