@@ -32,10 +32,11 @@ body {
     list-style: none;    
     display: flex;
     justify-content: space-around;
-    height: 88px;
+    height: 120px;
     width: calc(50% - 150px);
     box-sizing: border-box;
     padding: 0px calc(50% - 450px) 0px 40px;
+    margin: 0;
 }
 
 .nav-item {
@@ -87,6 +88,13 @@ body {
 .nav-item a:hover {
     color: #92009D;
   }
+
+
+.nav-item:hover {
+    border-bottom: 2px solid #92009D;
+  }
+
+
 
 @media screen and (max-width: 1280px) and (min-width: 880px) {
     .logo-box {
