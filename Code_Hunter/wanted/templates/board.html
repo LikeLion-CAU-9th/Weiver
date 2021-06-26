@@ -16,7 +16,7 @@
     <div class="quest-area">
         <div class="filter-area">
             <div class="introduction">
-                <span>리뷰</span>를 기다리는 질문들
+                <span>리뷰</span>를 기다리는 질문들 <img src="{% static 'img/review.png' %}" class="reviewimg">
             </div>
             <ul class="filter-box">
                 <li class="filter-item">
@@ -40,6 +40,22 @@
         <ul class="quest-list">
             {% for quest in quests %}
             <li class="quest-box">
+                {% if quest.bounty < 10000 %}
+                <div class="quest-index" style="background-color: rgb(69, 69, 216);">
+                </div>
+                {% endif %}
+                {% if quest.bounty >= 10000 and quest.bounty < 50000 %}
+                <div class="quest-index" style="background-color: rgb(151, 252, 156);">
+                </div>
+                {% endif %}
+                {% if quest.bounty >= 50000 and quest.bounty < 100000 %}
+                <div class="quest-index" style="background-color: rgb(255, 176, 30);">
+                </div>
+                {% endif %}
+                {% if quest.bounty >= 100000 %}
+                <div class="quest-index" style="background-color: rgb(255, 30, 30);">
+                </div>
+                {% endif %}
                 <div class="quest-left">
                     {% if quest.status == 'SOLVED' %}
                     <img src="{% static 'img/check.png' %}">

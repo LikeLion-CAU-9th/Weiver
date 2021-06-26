@@ -23,15 +23,20 @@
     color: #92009D;
 }
 
+.reviewimg {
+    height: 25px;
+    vertical-align: middle;
+}
+
 .quest-area {
-    width: 78.3%;
-    flex-shrink: 0;
     box-sizing: border-box;
+    flex: 1;
 }
 
 .tag-area {
-    width: 21.7%;
-    padding: 21px 0px 0px 20px;
+    width: 256px;
+    padding: 50px 0px 0px 0px;
+    margin-left: 55px;
     flex-shrink: 0;
     box-sizing: border-box;
 }
@@ -75,26 +80,33 @@
     text-decoration: none;
     padding: 0 0 30px 0;
     border-bottom: 2px solid #707070;
+    flex-grow: 1;
 }
 
 .quest-box {
     background-color: #f5f5f5;
     border-radius: 10px;
-    padding: 5px 0 0 0;
+    padding: 0;
     margin: 15px 0px;
     height: 150px;
     display: flex;
     flex-direction: row;
 }
 
+.quest-index {
+    flex: 0 10px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+
+
 .quest-left {
-    flex-basis: 128px;
-    flex-grow: 0;
-    flex-shrink: 0;
+    flex: 0 150px;
     padding-top: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-right: 1px dashed #707070;
 }
 
 .quest-body {
@@ -107,7 +119,7 @@
 }
 
 .quest-right {
-    flex-basis: 150px;
+    flex-basis: 140px;
     flex-grow: 0;
     flex-shrink: 0;
     display: flex;

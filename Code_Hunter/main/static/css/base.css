@@ -35,7 +35,7 @@ body {
     height: 120px;
     width: calc(50% - 150px);
     box-sizing: border-box;
-    padding: 0px calc(50% - 450px) 0px 40px;
+    padding: 0px calc(50% - 500px) 0px 40px;
     margin: 0;
 }
 
@@ -221,4 +221,9 @@ body {
 @font-face { 
     font-family:'Cactus'; 
     src:url('../fonts/Cactus\ Regular.otf') format('truetype'); 
+}
+
+@font-face { 
+    font-family:'Noto Sans KR'; 
+    src:url('../fonts/NotoSansKR-Medium.otf') format('truetype'); 
 }
