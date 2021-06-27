@@ -1,0 +1,30 @@
+.box {
+    height : 925px; 
+    width : 89%; 
+    margin : 0px auto; 
+    z-index: 0;
+}
+
+.navbar {
+    position: absolute;
+    z-index: 3;
+}
+
+img.wallpaper2{
+    position : absolute;
+    height: 925px;
+    width : 89%;
+    z-index: -1;
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -o-filter: blur(20px);
+    -ms-filter: blur(20px);
+    filter: blur(20px);
+}
+
+img.wallpaper1 {
+    height: 925px;
+    width : 89%;
+    position: absolute;
+    z-index: 0;
+}
