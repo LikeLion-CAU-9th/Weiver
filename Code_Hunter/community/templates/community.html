@@ -2,8 +2,111 @@
 {% load static %}
 
 {% block htmlHead %}
+<link rel="stylesheet" href="{% static 'css/community.css' %}">
+<style>
+    .nav-community a{
+        color: #92009D;
+    }
+</style>
 {% endblock %}
 
 {% block mainContent %}
-커뮤니티페이지
+<div class = "community">
+    <div class = "filter-area">
+        <div class = "introduction">
+            <span>커뮤니티</span> 게시판
+            <img src = "../static/img/community_icon.png" class = "community-icon">
+        </div>
+
+        <ul class="filter-box">
+            <li class="filter-item">
+                <a href="#">최신순</a>
+            </li>
+            <li class="filter-item">
+                <a href="#">추천순</a>
+            </li>
+            <li class="filter-item">
+                <a href="#">조회순</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class = "post-area">
+        <div class = "category">
+            <div class = "category-category">
+                카테고리
+            </div>
+            <div class = "category-upvote">
+                추천
+            </div>
+            <div class = "category-title">
+                제목
+            </div>
+            <div class = "category-author">
+                작성자
+            </div>
+            <div class = "category-date">
+                작성일
+            </div>
+            <div class = "category-view">
+                조회
+            </div>
+        </div>
+
+        <div class = "community-post">
+            <div class = "category-category">
+                코드질문
+            </div>
+            <div class = "category-upvote">
+                7
+            </div>
+            <div class = "category-title">
+                <a href = "{% url 'detail' %}">
+                    국경의 긴 터널을 빠져나오자, 눈의 고장이었다.
+                    <span>[20]</span>
+                </a>
+            </div>
+            <div class = "category-author">
+                CAUDEV
+            </div>
+            <div class = "category-date">
+                2021.06.24
+            </div>
+            <div class = "category-view">
+                354
+            </div>
+        </div>
+
+    </div>
+
+    <div class = "search-area">
+        <div class = "search-box-upside">
+            <div></div>
+            <div class = "search-box">
+                <div class = "search-nav">
+                    제목
+                    <img class = "search-nav-icon" src = "../static/img/next.png">
+                </div>
+                <div class = "search-content">
+                    검색어를 입력하세요.
+                </div>
+                <div class = "search-botton">
+                    검색
+                </div>
+            </div>
+            <a class = "post-botton" href = "{% url 'create' %}">
+                <!-- <div class = "post-botton"> -->
+                    글쓰기
+                <!-- </div> -->
+            </a>
+        </div>
+
+        <div class = "search-box-downside">
+        </div>
+    </div>
+    
+
+
+
+</div>
 {% endblock %}
