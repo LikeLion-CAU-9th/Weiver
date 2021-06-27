@@ -31,8 +31,7 @@ class Quest(models.Model):
     body = models.TextField(verbose_name='내용')
     code = models.TextField(default='')
     status = models.CharField(max_length=10, choices=STATUS, default='UNSOLVED')
-    views = models.IntegerField(default=0)
-    likes = models.IntegerField(default=0)
+    remainingdays = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title

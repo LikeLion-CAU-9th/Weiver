@@ -2,9 +2,13 @@ from django.shortcuts import redirect, render, get_object_or_404
 from .models import Quest, QuestComment
 from .forms import QuestForm, CommentForm
 from django.urls import reverse
+import datetime
 
 def board(request):
     quests = Quest.objects.all().order_by('-id')
+    for quest in quests:
+        quest.remainingdays = (quest.duedate - datetime.datetime.now().date()).days
+        quest.save()
     return render(request,'board.html', {'quests':quests})
 
 def sort_date(request):

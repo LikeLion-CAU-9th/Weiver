@@ -1,7 +1,7 @@
 .board {
     display: flex;
     flex-direction: row;
-    margin: 37px auto 0px auto;
+    margin: 20px auto 0px auto;
     font-family: Noto Sans KR;
     width: 75%;
 }
@@ -87,8 +87,8 @@
     background-color: #f5f5f5;
     border-radius: 10px;
     padding: 0;
-    margin: 15px 0px;
-    height: 150px;
+    margin: 20px 0px;
+    height: 200px;
     display: flex;
     flex-direction: row;
 }
@@ -98,25 +98,53 @@
     border-radius: 10px 0px 0px 10px;
 }
 
-
-
 .quest-left {
     flex: 0 150px;
-    padding-top: 15px;
+    padding-top: 21px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-right: 1px dashed #707070;
+}    
+
+.quest-status {
+    width: 110px;
+    height: 50px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 27px;
+}    
+
+.quest-status:hover {
+    background-color: #92009D;
+    border-radius: 10px;
+    color: white;
 }
 
+.duedate-text {display: none;}
+
+.quest-status:hover .duedate-text {display: inline}
+.quest-status:hover .remainingdays-text {display: none}
+
+.quest-status span {font-size: 18px;}
+
+.low-price { background-color: rgb(181, 216, 56);}
+.middle-price { background-color: rgb(252, 195, 73);}
+.high-price { background-color: rgb(255, 131, 49);}
+.extreme-high-price { background-color: rgb(255, 50, 50);}
+.solved-quest { background-color: #707070 }
+
+.quest-left img {
+    width: 50px;
+}        
+
 .quest-body {
-    flex-grow: 1;
-    flex-shrink: 1;
-    padding: 0px 0px 0px 10px;
+    flex: 1;
+    padding: 0px 0px 0px 25px;
     display: flex;
     flex-direction: column;
     font-size: 15px;
-}
+}        
 
 .quest-right {
     flex-basis: 140px;
@@ -125,52 +153,36 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.quest-status {
-    box-sizing: border-box;
-    text-align: center;
-    color: #19B0F6;
-    margin-bottom: 17px;
-}
-
-.quest-left span {
-    color: #707070;
-    font-size: 13px;
-    font-weight: bold;
-}
+}        
 
 .quest-author {
     text-align: center;
-    margin-bottom: 15px;
+    margin-top: 20px;
     white-space: nowrap;
 }
 
 .quest-date {
+    margin-top: 11px;
     font-size: 13px;
     color: #707070;
 }
 
 .quest-title {
+    margin-top: 3px;
     white-space: nowrap;
     font-size: 23px;    
 }
 
 .quest-body p {
-    margin: 4px 0px 14px 0px;
+    margin: 17px 0px 20px 0px;
     display: block;
     height: 45px;
+    color: #707070
 }
 
 .quest-bounty {
-    background-color: #411740;
-    width: 90px;
-    height: 30px;
-    line-height: 30px;
-    margin-bottom: 5px;
     text-align: center;
-    color: white;
-    border-radius: 20px;
+    font-size: 23px;
 }
 
 
@@ -180,12 +192,17 @@
 
 .tag {
     display: inline-block;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
     background-color: #2793e6ab;
-    border-radius: 26px;
-    padding: 5px 20px;
-    margin: 0px 5px;
+    border-radius: 30px;
+    vertical-align: middle;
+    padding: 10px auto;
+    margin: 0px 10px 0px 0px;
     font-size: 15px;
     color: white;
+    text-align: center;
 }
 
 .quest-box a {
@@ -204,18 +221,6 @@
     background-color: #B11111;
     border-radius: 10px;
     text-align: center;
-}
-
-.quest-statistics {
-    height: 53px;
-    line-height: 53px;
-    font-size: 13px;
-}
-
-.quest-statistics .likes {
-    color: #0728FF;
-    display: inline-block;
-    width: 63px
 }
 
 .explore-area {
