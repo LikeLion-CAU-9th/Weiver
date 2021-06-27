@@ -11,8 +11,11 @@
 
 .question {
     background-color: #F5F5F5;
+    height: 670px;
+    box-sizing: border-box;
     border-radius: 10px;
     padding: 20px;
+    box-shadow: 2px 2px 5px 2px #cfcfcf;
 }
 
 .question-title {
@@ -35,14 +38,66 @@
     width: 100%;
 }
 
+.tag-date-area {
+    margin-top: 24px;
+    display: flex;
+}
+
+.tag-input {
+    height: 70px;
+    flex: 2.1 210px;
+    border-radius: 10px;
+    padding: 30px;
+    background-color: #F5F5F5;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    margin-right: 24px;
+    box-shadow: 2px 2px 5px 2px #cfcfcf;
+    font-size: 30px;
+}
+
+.date-input {
+    height: 70px;
+    flex: 1 100px;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    border: none;
+    outline: none;
+    font-family: Noto Sans KR;
+    font-size: 25px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 5px 2px #cfcfcf;
+    padding: 0 20px;
+    
+}
+
+.submit-area {
+    margin-top: 37.5px;
+    border-top: 3px solid #707070;
+    padding-top: 15.5px;
+    display: flex;
+    align-items: center;
+}
+
+.submit-area a{
+    flex: 1;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
+
 .submit {
     background-color: #92009D;
     color: white;
+    height: 61px;
     font-size: 30px;
     padding: 5px 45px;
     border-radius: 45px;
     outline: none;
     border: none;
+    /* box-shadow: 0px 0px 10px 3px #C1A7B8; */
+    right:0;
 }
 
 .codeside {
@@ -57,6 +112,10 @@
 .code-editor {
     flex-grow: 1;
 }
+
+.CodeMirror {
+    font-size: 20px;
+    }
 
 .CodeMirror-scroll {
     height:100%;
@@ -124,3 +183,4 @@
     font-size: 35px;
     padding: 10px;
 }
+

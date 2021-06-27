@@ -147,8 +147,8 @@
 
 .search-nav{
     width: 100px;
-    margin-left: 23px;
-    line-height: 45px;
+    line-height: 31px;
+    margin: 7px 0px 7px 23px;
     font-size: 15px;
     font-weight: bold;
     color: #707070;

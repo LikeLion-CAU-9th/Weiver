@@ -21,23 +21,28 @@
         <div class="questionside">
             <div class="question">
                 <div class="question-title">
-                    <input name="{{ form.title.name }}" placeholder="제목을 입력해주세요.">
+                    <input name="{{ form.title.name }}" placeholder="제목을 입력하세요." required>
                 </div>
                 {{ form.body }}
             </div>
-            {{ form.duedate }}
-            <input type="submit" class="submit" value="등록">
+            <div class="tag-date-area">
+                <input name="tag" class="tag-input" placeholder="태그를 입력하세요.">
+                <input type="date" name="{{ form.duedate.name }}" class="date-input" placeholder="dsd" required>
+            </div>
+            <div class="submit-area">
+                <a href="{% url 'board' %}">나가기</a>
+                <input type="submit" class="submit" value="등록">
+            </div>
         </div>
 
         <div class="codeside">
             <span class="wanted">Wanted</span>
-            <textarea name="{{ form.code.name }}" id="codeeditor" class="code-editor"></textarea>
+            <textarea name="{{ form.code.name }}" id="codeeditor" class="code-editor" ></textarea>
             <span class="wanted"> REWARD </span>
             <div class="bountyarea">
                 <div class="bountyarea-bounty">
-                    <input name="{{ form.bounty.name }}" type="number" class="bounty-input" placeholder="의뢰 가격">
+                    <input name="{{ form.bounty.name }}" type="number" class="bounty-input" placeholder="의뢰 가격" required>
                     <span>원</span>
-
                 </div>
                 <div class="bountyarea-file">
 
