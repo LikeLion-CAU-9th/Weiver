@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block htmlHead %}
+{% endblock %}
+
+{% block mainContent %}
+커뮤니티페이지
+
+
+
+<form action="{% url 'create' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="title">
+    <input type="text" name="author">
+
+    <textarea name="body" id = "" cols = "30" rows = "10">
+
+    </textarea>
+    <button type = "submit">submit</button>
+</form>
+{% endblock %}

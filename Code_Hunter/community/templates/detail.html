@@ -29,7 +29,7 @@
                 <div class = "post-head-box-top">
                     <div class = "post-head-box-top-left">
                         <div class = "post-title">
-                            장고 왜이렇게 어렵나요?
+                            {{ post_details.title }}
                         </div>
                         <div class = "post-tag">
                             코드질문
@@ -37,10 +37,10 @@
                     </div>
                     <div class = "post-time">
                         <div class = "post-date">
-                            2021.06.07
+                            {{ post_details.pub_date | date:'Y.m.d'}}
                         </div>
                         <div class = "post-clock">
-                            12:58
+                            {{ post_details.pub_time | date:'f'}}
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                     <div class = "post-author">
                         <img class = "author-thumbnail" src = "{% static 'img/memoji01.jpg' %}">
                         <div class = "author-name">
-                            CAUDEV0117
+                            {{ post_details.author }}
                         </div>
                     </div>
                     <div class = "post-details">
@@ -62,7 +62,7 @@
                                 조회수
                             </div>
                             <div class = "post-detail-value">
-                                68
+                                {{ post_details.views }}
                             </div>
                         </div>
                         <div class = "post-detail">
@@ -70,7 +70,7 @@
                                 추천수
                             </div>
                             <div class = "post-detail-value">
-                                2
+                                {{ post_details.votes }}
                             </div>
                         </div>
                         <div class = "post-detail">
@@ -78,7 +78,7 @@
                                 댓글수
                             </div>
                             <div class = "post-detail-value">
-                                3
+                                {{ post_details.comment_count }}
                             </div>
 
                         </div>
@@ -93,7 +93,7 @@
         </div>
         <div class = "post-content-area">
             <div class = "post-content">
-                글쓰는 곳
+                {{ post_details.body | linebreaks }}
             </div>
             <div class = "post-vote">
                 추천비추천
@@ -141,10 +141,16 @@
                 <div class = "comment-write-area">
                     <div class = "comment-static">댓글쓰기</div>
                     <div class = "comment-write">
-                        <div class = "comment-write-space">
+                        <form action="" method="post">
+                            <div class = "comment-write-space">
+                                {% csrf_token %}
+                                <textarea name = "" id = "" cols = "30" rows = "10">
 
-                        </div>
-                        <a href = "#">등록</a>
+                                </textarea>
+                            
+                            </div>
+                            <button type = "submit">등록</a>
+                        </form>
                     </div>
                 </div>
             </div>

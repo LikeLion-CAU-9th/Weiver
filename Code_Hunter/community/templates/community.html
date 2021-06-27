@@ -53,29 +53,31 @@
             </div>
         </div>
 
+        {% for community in communities %}
         <div class = "community-post">
             <div class = "category-category">
                 코드질문
             </div>
             <div class = "category-upvote">
-                7
+                {{ community.votes }}
             </div>
             <div class = "category-title">
-                <a href = "{% url 'detail' %}">
-                    국경의 긴 터널을 빠져나오자, 눈의 고장이었다.
-                    <span>[20]</span>
+                <a href = "{% url 'detail' community.id %}">
+                    {{ community.title }}
+                    <span>[{{ community.comment_count }}]</span>
                 </a>
             </div>
             <div class = "category-author">
-                CAUDEV
+                {{ community.author }}
             </div>
             <div class = "category-date">
-                2021.06.24
+                {{ community.pub_date | date:'Y.m.d' }}
             </div>
             <div class = "category-view">
-                354
+                {{ community.views}}
             </div>
         </div>
+        {% endfor %}
 
     </div>
 
@@ -94,7 +96,7 @@
                     검색
                 </div>
             </div>
-            <a class = "post-botton" href = "{% url 'create' %}">
+            <a class = "post-botton" href = "{% url 'newpost' %}">
                 <!-- <div class = "post-botton"> -->
                     글쓰기
                 <!-- </div> -->
