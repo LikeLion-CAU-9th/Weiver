@@ -5,17 +5,17 @@ import datetime
 
 def community(request):
     communities = Community.objects.all().order_by('-id')
-    for community in communities:
-        if (datetime.datetime.now().date() - community.pub_date).days > 0:
-            community.date_or_time = True
-        elif (datetime.datetime.now().date() - community.pub_date).days == 0: 
-            community.date_or_time = False
+    # for community in communities:
+    #     if (datetime.datetime.now().date() - community.pub_date.date()).days > 0:
+    #         community.date_or_time = True
+    #     elif (datetime.datetime.now().date() - community.pub_date.date()).days == 0: 
+    #         community.date_or_time = False
     return render(request,'community.html', {'communities': communities})
 
 def create(request):
     new_post = Community()
     new_post.title = request.POST['title']
-    new_post.author = request.POST['author']
+    new_post.author = "익명"
     new_post.body = request.POST['body']
     new_post.pub_date = timezone.now()
     new_post.save()

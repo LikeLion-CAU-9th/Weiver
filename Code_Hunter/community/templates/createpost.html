@@ -2,21 +2,70 @@
 {% load static %}
 
 {% block htmlHead %}
+<link rel="stylesheet" href="{% static 'css/create.css' %}">
+<style>
+    .nav-community a{
+        color: #92009D;
+    }
+</style>
+
+
 {% endblock %}
 
 {% block mainContent %}
-커뮤니티페이지
+<div class = "community">
+    <div class = "filter-area">
+        <div class = "introduction">
+            <span>커뮤니티</span> 글쓰기
+            <img src = "{% static 'img/community_icon.png' %}" class = "community-icon">
+        </div>
+    </div>
+
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <div class = "create-area">
+            <div class = "post-title">
+                <input type = "text" name="title" placeholder = "제목을 입력하세요">
+                <!-- <input type="text" name="author"> -->
+            </div>
+            <div class = "post-middle">
+                <div class = "justforborder"></div>
+                <div class = "post-icons">
+                    <img src = "{% static 'img/bold.png' %}">
+                    <img src = "{% static 'img/italic-text.png'%}">
+                    <img src = "{% static 'img/underline.png' %}">
+                    <img src = "{% static 'img/landscape.png' %}">
+                </div>
+
+                
+            </div>
+            <div class = "post-body">
+                <textarea name="body" id = "" cols = "30" rows = "10" placeholder = "하고 싶은 이야기를 자유롭게 적어보세요">
+
+                </textarea>
+            </div>
+        </div>
+        <div class = "submit-area">
+            <a class = "goback" href = "{% url 'community' %}">
+                <img src = "#">
+                <div class = "goback-text">나가기</div>
+            </a>
+            
+            <button type = "submit" class = "submit-button">등록</button>
+
+        </div>
+    </form>
 
 
 
-<form action="{% url 'create' %}" method="post">
-    {% csrf_token %}
-    <input type="text" name="title">
-    <input type="text" name="author">
+    
+        
+        
 
-    <textarea name="body" id = "" cols = "30" rows = "10">
+        
+        
+    
 
-    </textarea>
-    <button type = "submit">submit</button>
-</form>
+
+</div>
 {% endblock %}

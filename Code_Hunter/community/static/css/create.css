@@ -1,0 +1,122 @@
+.community {
+    width: 65%;
+    margin: 37px auto 0px auto;
+    font-family: Noto Sans KR;
+}
+
+.filter-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 3px solid #707070;
+}
+
+.introduction {
+    font-size: 23px;
+    line-height: 54px;
+}
+
+.introduction span {
+    font-weight: bold;
+    color: #92009D;
+}
+
+.community-icon {
+    height: 28px;
+    width: 28px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.create-area {
+    display: flex;
+    flex-direction: column;
+    width: 1fr;
+    height: 700px;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+    margin: 20px auto 30px auto;
+    padding-bottom: 20px;
+}
+
+.post-title input {
+    background-color: #F5F5F5;
+    width: 90%;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    margin: 20px 40px 20px 40px;
+}
+
+.post-middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+    margin: 0 40px 0 40px; 
+}
+
+.justforborder {
+    width: 140px;
+    border-top: 5px solid #707070 ;
+}
+
+.post-icons {
+    display: flex;
+    flex-direction: row;
+}
+
+.post-icons img {
+    width: 25px;
+    height: 25px;
+    margin-left: 30px;
+}
+
+.post-body textarea {
+    background-color: violet;
+    border: none;
+    font-size: 20px;
+    color: #707070;
+    flex: 1;
+    height: 100%;
+    margin: 20px 40px 20px 40px;
+}
+
+.submit-area {
+    width: 1fr;
+    border-top: 3px solid #707070;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin: 0 0 30px 0;
+}
+
+.goback {
+    display: flex;
+    flex-direction: row;    
+    text-decoration: none;
+}
+
+.goback img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.goback-text {
+    font-size: 30px;
+}
+
+.submit-button {
+    width: 160px;
+    height: 60px;
+    background-color: #92009D;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 30px;
+    line-height: 60px;
+    
+}
