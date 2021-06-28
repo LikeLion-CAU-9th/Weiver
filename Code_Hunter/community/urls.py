@@ -7,5 +7,5 @@ urlpatterns = [
     path('newpost/', newpost, name = "newpost"),
     path('create/', create, name="create"),
     path('<int:post_id>/', detail, name="detail"),
-    # path('new_comment/', new_comment, name ="new_comment")
+    path('new_comment/', new_comment, name ="new_comment")
 ]

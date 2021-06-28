@@ -25,11 +25,7 @@ class Community(models.Model):
 
 
 class CommunityComment(models.Model):
-    author = models.CharField(max_length=20, verbose_name="작성자", default= "익명")
+    author = models.CharField(max_length=20, default= "익명")
     content = models.TextField()
     pub_datetime = models.DateTimeField(auto_now_add=True)
-    origin_post = models.ForeignKey(Community, on_delete=CASCADE)
-    def approve(self):
-        self.save()
-    def __str__(self):
-        return self.content
+    origin_post = models.ForeignKey(Community, on_delete=CASCADE, related_name= "comments")
