@@ -138,21 +138,19 @@
                         </div>
                     </div>
                 </div>
-                <div class = "comment-write-area">
-                    <div class = "comment-static">댓글쓰기</div>
-                    <div class = "comment-write">
-                        <form action="" method="post">
-                            <div class = "comment-write-space">
-                                {% csrf_token %}
-                                <textarea name = "" id = "" cols = "30" rows = "10">
-
-                                </textarea>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class = "comment-write-area">
+                        <div class = "comment-static">댓글쓰기</div>
+                        <div class = "comment-write">
                             
-                            </div>
-                            <button type = "submit">등록</a>
-                        </form>
+                            
+                            <textarea name = "" id = "" cols = "30" rows = "10" placeholder="댓글을 남겨보세요"></textarea>
+                            <button type = "submit">등록</button>
+                    
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
             <div class = "comment-empty">
             </div>

@@ -306,10 +306,26 @@
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    margin: 10px 0 25px 20px;
+    
+}
+
+.comment-write textarea {
+    background-color: #FFFFFF;
+    width: 87%;
+    height: 115px;
+    margin-right: 20px;
+    padding: 10px 20px 5px 20px;
+    border: none;
+    resize: none;
+    outline: none;
+    border-radius: 15px;
+    font-family: Noto Sans KR;
 }
 
 
 .comment-write button {
+    border: none;
     text-decoration: none;
     width: 80px;
     height: 45px;
