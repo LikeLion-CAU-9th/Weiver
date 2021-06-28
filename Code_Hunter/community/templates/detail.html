@@ -18,7 +18,7 @@
     <div class = "filter-area">
         <div class = "introduction">
             <span>커뮤니티</span> 게시판
-            <img src = "../static/img/community_icon.png" class = "community-icon">
+            <img src = "{% static 'img/community_icon.png' %}" class = "community-icon">
         </div>
     </div>
 
@@ -27,11 +27,21 @@
         <div class = "post-head">
             <div class = "post-head-top">
                 <div class = "post-head-box-top">
-                    <div class = "post-title">
-                        장고 왜이렇게 어렵나요?
+                    <div class = "post-head-box-top-left">
+                        <div class = "post-title">
+                            {{ post_details.title }}
+                        </div>
+                        <div class = "post-tag">
+                            코드질문
+                        </div>
                     </div>
-                    <div class = "post-tag">
-
+                    <div class = "post-time">
+                        <div class = "post-date">
+                            {{ post_details.pub_date | date:'Y.m.d'}}
+                        </div>
+                        <div class = "post-clock">
+                            {{ post_details.pub_date | date:'f'}}
+                        </div>
                     </div>
                 </div>
                 <div class = "post-edit-delete">
@@ -40,7 +50,39 @@
             </div>
             <div class = "post-head-bottom">
                 <div class = "post-head-box-bottom">
-                    
+                    <div class = "post-author">
+                        <img class = "author-thumbnail" src = "{% static 'img/memoji01.jpg' %}">
+                        <div class = "author-name">
+                            {{ post_details.author }}
+                        </div>
+                    </div>
+                    <div class = "post-details">
+                        <div class = "post-detail">
+                            <div class = "post-detail-key">
+                                조회수
+                            </div>
+                            <div class = "post-detail-value">
+                                {{ post_details.views }}
+                            </div>
+                        </div>
+                        <div class = "post-detail">
+                            <div class = "post-detail-key">
+                                추천수
+                            </div>
+                            <div class = "post-detail-value">
+                                {{ post_details.votes }}
+                            </div>
+                        </div>
+                        <div class = "post-detail">
+                            <div class = "post-detail-key">
+                                댓글수
+                            </div>
+                            <div class = "post-detail-value">
+                                {{ post_details.comment_count }}
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
                 <div class = "post-edit-delete">
                     삭제
@@ -49,8 +91,70 @@
             </div>
             
         </div>
-        <div class = "post-content">
-            
+        <div class = "post-content-area">
+            <div class = "post-content">
+                {{ post_details.body | linebreaks }}
+            </div>
+            <div class = "post-vote">
+                추천비추천
+            </div>
+        </div>
+        <div class = "comment-area">
+            <div class = "comment-area-left">
+                <div class = "comment-head">
+                    <img src = "{% static 'img/chat.png' %}" class = "comment-icon">
+                    <div class = "comment-head-key">
+                        댓글
+                    </div>
+                    <div class = "comment-head-value">
+                        3
+                    </div>
+                </div>
+                <div class = "comment-content">
+                    <div class = "comment-content-top">
+                        <div class = "comment-author">
+                            <img class = "comment-author-thumbnail" src = "{% static 'img/memoji01.jpg' %}">
+                            <div class = "comment-author-name">
+                                닉네임 1234
+                            </div>
+                        </div>
+                        <div class = "comment-time">
+                            <div class = "comment-date">
+                                2021.06.07
+                            </div>
+                            <div class = "comment-clock">
+                                19 : 02
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "comment-content-bottom">
+                        <div class = "comment-content-content">
+                            이상 인간에 그것을 긴지라 눈에 인간이 보내는 천자만홍이 그와 그리하였는가? 대한 얼마나 같은 황금시대다. 
+                        </div>
+                        <div class = "comment-edit-area">
+                            <a href = "#">댓글</a>
+                            <a href = "#"> 수정하기</a>
+                            <a href = "#">신고</a>
+                        </div>
+                    </div>
+                </div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class = "comment-write-area">
+                        <div class = "comment-static">댓글쓰기</div>
+                        <div class = "comment-write">
+                            
+                            
+                            <textarea name = "" id = "" cols = "30" rows = "10" placeholder="댓글을 남겨보세요"></textarea>
+                            <button type = "submit">등록</button>
+                    
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class = "comment-empty">
+            </div>
+
         </div>
     </div>
 
