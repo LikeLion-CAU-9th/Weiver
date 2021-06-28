@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render, get_object_or_404
-from .models import Quest, QuestComment, Tag
+from .models import Quest, QuestComment
 from .forms import QuestForm, CommentForm
 from django.urls import reverse
 import datetime
@@ -41,16 +41,13 @@ def newcomment(request):
 
 def createquest(request):
     if request.method == 'POST':
-        form = QuestForm(request.POST)
+        form = QuestForm(request.POST, request.FILES)
         print(dict(request.POST))
         if form.is_valid():
             quest = form.save(commit=False)
             quest.save()
-            # tags = form.cleaned_data['tag'].split(',')
-            # for tag in tags:
-            #     tag = tag.strip().upper()
-            #     tag_, created = Tag.objects.get_or_create(name = tag)
-            #     quest.tag.add(tag_)
+            form.save_m2m()
+
             return redirect('board')
         else:
             print('error')

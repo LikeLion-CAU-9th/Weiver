@@ -43,7 +43,7 @@
     display: flex;
 }
 
-.tag-input {
+/* .tag-input {
     height: 70px;
     flex: 2.1 210px;
     border-radius: 10px;
@@ -55,6 +55,35 @@
     margin-right: 24px;
     box-shadow: 2px 2px 5px 2px #cfcfcf;
     font-size: 30px;
+} */
+
+.bootstrap-tagsinput {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    border-radius: none;
+    line-height: normal;
+    height: 70px;
+    flex: 2.1 210px;
+    margin-right: 24px;
+    box-sizing: border-box;
+    background-color: #F5F5F5;
+    box-shadow: 2px 2px 5px 2px #cfcfcf;
+    border-radius: 10px;
+    padding: 20px 0px 0px 10px;
+}
+
+.bootstrap-tagsinput input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.bootstrap-tagsinput .tag {
+    background-color: #e4e4e4;
+    border-radius: 10px;
+    padding: 0px;
+    font-size: 16px;
 }
 
 .date-input {

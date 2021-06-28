@@ -14,7 +14,7 @@ class CommentForm(forms.ModelForm):
 class QuestForm(forms.ModelForm):
     class Meta:
         model = Quest
-        fields = ['title', 'bounty', 'body', 'code', 'duedate']
+        fields = ['title', 'bounty', 'body', 'code', 'duedate', 'taglist', 'file']
         widgets = {
             'body': SummernoteWidget(),
             'duedate': DateInput(),

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'search',
     'accounts',
     'django_summernote',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -155,4 +156,6 @@ SUMMERNOTE_CONFIG = {
         'height': '480',
     }
 }
-##############summernote############
+##############taggit############
+
+TAGGIT_CASE_INSENSITIVE = True
