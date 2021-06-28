@@ -80,14 +80,14 @@
                     </div>
                     <div class="quest-title">
                         <a href="{% url 'questdetail' quest.id %}">
-                        {{ quest.title }}
+                        {{ quest.title }} [{{ quest.comments.count }}] 
                     </div>
                     <p>
-                        {{ quest.body | truncatechars:100 | striptags }}
+                        {{ quest.body | truncatechars:100 | striptags | cut:"&nbsp;" }}
                     </p>
                         </a>                
                     <div class="quest-tags">
-                        {% for tag in quest.tags %}
+                        {% for tag in quest.taglist.all %}
                         <span class="tag">
                             {{ tag }}
                         </span>

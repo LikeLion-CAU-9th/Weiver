@@ -41,12 +41,16 @@ def newcomment(request):
 
 def createquest(request):
     if request.method == 'POST':
-        form = QuestForm(request.POST)
+        form = QuestForm(request.POST, request.FILES)
+        print(dict(request.POST))
         if form.is_valid():
             quest = form.save(commit=False)
             quest.save()
+            form.save_m2m()
+
             return redirect('board')
         else:
+            print('error')
             return redirect('board')
     else:
         form = QuestForm()
