@@ -40,19 +40,15 @@
                 
             </div>
             <div class = "post-body">
-                <textarea name="body" id = "" cols = "30" rows = "10" placeholder = "하고 싶은 이야기를 자유롭게 적어보세요">
-
-                </textarea>
+                <textarea name="body" id = "" cols = "30" rows = "10" placeholder = "하고 싶은 이야기를 자유롭게 적어보세요"></textarea>
             </div>
         </div>
         <div class = "submit-area">
             <a class = "goback" href = "{% url 'community' %}">
-                <img src = "#">
+                <img src = "{%static 'img/purple-arrow.png'%}">
                 <div class = "goback-text">나가기</div>
             </a>
-            
             <button type = "submit" class = "submit-button">등록</button>
-
         </div>
     </form>
 

@@ -32,11 +32,11 @@
     display: flex;
     flex-direction: column;
     width: 1fr;
-    height: 700px;
     background-color: #F5F5F5;
     border-radius: 20px;
     margin: 20px auto 30px auto;
     padding-bottom: 20px;
+    box-shadow: 2px 2px 5px #707070;
 }
 
 .post-title input {
@@ -46,6 +46,7 @@
     outline: none;
     font-size: 30px;
     margin: 20px 40px 20px 40px;
+    font-family: Noto Sans KR;
 }
 
 .post-middle {
@@ -72,14 +73,20 @@
     margin-left: 30px;
 }
 
+.post-body {
+    height: 700px;
+}
+
 .post-body textarea {
-    background-color: violet;
+    background-color: #F5F5F5;
+    width: 92%;    
     border: none;
+    resize: none;
+    outline: none;
     font-size: 20px;
-    color: #707070;
-    flex: 1;
-    height: 100%;
+    height: 90%;
     margin: 20px 40px 20px 40px;
+    font-family: Noto Sans KR;
 }
 
 .submit-area {
@@ -97,12 +104,15 @@
     display: flex;
     flex-direction: row;    
     text-decoration: none;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .goback img {
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     margin-right: 10px;
+    transform: rotate(135deg);
 }
 
 .goback-text {
@@ -118,5 +128,5 @@
     color: white;
     font-size: 30px;
     line-height: 60px;
-    
+    box-shadow: 0 0 10px #92009D;
 }
