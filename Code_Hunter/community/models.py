@@ -25,8 +25,7 @@ class Community(models.Model):
 
 
 class CommunityComment(models.Model):
-    id = models.BigAutoField(help_text="Comment ID", primary_key=True)
-    author = models.CharField(max_length=20, verbose_name="작성자", default= "익명")
+    author = models.CharField(max_length=20, default= "익명")
     content = models.TextField()
-    pub_datetime = models.DateTimeField()
-    origin_post = models.ForeignKey(Community, on_delete=CASCADE)
+    pub_datetime = models.DateTimeField(auto_now_add=True)
+    origin_post = models.ForeignKey(Community, on_delete=CASCADE, related_name= "comments")

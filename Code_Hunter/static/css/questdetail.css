@@ -77,11 +77,10 @@
     padding: 20px;
 }
 
-.quest-code {
-    background-color: #343434;
-    color: #C25A98;
+.code-box {
+    background-color: #0F192A;
     margin: 20px;
-    padding: 40px 20px;
+    padding: 20px 20px;
     border-radius: 10px;
 }
 

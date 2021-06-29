@@ -14,15 +14,23 @@
 
 {% block mainContent %}
 <div class = "community">
-    <div class = "filter-area">
-        <div class = "introduction">
-            <span>커뮤니티</span> 글쓰기
-            <img src = "{% static 'img/community_icon.png' %}" class = "community-icon">
-        </div>
-    </div>
-
     <form action="{% url 'create' %}" method="post">
         {% csrf_token %}
+        <div class = "filter-area">
+            <div class = "introduction">
+                <span>커뮤니티</span> 글쓰기
+                <img src = "{% static 'img/community_icon.png' %}" class = "community-icon">
+            </div>
+            <div class = "post-tag">
+                <select class = "dropdown">
+                    <option value = "자유">자유</option>
+                    <option value = "코드질문">코드질문</option>
+                    <option value = "고민">고민</option>
+                </select>
+            </div>
+        </div>
+
+    
         <div class = "create-area">
             <div class = "post-title">
                 <input type = "text" name="title" placeholder = "제목을 입력하세요">

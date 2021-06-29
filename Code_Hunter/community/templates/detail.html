@@ -110,26 +110,27 @@
                         3
                     </div>
                 </div>
+                {% for comment in comments %}
                 <div class = "comment-content">
                     <div class = "comment-content-top">
                         <div class = "comment-author">
                             <img class = "comment-author-thumbnail" src = "{% static 'img/memoji01.jpg' %}">
                             <div class = "comment-author-name">
-                                닉네임 1234
+                                {{ comment.author }}
                             </div>
                         </div>
                         <div class = "comment-time">
                             <div class = "comment-date">
-                                2021.06.07
+                                {{ comment.pub_datetime | date:'Y.m.d'}}
                             </div>
                             <div class = "comment-clock">
-                                19 : 02
+                                {{ comment.pub_datetime | date:'f'}}
                             </div>
                         </div>
                     </div>
                     <div class = "comment-content-bottom">
                         <div class = "comment-content-content">
-                            이상 인간에 그것을 긴지라 눈에 인간이 보내는 천자만홍이 그와 그리하였는가? 대한 얼마나 같은 황금시대다. 
+                            {{ comment.content }} 
                         </div>
                         <div class = "comment-edit-area">
                             <a href = "#">댓글</a>
@@ -138,14 +139,15 @@
                         </div>
                     </div>
                 </div>
-                <form action="" method="post">
+                {% endfor %}
+                <form action="{% url 'new_comment' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class = "comment-write-area">
                         <div class = "comment-static">댓글쓰기</div>
                         <div class = "comment-write">
                             
-                            
-                            <textarea name = "" id = "" cols = "30" rows = "10" placeholder="댓글을 남겨보세요"></textarea>
+                            <input type = "hidden" name = "post_id" value = "{{post_details.id}}">
+                            <textarea name = "comment-content" id = "" cols = "30" rows = "10" placeholder="댓글을 남겨보세요"></textarea>
                             <button type = "submit">등록</button>
                     
                         </div>
@@ -157,12 +159,6 @@
 
         </div>
     </div>
-
-
-    
-    
-
-
-
 </div>
+
 {% endblock %}

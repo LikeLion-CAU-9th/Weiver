@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Community
+from .models import Community, CommunityComment
 from django.utils import timezone
+from django.urls import reverse
+from .forms import CommunityCommentForm
 import datetime
 
 def community(request):
@@ -24,7 +26,19 @@ def create(request):
 
 def detail(request, post_id):
     post_detail = get_object_or_404(Community, pk=post_id)
-    return render(request,'detail.html', {'post_details': post_detail})
+    comments = CommunityComment.objects.filter(origin_post=post_detail.id)
+    return render(request,'detail.html', {'post_details':post_detail, 'comments':comments})
 
 def newpost(request):
     return render(request, 'createpost.html')
+
+def new_comment(request):
+    if request.method == "POST":
+        post_id = request.POST.get('post_id', '').strip()
+        content = request.POST.get('comment-content', '').strip()
+        comment = CommunityComment.objects.create(
+            author = "익명",
+            origin_post_id = post_id,
+            content = content
+        )
+        return redirect(reverse('detail', kwargs = {"post_id":comment.origin_post_id}) )
