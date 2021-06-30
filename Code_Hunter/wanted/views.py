@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import redirect, render, get_object_or_404
 from django.core.paginator import Paginator
 from .models import Quest, QuestComment
@@ -61,6 +62,8 @@ def createquest(request):
         return render(request, 'newquest.html', {'form':form})
 
 
+def matching(request):
+    return render(request, 'matching.html', )
 
 
         

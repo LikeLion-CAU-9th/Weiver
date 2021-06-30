@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:quest_id>/', questdetail, name="questdetail"),
     path('newcomment/', newcomment, name="newcomment"),
     path('createquest/', createquest, name="createquest"),
+    path('matching/', matching, name = "matching"),
 ]
