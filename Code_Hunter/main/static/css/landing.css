@@ -48,3 +48,10 @@ img.wallpaper1 {
     font-size : 5rem;
     color : #FFE1AF;
 }
+
+.click {
+    position : relative;
+    left : 11%;
+    font-size : 2.4rem;
+
+}
