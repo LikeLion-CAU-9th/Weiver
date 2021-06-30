@@ -4,11 +4,7 @@
 
 {% block htmlHead %}
 <link rel="stylesheet" href="{% static 'css/board.css' %}">
-<style>
-    .nav-board a{
-        color: #92009D;
-    }
-</style>
+
 
 {% endblock %}
 
@@ -21,7 +17,7 @@
             </div>
             <ul class="filter-box">
                 <li class="filter-item">
-                    <a href="{% url 'sort-date' %}">최신순</a>
+                    <a href="{% url 'board' %}" style="color: #92009D;">최신순</a>
                 </li>
                 <li class="filter-item">
                     <a href="#">추천순</a>
@@ -104,14 +100,57 @@
         </ul>
 
         <div class="explore-area">
-            검색창은 나중에..
+            <div class = "search-box">
+                <div class = "search-nav">
+                    제목
+                </div>
+                <div class = "search-content">
+                    검색어를 입력하세요.
+                </div>
+                <div class = "search-botton">
+                    검색
+                </div>
+            </div>
+            <ul class="pagination">
+                {% if quests.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ quests.previous_page_number }}">이전</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+                </li>
+                {% endif %}
+                {% for page_number in quests.paginator.page_range %}
+                    {% if page_number == quests.number %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+                {% if quests.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ quests.next_page_number }}">다음</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+                </li>
+                {% endif %}
+            </ul>
         </div>
     </div>
     
     <div class="tag-area">
         <a href="{% url 'createquest' %}">
             <div class="create">
-                코드리뷰 요청하기
+                코드리뷰 요청하기<br>
+                <img src="{% static 'img/add-file.png' %}"><br>
+                <span>클릭하면 코드리뷰 질문 작성 창으로 넘어갑니다.</span>
             </div>
         </a>
     </div>
