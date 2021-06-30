@@ -9,6 +9,7 @@
 .navbar {
     position: absolute;
     z-index: 3;
+    left:12.5%;
 }
 
 img.wallpaper2{
