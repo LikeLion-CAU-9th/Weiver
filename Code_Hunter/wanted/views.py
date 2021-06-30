@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Quest, QuestComment
 from .forms import QuestForm, CommentForm
@@ -57,6 +58,8 @@ def createquest(request):
         return render(request, 'newquest.html', {'form':form})
 
 
+def matching(request):
+    return render(request, 'matching.html', )
 
 
         
