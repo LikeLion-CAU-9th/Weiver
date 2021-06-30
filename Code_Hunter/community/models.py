@@ -16,6 +16,7 @@ class Community(models.Model):
     views = models.IntegerField(default = 0)
     comment_count = models.IntegerField(default = 0)
     date_or_time = models.BooleanField(default= True)
+    tag = models.CharField(max_length=16, default="공지")
 
     def __str__(self):
         return self.title

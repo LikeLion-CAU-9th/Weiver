@@ -20,6 +20,7 @@ def create(request):
     new_post.author = "익명"
     new_post.body = request.POST['body']
     new_post.pub_date = timezone.now()
+    new_post.tag = request.POST['tag']
     new_post.save()
 
     return redirect('detail', new_post.id)

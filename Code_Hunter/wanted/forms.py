@@ -18,5 +18,6 @@ class QuestForm(forms.ModelForm):
         widgets = {
             'body': SummernoteWidget(),
             'duedate': DateInput(),
+            'file': forms.FileInput(attrs={'multiple': True})
         }
 

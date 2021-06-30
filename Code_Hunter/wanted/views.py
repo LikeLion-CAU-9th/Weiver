@@ -1,15 +1,20 @@
 from django.shortcuts import redirect, render, get_object_or_404
+from django.core.paginator import Paginator
 from .models import Quest, QuestComment
 from .forms import QuestForm, CommentForm
 from django.urls import reverse
 import datetime
 
 def board(request):
+    page = request.GET.get('page', '1')
     quests = Quest.objects.all().order_by('-id')
     for quest in quests:
         quest.remainingdays = (quest.duedate - datetime.datetime.now().date()).days
         quest.save()
-    return render(request,'board.html', {'quests':quests})
+    paginator = Paginator(quests, 6)
+    currentpage = paginator.get_page(page)
+    context = {'quests':currentpage}
+    return render(request,'board.html', context)
 
 def sort_date(request):
     quests = Quest.objects.all().order_by('-id')
@@ -47,7 +52,6 @@ def createquest(request):
             quest = form.save(commit=False)
             quest.save()
             form.save_m2m()
-
             return redirect('board')
         else:
             print('error')

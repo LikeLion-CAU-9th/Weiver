@@ -1,3 +1,11 @@
+.nav-board a {
+    color: #92009D;
+}
+
+.nav-board {
+    border-bottom: 2px solid #92009D;
+}
+
 .board {
     display: flex;
     flex-direction: row;
@@ -205,6 +213,8 @@
     text-align: center;
 }
 
+.python {background-color: blue;}
+
 .quest-box a {
     color: black;
     text-decoration: none;
@@ -227,8 +237,118 @@
     background-color: #F5F5F5;
     height: 156px;
     margin: 30px 0 65px 0;
+    padding-top: 20px;
+    box-sizing: border-box;
     border-radius: 10px;
     text-align: center;
+}
+
+.search-box {
+    margin: 0px auto;
+    width: 570px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.search-nav{
+    width: 100px;
+    margin:7px 0;
+    line-height: 31px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #707070;
+    border-right: 1px solid #D5D5D5;
+}
+
+.search-nav-icon {
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    transform: rotate(90deg);
+}
+
+.search-content {
+    line-height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #707070;
+    /* padding-left: 5px; */
+}
+
+.search-botton {
+    width: 87px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #92009D;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    line-height: 45px;
+    text-align: center;
+}
+
+.pagination {
+    display:-ms-flexbox;
+    display:flex;
+    padding-left:0;
+    list-style:none;
+    border-radius:.25rem;
+    text-decoration: none;
+    margin-top: 35px;
+    justify-content: center;
+}
+
+.page-link {
+    position:relative;
+    display:block;
+    padding:.5rem .75rem;
+    margin-left:10px;
+    line-height:1.25;
+    color:black;
+    background-color:#F5F5F5;
+    text-decoration:none;
+    border-radius: 10px;
+}
+
+.page-link:hover {
+    z-index:2;
+    color:#92009D;
+    text-decoration:none;
+    background-color:#e9ecef;
+    border-color:#dee2e6;
+}
+
+.page-link:focus {
+    z-index:3;
+    outline:0;
+    box-shadow:0 0 0 .2rem rgba(198, 53, 255, 0.25);
+}
+
+.page-item:first-child .page-link {
+    margin-left:0;
+    border-radius: 0;
+}
+
+.page-item:last-child .page-link {
+    border-radius: 0;
+}
+
+.page-item.active .page-link {
+    z-index:3;
+    color:#fff;
+    background-color:#92009D;
+    border-color:#92009D;
+}
+
+.page-item.disabled .page-link {
+    color:#6c757d;
+    pointer-events:none;
+    cursor:auto;
+    background-color:#F5F5F5;
 }
 
 .create {
@@ -237,6 +357,8 @@
     border: 1px dashed #707070;
     border-radius: 10px;
     box-shadow: 0px 2px 4px 4px #EEEEEE;
+    padding: 10px;
+    box-sizing: border-box;
     font-size: 25px;
     color: black;
     text-align: center;
@@ -244,6 +366,17 @@
 
 .tag-area a {
     text-decoration: none;    
+}
+
+.tag-area img {
+    height: 45px; 
+    margin-top: 10px;
+}
+
+.tag-area span {
+    margin-top: 10px;
+    font-size: 11px;
+    color: #707070;
 }
 
 

@@ -10,6 +10,11 @@
 <link rel="stylesheet" href="{% static 'css/tagsinput.css' %}">
 <link rel="stylesheet" href="{% static 'css/board.css' %}">
 <link rel="stylesheet" href="{% static 'css/newquest.css' %}">
+<style>
+    .nav-board a{
+        color: #92009D;
+    }
+</style>
 {% endblock %}
 
 {% block mainContent %}
@@ -31,7 +36,7 @@
                 <input type="date" name="{{ form.duedate.name }}" class="date-input" required>
             </div>
             <div class="submit-area">
-                <a href="{% url 'board' %}">나가기</a>
+                <a href="{% url 'board' %}"><img src="{% static 'img/left.png' %}" style="height: 24px; margin-right: 10px;">나가기</a>
                 <input type="submit" class="submit" value="등록">
             </div>
         </div>
@@ -46,7 +51,10 @@
                     <span>원</span>
                 </div>
                 <div class="bountyarea-file">
-                    {{ form.file }}
+                    <input class="upload-name" value="파일선택" disabled="disabled">
+                    <label for="file-upload">찾아보기</label> 
+                    <input type="file" name="{{ form.file.name }}" id="file-upload" class="upload-hidden">
+
                 </div>
             </div>
         </div>
@@ -73,7 +81,20 @@
         });
     $("input[name=taglist]").tagsinput({
     confirmKeys : [32, 13]
-        });</script>
+        });
+    $(document).ready(function(){ 
+        var fileTarget = $('.bountyarea-file .upload-hidden'); 
+        fileTarget.on('change', function(){ 
+            if(window.FileReader){ 
+                var filename = $(this)[0].files[0].name; 
+            } else { 
+                var filename = $(this).val().split('/').pop().split('\\').pop();  
+            }
+            $(this).siblings('.upload-name').val(filename); 
+        }); 
+    });
+
+        </script>
 
     
 </form>
