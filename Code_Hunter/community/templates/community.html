@@ -54,14 +54,30 @@
         </div>
 
         {% for community in communities %}
-        <div class = "community-post">
-            <div class = "category-category">
-                코드질문
+        <div class = "community-post
+            {% if community.tag == '공지' %} community-post-notice {% endif %}
+            ">
+            <div class = "category-category 
+            {% if community.tag == '코드질문' %} tag-question {% endif %}
+            {% if community.tag == '자유' %} tag-free {% endif %}
+            {% if community.tag == '고민' %} tag-problem {% endif %}
+            {% if community.tag == '공지' %} tag-notice {% endif %}
+            ">
+                {{ community.tag }}
             </div>
-            <div class = "category-upvote">
-                {{ community.votes }}
+            <div class = "category-upvote
+                {% if community.votes >= 0 %} vote-positive {% endif %}
+                {% if community.votes < 0 %} vote-negative {% endif %} 
+                {% if community.votes == 0 %} vote-none {% endif %}                               
+                ">
+                {% if community.tag == '공지' %} {% endif %}
+                {% if community.tag != '공지' %}
+                    {{ community.votes }}
+                {% endif %}
             </div>
-            <div class = "category-title">
+            <div class = "category-title
+                {% if community.tag == '공지' %} title-notice {% endif %}            
+                ">
                 <a href = "{% url 'detail' community.id %}">
                     {{ community.title }}
                     <span>[{{ community.comment_count }}]</span>
@@ -71,7 +87,12 @@
                 {{ community.author }}
             </div>
             <div class = "category-date">
-                {{ community.pub_date | date:'Y.m.d' }}
+                {% if community.pub_dateonly == date_now %}
+                    {{ community.pub_date|date:'H:i'}}
+                {% endif %}
+                {% if community.pub_dateonly != date_now %}
+                    {{ community.pub_date|date:'Y.m.d'}}
+                {% endif %}
             </div>
             <div class = "category-view">
                 {{ community.views}}

@@ -10,13 +10,15 @@ class Community(models.Model):
     author = models.CharField(max_length=20, verbose_name = "작성자", default = "익명")
     author_pic = models.ImageField(upload_to = "img/", blank = True, null = True)
     pub_date = models.DateTimeField()
-    # pub_time = models.TimeField()
+    pub_dateonly = models.DateField(default= datetime.datetime.now().date())
     body = models.TextField()
     votes = models.IntegerField(default= 0)
     views = models.IntegerField(default = 0)
     comment_count = models.IntegerField(default = 0)
-    date_or_time = models.BooleanField(default= True)
+    notice_or_not = models.BooleanField(default = False)
     tag = models.CharField(max_length=16, default="공지")
+    today_or_not = models.BooleanField(default = False)
+
 
     def __str__(self):
         return self.title
