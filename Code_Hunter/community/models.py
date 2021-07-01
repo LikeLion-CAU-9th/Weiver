@@ -17,7 +17,6 @@ class Community(models.Model):
     comment_count = models.IntegerField(default = 0)
     notice_or_not = models.BooleanField(default = False)
     tag = models.CharField(max_length=16, default="공지")
-    today_or_not = models.BooleanField(default = False)
 
 
     def __str__(self):
