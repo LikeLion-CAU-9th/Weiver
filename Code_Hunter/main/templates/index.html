@@ -3,9 +3,12 @@
 
 {% block htmlHead %}
 <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+
+
 {% endblock %}
 
 {% block mainContent %}
+<!-- 
 <div class="box">
     <img src="{% static 'img/wallpaper.png' %}" class="wallpaper2">
     <img src="{% static 'img/wallpaper.png' %}" class= "wallpaper1">
@@ -15,16 +18,84 @@
         <br/>
         <p class='bigword'>코드헌터</p>
     </div>    
-</div>
-<br/><br/>
-<div class='click'>
-    <!-- <a href = "{% url 'board' %}"> -->
-        <span>질문하러가기</span> 
-    <!-- 해당 Html URL 연결 -->
-        <span>답변하러가기</span> 
-    <!-- <a href = "{% url 'community' %}"> -->
-        <span>커뮤니티</span> 
+</div> 
+-->
+
+<!---->
+<div class = "box-model">
+    <div class = "wallpaper mainwall">
+        <div class = "wallpaper-phrase1">개발자와 개발자 WannaBe를 위한</div>
+        <div class = "wallpaper-phrase1">CodeReview 플랫폼</div>
+        <div class = "wallpaper-phrase2">코드헌터</div>
+        <form action = "#" method="GET"> 
+            <div class = "search-bar">
+                <input type = "text" name = "landing-search" placeholder="search your code ;">
+            </div>
+        </form>
+    </div>
+    <div class = "wallpaper effectwall"></div>
 </div>
 
-<div >
+<div class = "landing-page">
+    <div class = "shortcuts-social">
+        <div class = "shortcuts">
+            <span class = "go-to">질문하러가기</span>
+            <span class = "go-to">답변하러가기</span>
+            <span class = "go-to">커뮤니티</span>
+            
+        </div>
+        <div class = "social">
+            <a href = "#">
+                <img src = "{% static 'img/facebook.png' %}">
+            </a>
+            <a href = "#">
+                <img src = "{% static 'img/instagram.png' %}">
+            </a>
+            <a href = "#">
+                <img src = "{% static 'img/whatsapp.png' %}">
+            </a>
+        </div>
+    </div>
+
+    <div class = "experience">
+        <div class = "experience-header">
+            <div class = "border-experience">
+                <div class = "circle"></div>
+                <span>Code Hunter Experience</span>
+            </div>
+            <span>코드헌터는 이런 서비스를 제공해요</span>
+        </div>
+        <div class = "wanted">
+            <div class = "img-wanted"></div>
+            <div class = "wanted-main">
+                <div class = "wanted-header">
+                    <p>WANTED!</p>
+                    <p>내 코드를 수배합니다</p>
+                </div>
+                <div class ="wanted-content">
+                    <p>알듯말듯한 코드의 세계</p>
+                    <p>떠다니는 강의는 많지만,</p>
+                    <p>베테랑들의 노하우는 천기누설인걸까요?</p>
+                    <p>내 문제를 파헤쳐줄 코드리뷰가 필요할 때,</p>
+                    <p>코드헌터가 필요할 때</p>
+                </div>
+                <a href = "{% url 'createquest' %}" class = "go-to-wanted">리뷰 요청하기</a>
+            </div>
+            <div class = "border-for-wanted"></div>
+        </div>
+        <div class = "bounty-hunter">
+
+        </div>
+        <div class = "dev-talk">
+            
+        </div>
+    </div>
+    <div class = "meet-our-team">
+        
+    </div>
+
+
+</div>
+
+<div class = "fwfew"> fewfwe</div>
 {% endblock %}
