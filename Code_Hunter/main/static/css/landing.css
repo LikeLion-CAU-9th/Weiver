@@ -49,9 +49,11 @@ img.wallpaper1 {
     color : #FFE1AF;
 }
 
-.click {
+.click span {
     position : relative;
     left : 11%;
     font-size : 2.4rem;
-
+    text-decoration: none;
 }
+
+
