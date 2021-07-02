@@ -1,0 +1,19 @@
+#my_modal {
+    display: none;
+    width: 550px;
+    height: 200px;
+    padding: 50px 60px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 3px;
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    font-size: 32px;
+}
+
+#my_modal .modal_close_btn {
+    margin: 20px 0;
+    width: 160px;
+}

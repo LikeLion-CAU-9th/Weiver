@@ -31,12 +31,16 @@
     align-items: center;
 }
 
-.quest-head img {
-    margin: 0px 35px;
+.quest-icon {
+    font-size: 35px;
+    text-align: center;
+    width: 122px;
 }
+
 
 .quest-title {
     padding-right: 10px;
+    margin-top: 0;
 }
 
 .quest-tags {
@@ -45,25 +49,33 @@
 
 .quest-tags .tag{
     font-size: 11px;
-    padding: 5px 10px;
+    width: 60px;
 }
 
 .quest-deadline {
     margin: 0px 45px 0px 0px;
 }
 
-.quest-bounty {
-    margin: 0 0 0 10px;
+.quest-bountybox {
+    margin: 0 16px;
     font-size: 15px;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 30px;
+    background-color: #411740;
+    color: white;
 }
 
 .quest-author {
     margin: 0;
-    padding: 0 20px;
+    padding: 0 20px 0 0px;
 }
 
 .quest-date {
     flex-grow: 1;
+    margin-top: 0;
 }
 
 .quest-stat {
@@ -82,6 +94,39 @@
     margin: 20px;
     padding: 20px 20px;
     border-radius: 10px;
+}
+
+.quest-filebox {
+    margin-top: 100px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #D5D5D5;
+}
+
+.quest-filebox ul {
+    margin: 0;
+    padding: 0;
+}
+
+.file-head {
+    background-color: #D5D5D5;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    height: 30px;
+}
+
+.quest-file {
+    background-color: #F9F9F9;
+    padding: 0px 17px;
+    list-style: none;
+    border-top: 1px solid #D5D5D5;
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+
+.quest-file:last-child {
+    border-radius: 0 0 10px 10px;    
 }
 
 .comment-head {
@@ -191,7 +236,3 @@
     cursor: pointer;
 }
 
-.create {
-    margin-top: 50px;
-    height: 120px;
-}

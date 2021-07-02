@@ -11,4 +11,5 @@ urlpatterns = [
     path('newcomment/', newcomment, name="newcomment"),
     path('createquest/', createquest, name="createquest"),
     path('matching/', matching, name = "matching"),
+    path('<int:quest_id>/review', review, name="review"),
 ]

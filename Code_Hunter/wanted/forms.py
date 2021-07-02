@@ -1,5 +1,5 @@
 from django import forms
-from .models import QuestComment
+from .models import QuestComment, Review
 from .models import Quest
 from django_summernote.widgets import SummernoteWidget
  
@@ -18,6 +18,14 @@ class QuestForm(forms.ModelForm):
         widgets = {
             'body': SummernoteWidget(),
             'duedate': DateInput(),
-            'file': forms.FileInput(attrs={'multiple': True})
+            'file': forms.FileInput()
         }
 
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['title', 'body', 'code', 'file']
+        widgets = {
+            'body': SummernoteWidget(),
+            'file': forms.FileInput()
+        }
