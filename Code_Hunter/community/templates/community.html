@@ -87,27 +87,24 @@
                 </a>
             </div>
             <div class = "category-author">
-                CAUDEV
+                {{ community.author }}
             </div>
             <div class = "category-date">
-<<<<<<< HEAD
-                2021.06.24
-=======
                 {% if community.pub_dateonly == date_now %}
                     {{ community.pub_date|date:'H:i'}}
                 {% endif %}
                 {% if community.pub_dateonly != date_now %}
                     {{ community.pub_date|date:'Y.m.d'}}
                 {% endif %}
->>>>>>> 446548957adf46a59d804b89043abf34fcc685e0
             </div>
             <div class = "category-view">
-                354
+                {{ community.views}}
             </div>
         </div>
+        {% endfor %}
 
     </div>
-    {% endfor %}
+
     <div class = "search-area">
         <div class = "search-box-upside">
             <div></div>
@@ -123,10 +120,8 @@
                     검색
                 </div>
             </div>
-            <a class = "post-botton" href = "{% url 'create' %}">
-                <!-- <div class = "post-botton"> -->
+            <a class = "post-botton" href = "{% url 'newpost' %}">
                     글쓰기
-                <!-- </div> -->
             </a>
         </div>
 
