@@ -1,60 +1,11 @@
-.box {
-    height : 925px; 
-    width : 87%; 
-    margin : 0px auto; 
-    z-index: 0;
-    position : relative;
-}
-
 .navbar {
     position: absolute;
     z-index: 3;    
     left: 12.5%;
 }
 
-img.wallpaper2{
-    position : absolute;
-    height: 925px;
-    width : 100%;
-    z-index: -1;
-    -webkit-filter: blur(20px);
-    -moz-filter: blur(20px);
-    -o-filter: blur(20px);
-    -ms-filter: blur(20px);
-    filter: blur(20px);
-}
-
-img.wallpaper1 {
-    height: 925px;
-    width : 100%;
-    position: absolute;
-    z-index: 0;
-}
-
-.box .text {
-    position : absolute;
-    left : 5%;
-    bottom : 20%;
-    font-size : 2.8rem;
-    color : rgb(233, 230, 230);
-}
-
-.text p {
-    margin : 15px;
-}
-
-.bigword {
-    position : absolute;
-    bottom : -38%;
-    font-size : 5rem;
-    color : #FFE1AF;
-}
-
-.click span {
-    position : relative;
-    left : 11%;
-    font-size : 2.4rem;
-    text-decoration: none;
+.landing-page {
+    margin-bottom: 400px;
 }
 
 .box-model {
@@ -130,6 +81,7 @@ img.wallpaper1 {
     margin-top: 60px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .shortcuts-social {
@@ -169,7 +121,12 @@ img.wallpaper1 {
     display: flex;
     flex-direction: column;
     margin-top: 200px;
-    height: 700px;
+    height: 3100px;
+}
+
+.blank-experience {
+    width: 100%;
+    height: 500px;   
 }
 
 .experience-header {
@@ -182,14 +139,18 @@ img.wallpaper1 {
     width: 1000px;
     border-top: 30px solid #C25A98;
 }
+
 .circle {
     position: absolute;
-    right: -15px;
-    top: -30px;
     width: 30px;
     height: 30px;
     border-radius: 70%;
     background-color: #C25A98;
+}
+
+.border-experience > .circle {
+    right: -15px;
+    top: -30px; 
 }
 
 .border-experience > span{
@@ -238,7 +199,7 @@ img.wallpaper1 {
 }
 
 .wanted-content {
-    font-size: 20px;
+    font-size: 17px;
     color:#515151;
     margin-bottom: 20px;
 }
@@ -263,10 +224,176 @@ img.wallpaper1 {
     box-shadow: 0 0 7px #92009D;
 }
 
-
-
 .border-for-wanted {
     width: 300px;
     height: 180px;
     border-left: 7px solid black;
 }
+
+.bounty-hunter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 300px 0 300px;
+}
+
+.border-for-bounty {
+    width: 170px;
+    border-top: 7px solid black;
+    margin-right: 10px;
+
+}
+
+.bounty-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bounty-header span {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.bounty-content{
+    font-size: 17px;
+    color:#515151;
+    margin-bottom: 20px;
+}
+
+.bounty-content p {
+    margin: 0 0 3px 0;
+}
+
+.go-to-bounty {
+    width: 230px;
+    height: 60px;
+    border-radius: 35px;
+    font-size: 24px;
+    background-color: #92009D;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    text-decoration: none;
+}
+
+.go-to-bounty:hover {
+    box-shadow: 0 0 7px #92009D;
+}
+
+.img-bounty {
+    width: 600px;
+    height: 390px;
+    background-color: gray;
+}
+
+.dev-talk {
+    display: flex;
+    flex-direction: row;
+    margin: 0 300px 0 300px;
+    justify-content: space-between;
+}
+
+.img-talk {
+    width: 450px;
+    height:600px;
+    background-color: gray;
+}
+
+.dt-border {
+    width: 255px;
+    height: 170px;
+    border-right: 7px solid black;
+    margin-right: 10px;
+}
+
+.dt-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.dt-header {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.dt-content {
+    font-size: 17px;
+    color: #515151;
+    margin-bottom: 50px;
+}
+
+.dt-content p {
+    margin: 0 0 3px 0;
+}
+
+.go-to-community {
+    width: 250px;
+    height: 60px;
+    font-size: 24px;
+    border-radius: 35px;
+    background-color: #92009D;
+    color: white;
+    text-decoration: none;
+    line-height: 60px;
+    text-align: center;
+}
+
+.go-to-community:hover {
+    box-shadow: 0 0 7px #92009D;
+}
+
+.meet-our-team {
+    display: flex;
+    flex-direction: column;
+}
+
+.mot-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.border-mot {
+    position: relative;
+    right: 0px;
+    width: 700px;
+    border-top: 30px solid #C25A98;
+}
+
+.border-mot > .circle {
+    right: 685px;
+    top: -30px;
+}
+
+.border-mot > span {
+    position: absolute;
+    font-size: 50px;
+    font-weight: bold;
+    left: 50px;
+    top: -70px;
+}
+
+.mot-header > span {
+    font-size: 22px;
+    font-weight: bold;
+    color: #515151;
+    margin-right: 300px;
+}
+
+.team-photos {
+    margin: 80px 150px 0 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.team-photo {
+    width: 250px;
+    height: 300px;
+    background-color: gray;
+}
+

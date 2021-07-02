@@ -8,20 +8,6 @@
 {% endblock %}
 
 {% block mainContent %}
-<!-- 
-<div class="box">
-    <img src="{% static 'img/wallpaper.png' %}" class="wallpaper2">
-    <img src="{% static 'img/wallpaper.png' %}" class= "wallpaper1">
-    <div class="text">
-        <p>개발자와 개발자 Wannabe를 위한</p>  
-        <p>CodeReview 플랫폼</p>
-        <br/>
-        <p class='bigword'>코드헌터</p>
-    </div>    
-</div> 
--->
-
-<!---->
 <div class = "box-model">
     <div class = "wallpaper mainwall">
         <div class = "wallpaper-phrase1">개발자와 개발자 WannaBe를 위한</div>
@@ -83,19 +69,64 @@
             </div>
             <div class = "border-for-wanted"></div>
         </div>
+        <div class = "blank-experience"></div>
         <div class = "bounty-hunter">
+            <div class = "border-for-bounty"></div>
+            <div class = "bounty-main">
+                <div class = "bounty-header">
+                    <span>21세기 현상금 사냥꾼</span>
+                </div>
+                <div class = "bounty-content">
+                    <p>여기 이곳, 황야는 아니지만 현상금 사냥꾼들은 건재합니다!</p>
+                    <p>21세기 장고들은 모래바람 대신 검은 화면 위를 누벼요.</p>
+                    <p>선량한 뉴비 개발자들을 위해,</p>
+                    <p>소스코드의 평화를 지키기 위해.</p>
+                    <p>그리고 짭짤한 바운티는 덤.</p>
+                    <p>참, 대세는 N잡, 아시죠?</p>
+                </div>
+                <a href = "{% url 'board' %}" class = "go-to-bounty">질문글 보러가기</a>
+            </div>
+            <div class = "img-bounty">
 
+            </div>
         </div>
+        <div class = "blank-experience"></div>
         <div class = "dev-talk">
+            <div class = "img-talk"></div>
+            <div class = "dt-border"></div>
+            <div class = "dt-main">
+                <div class = "dt-header">
+                    <span>Let's Dev Talk</span>
+                </div>
+                <div class = "dt-content">
+                    <p>코드헌터는 유료 서비스만 있는게 아니에요.</p>
+                    <p>친절한 헌터들은 대화를 즐깁니다!</p>
+                    <p>간단한 에러 해결부터 개발자라면 공감할만한 고민들까지.</p>
+                    <p>개발자들의 쉼터가 되어줄 거에요.</p>
+                </div>
+                <a href = "{% url 'community' %}" class = "go-to-community">커뮤니티 방문하기</a>
+            </div>
             
         </div>
     </div>
     <div class = "meet-our-team">
+        <div class = "mot-header">
+            <div class = "border-mot">
+                <div class = "circle"></div>
+                <span>Meet Our Team</span>
+            </div>
+            <span>코드헌터의 개발진을 소개합니다.</span>
+        </div>
         
+        <div class = "team-photos">
+            <div class = "team-photo"></div>
+            <div class = "team-photo"></div>
+            <div class = "team-photo"></div>
+            <div class = "team-photo"></div>
+            <div class = "team-photo"></div>
+        </div>
+
+
     </div>
-
-
 </div>
-
-<div class = "fwfew"> fewfwe</div>
 {% endblock %}
