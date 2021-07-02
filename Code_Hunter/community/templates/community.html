@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        {% for community in communities %}
+        {
         <div class = "community-post
             {% if community.tag == '공지' %} community-post-notice {% endif %}
             ">
@@ -90,16 +90,12 @@
                 CAUDEV
             </div>
             <div class = "category-date">
-<<<<<<< HEAD
-                2021.06.24
-=======
                 {% if community.pub_dateonly == date_now %}
                     {{ community.pub_date|date:'H:i'}}
                 {% endif %}
                 {% if community.pub_dateonly != date_now %}
                     {{ community.pub_date|date:'Y.m.d'}}
                 {% endif %}
->>>>>>> 446548957adf46a59d804b89043abf34fcc685e0
             </div>
             <div class = "category-view">
                 354
