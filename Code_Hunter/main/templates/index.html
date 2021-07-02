@@ -25,10 +25,15 @@
 <div class = "landing-page">
     <div class = "shortcuts-social">
         <div class = "shortcuts">
-            <span class = "go-to">질문하러가기</span>
-            <span class = "go-to">답변하러가기</span>
-            <span class = "go-to">커뮤니티</span>
-            
+            <a href = "{% url 'createquest' %}" class = "go-to">질문하러가기
+                <div class = "go-to-background"></div>
+            </a>
+            <a href = "{% url 'board' %}" class = "go-to">답변하러가기
+                <div class = "go-to-background"></div>
+            </a>
+            <a href = "{% url 'community' %}" class = "go-to">커뮤니티
+                <div class = "go-to-background"></div>
+            </a>
         </div>
         <div class = "social">
             <a href = "#">
@@ -41,6 +46,10 @@
                 <img src = "{% static 'img/whatsapp.png' %}">
             </a>
         </div>
+    </div>
+    <div class = "gradient-space">
+        <span></span>
+        <span></span>
     </div>
 
     <div class = "experience">
