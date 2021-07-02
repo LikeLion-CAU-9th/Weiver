@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        {
+        {% for community in communities %}
         <div class = "community-post
             {% if community.tag == '공지' %} community-post-notice {% endif %}
             ">
@@ -87,7 +87,7 @@
                 </a>
             </div>
             <div class = "category-author">
-                CAUDEV
+                {{ community.author }}
             </div>
             <div class = "category-date">
                 {% if community.pub_dateonly == date_now %}
@@ -98,11 +98,12 @@
                 {% endif %}
             </div>
             <div class = "category-view">
-                354
+                {{ community.views}}
             </div>
         </div>
+        {% endfor %}
 
-  zz  </div>
+    </div>
 
     <div class = "search-area">
         <div class = "search-box-upside">
@@ -119,10 +120,8 @@
                     검색
                 </div>
             </div>
-            <a class = "post-botton" href = "{% url 'create' %}">
-                <!-- <div class = "post-botton"> -->
+            <a class = "post-botton" href = "{% url 'newpost' %}">
                     글쓰기
-                <!-- </div> -->
             </a>
         </div>
 
