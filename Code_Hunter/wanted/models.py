@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.db.models.deletion import CASCADE
 from django.utils import timezone
 from multiselectfield import MultiSelectField
 from taggit.managers import TaggableManager
@@ -44,3 +45,10 @@ class QuestComment(models.Model):
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
 
+class Review(models.Model):
+    quest = models.ForeignKey(Quest, on_delete=models.CASCADE, related_name="review")
+    title = models.CharField(max_length=50, verbose_name='제목')
+    author = models.CharField(max_length=8)
+    body = models.TextField(verbose_name='내용')
+    code = models.TextField(default='')
+    file = models.FileField(null=True, verbose_name='첨부파일', blank=True)

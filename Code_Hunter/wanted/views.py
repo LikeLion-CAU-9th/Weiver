@@ -1,8 +1,8 @@
 from django.http import request
 from django.shortcuts import redirect, render, get_object_or_404
 from django.core.paginator import Paginator
-from .models import Quest, QuestComment
-from .forms import QuestForm, CommentForm
+from .models import Quest, QuestComment, Review
+from .forms import QuestForm, CommentForm, ReviewForm
 from django.urls import reverse
 import datetime
 
@@ -48,14 +48,12 @@ def newcomment(request):
 def createquest(request):
     if request.method == 'POST':
         form = QuestForm(request.POST, request.FILES)
-        print(dict(request.POST))
         if form.is_valid():
             quest = form.save(commit=False)
             quest.save()
             form.save_m2m()
             return redirect('board')
         else:
-            print('error')
             return redirect('board')
     else:
         form = QuestForm()
@@ -64,6 +62,23 @@ def createquest(request):
 
 def matching(request):
     return render(request, 'matching.html', )
+
+def review(request, quest_id):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, request.FILES)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.save()
+            return redirect('board')
+        else:
+            return redirect('board')
+    else:
+        form = ReviewForm()
+        quest_detail = get_object_or_404(Quest, pk=quest_id)
+        context = {'quest':quest_detail, 'form':form}
+        return render(request, 'createreview.html', context)
+    
+    
 
 
         
