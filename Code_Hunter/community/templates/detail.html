@@ -7,6 +7,9 @@
     .nav-community a{
         color: #92009D;
     }
+    .nav-community {
+        border-bottom: 2px solid #92009D;
+    }
 </style>
 
 {% endblock %}
@@ -31,7 +34,12 @@
                         <div class = "post-title">
                             {{ post_details.title }}
                         </div>
-                        <div class = "post-tag">
+                        <div class = "post-tag
+                        {% if community.tag == '코드질문' %} tag-question {% endif %}
+                        {% if community.tag == '자유' %} tag-free {% endif %}
+                        {% if community.tag == '고민' %} tag-problem {% endif %}
+                        {% if community.tag == '공지' %} tag-notice {% endif %}
+                        ">
                             {{ post_details.tag }}
                         </div>
                     </div>
@@ -40,7 +48,7 @@
                             {{ post_details.pub_date | date:'Y.m.d'}}
                         </div>
                         <div class = "post-clock">
-                            {{ post_details.pub_date | date:'f'}}
+                            {{ post_details.pub_date | date:'H:i'}}
                         </div>
                     </div>
                 </div>
@@ -124,7 +132,7 @@
                                 {{ comment.pub_datetime | date:'Y.m.d'}}
                             </div>
                             <div class = "comment-clock">
-                                {{ comment.pub_datetime | date:'f'}}
+                                {{ comment.pub_datetime | date:'H:i'}}
                             </div>
                         </div>
                     </div>

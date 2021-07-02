@@ -6,13 +6,10 @@ from .forms import CommunityCommentForm
 import datetime
 
 def community(request):
-    communities = Community.objects.all().order_by('-id')
-    # for community in communities:
-    #     if (datetime.datetime.now().date() - community.pub_date.date()).days > 0:
-    #         community.date_or_time = True
-    #     elif (datetime.datetime.now().date() - community.pub_date.date()).days == 0: 
-    #         community.date_or_time = False
-    return render(request,'community.html', {'communities': communities})
+    communities = Community.objects.all().order_by('-notice_or_not', '-pub_date')
+    date_now = datetime.datetime.now().date()
+    # date_communities = Community.objects.values('pub_dateonly').order_by('-notice_or_not', '-pub_date')
+    return render(request,'community.html', {'communities': communities, 'date_now':date_now})
 
 def create(request):
     new_post = Community()
@@ -21,6 +18,10 @@ def create(request):
     new_post.body = request.POST['body']
     new_post.pub_date = timezone.now()
     new_post.tag = request.POST['tag']
+    if new_post.tag == '공지':
+        new_post.notice_or_not = True
+    if datetime.datetime.now().date() == new_post.pub_date.date():
+        new_post.today_or_not = True
     new_post.save()
 
     return redirect('detail', new_post.id)

@@ -7,6 +7,9 @@
     .nav-community a{
         color: #92009D;
     }
+    .nav-community {
+        border-bottom: 2px solid #92009D;
+    }
 </style>
 {% endblock %}
 
@@ -53,24 +56,50 @@
             </div>
         </div>
 
-        <div class = "community-post">
-            <div class = "category-category">
-                코드질문
+        {% for community in communities %}
+        <div class = "community-post
+            {% if community.tag == '공지' %} community-post-notice {% endif %}
+            ">
+            <div class = "category-category 
+            {% if community.tag == '코드질문' %} tag-question {% endif %}
+            {% if community.tag == '자유' %} tag-free {% endif %}
+            {% if community.tag == '고민' %} tag-problem {% endif %}
+            {% if community.tag == '공지' %} tag-notice {% endif %}
+            ">
+                {{ community.tag }}
             </div>
-            <div class = "category-upvote">
-                7
+            <div class = "category-upvote
+                {% if community.votes >= 0 %} vote-positive {% endif %}
+                {% if community.votes < 0 %} vote-negative {% endif %} 
+                {% if community.votes == 0 %} vote-none {% endif %}                               
+                ">
+                {% if community.tag == '공지' %} {% endif %}
+                {% if community.tag != '공지' %}
+                    {{ community.votes }}
+                {% endif %}
             </div>
-            <div class = "category-title">
-                <a href = "{% url 'detail' %}">
-                    국경의 긴 터널을 빠져나오자, 눈의 고장이었다.
-                    <span>[20]</span>
+            <div class = "category-title
+                {% if community.tag == '공지' %} title-notice {% endif %}            
+                ">
+                <a href = "{% url 'detail' community.id %}">
+                    {{ community.title }}
+                    <span>[{{ community.comment_count }}]</span>
                 </a>
             </div>
             <div class = "category-author">
                 CAUDEV
             </div>
             <div class = "category-date">
+<<<<<<< HEAD
                 2021.06.24
+=======
+                {% if community.pub_dateonly == date_now %}
+                    {{ community.pub_date|date:'H:i'}}
+                {% endif %}
+                {% if community.pub_dateonly != date_now %}
+                    {{ community.pub_date|date:'Y.m.d'}}
+                {% endif %}
+>>>>>>> 446548957adf46a59d804b89043abf34fcc685e0
             </div>
             <div class = "category-view">
                 354

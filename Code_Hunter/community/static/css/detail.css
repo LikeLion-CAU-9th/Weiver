@@ -75,12 +75,28 @@
     width: 90px;
     height: 30px;
     border-radius: 15px;
-    background-color: #FE4488;
     font-size: 15px;
     text-align: center;
     color: #F9F9F9;    
     line-height: 30px;
 }
+
+.tag-question {
+    background-color: #FE4488;
+}
+
+.tag-free {
+    background-color: #D37900;
+}
+
+.tag-problem {
+    background-color: #00922B;
+}
+
+.tag-notice {
+    background-color: #92009D;
+}
+
 
 .post-time {
     display: flex;
