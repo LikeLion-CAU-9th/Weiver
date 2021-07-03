@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block htmlHead %}
+<script src="{% static 'js/codemirror.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/codemirror.css' %}">
+<script src="{% static 'js/python.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/seti.css' %}">
+<link rel="stylesheet" href="{% static 'css/midnight.css' %}">
+<link rel="stylesheet" href="{% static 'css/modal.css' %}">
+<link rel="stylesheet" href="{% static 'css/board.css' %}">
+<link rel="stylesheet" href="{% static 'css/questdetail.css' %}">
+<style>
+    .nav-board a{
+        color: #92009D;
+    }
+</style>
+{% endblock %}
+
+{% block mainContent %}
+<div id="my_modal">
+    성공적으로 지원되었습니다!
+    <img src="{% static 'img/check.png' %}" class="modal_close_btn">
+</div>
+
+<div class="board">
+    <div class="quest-area">
+        <div class="filter-area">
+            <div class="introduction">
+                <span>리뷰</span>를 기다리는 질문들
+            </div>
+        </div>
+        <div class="quest">
+            <div class="quest-head">
+                <div class="quest-top">
+                    <div class="quest-icon">
+                        Q.
+                    </div>
+                    <div class="quest-title">
+                        {{ quest.title }}
+                    </div>
+                    <div class="quest-tags">
+                        {% for tag in quest.taglist.all %}
+                        <span class="tag">
+                            {{ tag }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                    <div class="quest-deadline">
+                        마감기한<br>
+                        {{ quest.duedate | date:'Y년 m월 d일' }}
+                    </div>
+
+                </div>
+                <div class="quest-bottom">
+                    <div class="quest-bountybox">
+                        {{ quest.bounty }}원
+                    </div>
+                    <div class="quest-author">
+                        {{ quest.author }}
+                    </div>
+                    <div class="quest-date">
+                        {{ quest.date | date:'Y.m.d H:i' }}
+                    </div>
+                    <div class="quest-stat">
+                        조회수<br>
+                        0
+                    </div>
+                    <div class="quest-stat">
+                        추천수<br>
+                        0
+                    </div>
+                    <div class="quest-stat">
+                        댓글수<br>
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class="quest-text">
+                {{ quest.body | safe }}
+            </div>
+            <div class="code-box">
+                <div id="codeeditor" class="code-editor"></div>
+            </div>
+        </div>
+        <div class="comment-area">
+            <div class="comment-head">
+                댓글
+            </div>
+            {% for comment in comments %}
+            <div class="comment">
+                <div class="comment-left">
+                    <div class="comment-author">
+                        {{ comment.author }}
+                    </div>
+                    <div class="comment-body">
+                        <pre>{{ comment.body }}</pre>
+                    </div>
+                </div>
+                <div class="comment-right">
+                    <div class="comment-date">
+                        {{comment.date | date:'Y.m.d H:i' }}
+                    </div>
+                    <div class="comment-menu">
+                        <span class="comment-menu-item">댓글</span>
+                        <span class="comment-menu-item">수정</span>
+                        <span class="comment-menu-item">신고</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="newcomment">
+                <form method = "post" action = "{% url 'newcomment' %}" enctype="multipart/form-data">
+                    <div class="newcomment-left">
+                        댓글쓰기
+                        {% csrf_token %}
+                        <input type = "hidden" name = "quest_id" value = "{{quest.id}}">
+                            <input class = "newcomment-author" name = "author" placeholder="닉네임" required>
+                            <textarea class = "newcomment-body" name = "body" placeholder="댓글을 남겨보세요." required></textarea>
+                    </div>
+                    <div class="newcomment-right">
+                            <button type = "submit" class = "newcomment-button">등록</button>                       
+                    </div>
+                </form>
+            </div>  
+        </div>
+
+    </div>
+    
+    <div class="tag-area">
+        <a href="#">
+            <button class="create" id="submit">
+                코드리뷰 지원하기<br>
+                <img src="{% static 'img/hand.png' %}"><br>
+                <span>해당 질문의 리뷰어에 지원합니다.</span>
+            </button>
+        </a>
+        <div class="quest-filebox">
+            <div class="file-head">
+                업로드된 파일 목록
+            </div>
+            <ul>
+            <li class="quest-file">
+                {{ quest.file.name }}
+            </li>
+            <li class="quest-file">
+            </li>
+            <li class="quest-file">
+            </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">    
+    var editor = CodeMirror(document.getElementById("codeeditor"), {
+        lineNumbers: true,
+        mode: "python",
+        theme: "midnight",
+        value: "{{ quest.code | escapejs }}",
+        readOnly: true     
+    });
+
+</script>
+
+<script> //모달
+function modal(id) {
+    var zIndex = 9999;
+    var modal = document.getElementById(id);
+    var bg = document.createElement('div');
+    bg.setStyle({
+        position: 'fixed',
+        zIndex: zIndex,
+        left: '0px',
+        top: '0px',
+        width: '100%',
+        height: '100%',
+        overflow: 'auto',
+        backgroundColor: 'rgba(0,0,0,0.4)'
+    });
+    document.body.append(bg);
+    modal.querySelector('.modal_close_btn').addEventListener('click', function() {
+        bg.remove();
+        modal.style.display = 'none';
+    });
+    modal.setStyle({
+        position: 'fixed',
+        display: 'flex',
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+        zIndex: zIndex + 1,
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        msTransform: 'translate(-50%, -50%)',
+        webkitTransform: 'translate(-50%, -50%)'
+    });
+}
+Element.prototype.setStyle = function(styles) {
+    for (var k in styles) this.style[k] = styles[k];
+    return this;
+};
+document.getElementById("submit").addEventListener('click', function() {
+    modal('my_modal');
+});
+</script>
+
+{% endblock %}

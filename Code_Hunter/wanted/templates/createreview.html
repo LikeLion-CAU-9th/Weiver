@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block htmlHead %}
+<script src="{% static 'js/codemirror.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/codemirror.css' %}">
+<script src="{% static 'js/python.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/seti.css' %}">
+<link rel="stylesheet" href="{% static 'css/midnight.css' %}">
+<link rel="stylesheet" href="{% static 'css/board.css' %}">
+<link rel="stylesheet" href="{% static 'css/modal.css' %}">
+<link rel="stylesheet" href="{% static 'css/newquest.css' %}">
+<link rel="stylesheet" href="{% static 'css/questdetail.css' %}">
+<link rel="stylesheet" href="{% static 'css/createreview.css' %}">
+<style>
+    .nav-board a{
+        color: #92009D;
+    }
+    </style>
+{% endblock %}
+
+{% block mainContent %}
+{% csrf_token %}
+<div id="my_modal">
+    리뷰가 성공적으로 등록되었습니다!
+    <img src="{% static 'img/check.png' %}" class="modal_close_btn">
+</div>
+
+
+<form method="POST">
+    <div class="board">
+        <div class="quest-area">
+            <div class="filter-area">
+                <div class="introduction">
+                    <span>리뷰</span>를 기다리는 질문들
+                </div>
+            </div>
+            <div class="quest">
+                <div class="quest-head">
+                    <div class="quest-top">
+                        <div class="quest-icon">
+                            Q.
+                        </div>
+                        <div class="quest-title">
+                            {{ quest.title }}
+                        </div>
+                        <div class="quest-tags">
+                            {% for tag in quest.taglist.all %}
+                            <span class="tag">
+                                {{ tag }}
+                            </span>
+                            {% endfor %}
+                        </div>
+                        <div class="quest-deadline">
+                            마감기한<br>
+                            {{ quest.duedate | date:'Y년 m월 d일' }}
+                        </div>
+
+                    </div>
+                    <div class="quest-bottom">
+                        <div class="quest-bountybox">
+                            {{ quest.bounty }}원
+                        </div>
+                        <div class="quest-author">
+                            {{ quest.author }}
+                        </div>
+                        <div class="quest-date">
+                            {{ quest.date | date:'Y.m.d H:i' }}
+                        </div>
+                        <div class="quest-stat">
+                            조회수<br>
+                            0
+                        </div>
+                        <div class="quest-stat">
+                            추천수<br>
+                            0
+                        </div>
+                        <div class="quest-stat">
+                            댓글수<br>
+                            0
+                        </div>
+                    </div>
+                </div>
+                <div class="quest-text">
+                    {{ quest.body | safe }}
+                </div>
+            </div>
+            <div class="code-box">
+                <textarea name="{{ form.code.name }}" id="codeeditor" class="code-editor" ></textarea>
+            </div>
+            <div class="review">
+                <div class="review-title">
+                    <span style="font-size: 30px; color: #92009D; padding-bottom: 3px;">A.</span>
+                    <input name="{{ form.title.name }}" placeholder="제목을 입력하세요." required>
+                </div>
+                <div class="review-body">
+                    {{ form.body }}
+                </div>
+                <div class="review-file">
+                    <div class="review-file-name">파일을 업로드하세요.</div>
+                    <div class="review-file-upload">파일 찾기</div>
+                </div>
+            </div>
+        </div>
+        <div class="tag-area">
+            <div class="quest-filebox">
+                <div class="file-head">
+                    업로드된 파일 목록
+                </div>
+                <ul>
+                    <li class="quest-file">
+                        {{ quest.file.name }}
+                    </li>
+                    <li class="quest-file">
+                    </li>
+                    <li class="quest-file">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<script type="text/javascript">    
+    var editor = CodeMirror.fromTextArea(document.getElementById("codeeditor"), {
+        lineNumbers: true,
+        mode: "python",
+        theme: "midnight",
+        value: "{{ quest.code | escapejs }}",
+    }).setValue("{{ quest.code | escapejs }}");
+
+</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{% static 'js/tagsinput.js' %}"></script>
+    <script>
+    $("#post-form").submit(function(e){
+        e.preventDefault();
+        });
+    $("input[name=taglist]").tagsinput({
+    confirmKeys : [32, 13]
+        });
+    $(document).ready(function(){ 
+        var fileTarget = $('.bountyarea-file .upload-hidden'); 
+        fileTarget.on('change', function(){ 
+            if(window.FileReader){ 
+                var filename = $(this)[0].files[0].name; 
+            } else { 
+                var filename = $(this).val().split('/').pop().split('\\').pop();  
+            }
+            $(this).siblings('.upload-name').val(filename); 
+        }); 
+    });
+
+</script>
+<script> //모달
+    function modal(id) {
+        var zIndex = 9999;
+        var modal = document.getElementById(id);
+        var bg = document.createElement('div');
+        bg.setStyle({
+            position: 'fixed',
+            zIndex: zIndex,
+            left: '0px',
+            top: '0px',
+            width: '100%',
+            height: '100%',
+            overflow: 'auto',
+            backgroundColor: 'rgba(0,0,0,0.4)'
+        });
+        document.body.append(bg);
+        modal.querySelector('.modal_close_btn').addEventListener('click', function() {
+            bg.remove();
+            modal.style.display = 'none';
+        });
+        modal.setStyle({
+            position: 'fixed',
+            display: 'flex',
+            boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+            zIndex: zIndex + 1,
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            msTransform: 'translate(-50%, -50%)',
+            webkitTransform: 'translate(-50%, -50%)'
+        });
+    }
+    Element.prototype.setStyle = function(styles) {
+        for (var k in styles) this.style[k] = styles[k];
+        return this;
+    };
+    document.getElementById("submit").addEventListener('click', function() {
+        modal('my_modal');
+    });
+    </script>
+
+{% endblock %}

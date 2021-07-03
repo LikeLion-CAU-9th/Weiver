@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block htmlHead %}
+<link rel="stylesheet" href="{% static 'css/community.css' %}">
+<style>
+    .nav-community a{
+        color: #92009D;
+    }
+    .nav-community {
+        border-bottom: 2px solid #92009D;
+    }
+</style>
+{% endblock %}
+
+{% block mainContent %}
+<div class = "community">
+    <div class = "filter-area">
+        <div class = "introduction">
+            <span>커뮤니티</span> 게시판
+            <img src = "../static/img/community_icon.png" class = "community-icon">
+        </div>
+
+        <ul class="filter-box">
+            <li class="filter-item">
+                <a href="#">최신순</a>
+            </li>
+            <li class="filter-item">
+                <a href="#">추천순</a>
+            </li>
+            <li class="filter-item">
+                <a href="#">조회순</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class = "post-area">
+        <div class = "category">
+            <div class = "category-category">
+                카테고리
+            </div>
+            <div class = "category-upvote">
+                추천
+            </div>
+            <div class = "category-title">
+                제목
+            </div>
+            <div class = "category-author">
+                작성자
+            </div>
+            <div class = "category-date">
+                작성일
+            </div>
+            <div class = "category-view">
+                조회
+            </div>
+        </div>
+
+        {% for community in communities %}
+        <div class = "community-post
+            {% if community.tag == '공지' %} community-post-notice {% endif %}
+            ">
+            <div class = "category-category 
+            {% if community.tag == '코드질문' %} tag-question {% endif %}
+            {% if community.tag == '자유' %} tag-free {% endif %}
+            {% if community.tag == '고민' %} tag-problem {% endif %}
+            {% if community.tag == '공지' %} tag-notice {% endif %}
+            ">
+                {{ community.tag }}
+            </div>
+            <div class = "category-upvote
+                {% if community.votes >= 0 %} vote-positive {% endif %}
+                {% if community.votes < 0 %} vote-negative {% endif %} 
+                {% if community.votes == 0 %} vote-none {% endif %}                               
+                ">
+                {% if community.tag == '공지' %} {% endif %}
+                {% if community.tag != '공지' %}
+                    {{ community.votes }}
+                {% endif %}
+            </div>
+            <div class = "category-title
+                {% if community.tag == '공지' %} title-notice {% endif %}            
+                ">
+                <a href = "{% url 'detail' community.id %}">
+                    {{ community.title }}
+                    <span>[{{ community.comment_count }}]</span>
+                </a>
+            </div>
+            <div class = "category-author">
+                {{ community.author }}
+            </div>
+            <div class = "category-date">
+                {% if community.pub_dateonly == date_now %}
+                    {{ community.pub_date|date:'H:i'}}
+                {% endif %}
+                {% if community.pub_dateonly != date_now %}
+                    {{ community.pub_date|date:'Y.m.d'}}
+                {% endif %}
+            </div>
+            <div class = "category-view">
+                {{ community.views}}
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <div class = "search-area">
+        <div class = "search-box-upside">
+            <div></div>
+            <div class = "search-box">
+                <div class = "search-nav">
+                    제목
+                    <img class = "search-nav-icon" src = "../static/img/next.png">
+                </div>
+                <div class = "search-content">
+                    검색어를 입력하세요.
+                </div>
+                <div class = "search-botton">
+                    검색
+                </div>
+            </div>
+            <a class = "post-botton" href = "{% url 'newpost' %}">
+                    글쓰기
+            </a>
+        </div>
+
+        <div class = "search-box-downside">
+        </div>
+    </div>
+    
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block htmlHead %}
+<link rel="stylesheet" href="{% static 'css/create.css' %}">
+<style>
+    .nav-community a{
+        color: #92009D;
+    }
+    .nav-community {
+        border-bottom: 2px solid #92009D;
+    }
+</style>
+
+
+{% endblock %}
+
+{% block mainContent %}
+<div class = "community">
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <div class = "filter-area">
+            <div class = "introduction">
+                <span>커뮤니티</span> 글쓰기
+                <img src = "{% static 'img/community_icon.png' %}" class = "community-icon">
+            </div>
+            <div class = "post-tag">
+                <select class = "dropdown" name="tag">
+                    <option value = "자유">자유</option>
+                    <option value = "코드질문">코드질문</option>
+                    <option value = "고민">고민</option>
+                    <option value = "공지">공지</option>
+                </select>
+            </div>
+        </div>
+
+    
+        <div class = "create-area">
+            <div class = "post-title">
+                <input type = "text" name="title" placeholder = "제목을 입력하세요">
+                <!-- <input type="text" name="author"> -->
+            </div>
+            <div class = "post-middle">
+                <div class = "justforborder"></div>
+                <div class = "post-icons">
+                    <img src = "{% static 'img/bold.png' %}">
+                    <img src = "{% static 'img/italic-text.png'%}">
+                    <img src = "{% static 'img/underline.png' %}">
+                    <img src = "{% static 'img/landscape.png' %}">
+                </div>
+
+                
+            </div>
+            <div class = "post-body">
+                <textarea name="body" id = "" cols = "30" rows = "10" placeholder = "하고 싶은 이야기를 자유롭게 적어보세요"></textarea>
+            </div>
+        </div>
+        <div class = "submit-area">
+            <a class = "goback" href = "{% url 'community' %}">
+                <img src = "{%static 'img/purple-arrow.png'%}">
+                <div class = "goback-text">나가기</div>
+            </a>
+            <button type = "submit" class = "submit-button">등록</button>
+        </div>
+    </form>
+
+
+
+    
+        
+        
+
+        
+        
+    
+
+
+</div>
+{% endblock %}

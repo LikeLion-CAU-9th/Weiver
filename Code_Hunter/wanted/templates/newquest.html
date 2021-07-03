@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block htmlHead %}
+<script src="{% static 'js/codemirror.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/codemirror.css' %}">
+<script src="{% static 'js/python.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/seti.css' %}">
+<link rel="stylesheet" href="{% static 'css/midnight.css' %}">
+<link rel="stylesheet" href="{% static 'css/tagsinput.css' %}">
+<link rel="stylesheet" href="{% static 'css/board.css' %}">
+<link rel="stylesheet" href="{% static 'css/newquest.css' %}">
+<style>
+    .nav-board a{
+        color: #92009D;
+    }
+</style>
+{% endblock %}
+
+{% block mainContent %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="newquest" enctype="multipart/form-data">
+
+        <div class="questionside">
+            <div class="question">
+                <div class="question-title">
+                    <input name="{{ form.title.name }}" placeholder="제목을 입력하세요." required>
+                </div>
+                {{ form.body }}
+            </div>
+            <div class="tag-date-area">
+                <input type="text" name="{{ form.taglist.name }}" data-role="tagsinput" class="tag-input" placeholder="태그">
+                <input type="date" name="{{ form.duedate.name }}" class="date-input" required>
+            </div>
+            <div class="submit-area">
+                <a href="{% url 'board' %}"><img src="{% static 'img/left.png' %}" style="height: 24px; margin-right: 10px;">나가기</a>
+                <input type="submit" class="submit" value="등록">
+            </div>
+        </div>
+
+        <div class="codeside">
+            <span class="wanted">Wanted</span>
+            <textarea name="{{ form.code.name }}" id="codeeditor" class="code-editor" ></textarea>
+            <span class="wanted"> REWARD </span>
+            <div class="bountyarea">
+                <div class="bountyarea-bounty">
+                    <input name="{{ form.bounty.name }}" type="number" class="bounty-input" placeholder="의뢰 가격" required>
+                    <span>원</span>
+                </div>
+                <div class="bountyarea-file">
+                    <input class="upload-name" value="파일선택" disabled="disabled">
+                    <label for="file-upload">찾아보기</label> 
+                    <input type="file" name="{{ form.file.name }}" id="file-upload" class="upload-hidden">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("codeeditor"), {
+            lineNumbers: true,
+            mode: "python",
+            theme: "midnight",     
+        });
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{% static 'js/tagsinput.js' %}"></script>
+    <script>
+    $("#post-form").submit(function(e){
+        e.preventDefault();
+        });
+    $("input[name=taglist]").tagsinput({
+    confirmKeys : [32, 13]
+        });
+    $(document).ready(function(){ 
+        var fileTarget = $('.bountyarea-file .upload-hidden'); 
+        fileTarget.on('change', function(){ 
+            if(window.FileReader){ 
+                var filename = $(this)[0].files[0].name; 
+            } else { 
+                var filename = $(this).val().split('/').pop().split('\\').pop();  
+            }
+            $(this).siblings('.upload-name').val(filename); 
+        }); 
+    });
+
+        </script>
+
+    
+</form>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,439 @@
+    {% extends 'base.html' %}
+{% load static %}
+
+{% block htmlHead %}
+<link rel="stylesheet" href ="{% static 'css/modal.css' %}">
+<link rel="stylesheet" href ="{% static 'css/matching.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+<style>
+    .nav-board a{
+        color: #92009D;
+    }
+</style>
+{% endblock %}
+
+{% block mainContent %}
+
+<div id="my_modal">
+    답변자가 성공적으로 선택되었습니다!
+    <img src="{% static 'img/check.png' %}" class="modal_close_btn">
+</div>
+
+<div class = "matching-page">
+    <div class = "left-side">
+        <div class = "content-header">
+            <span>내 리뷰</span>에 지원한 헌터들
+            <img src = "{% static 'img/cowboy.png'%}">
+        </div>
+
+        <div class = "main-content">
+            <div class = "box-model my-quest-box">
+                <div class = "color-box-header">
+                    <span>내 질문</span>
+                </div>
+                <div class = "box-maincontent">
+                    <a href = "#" class = "quest-title">
+                        백준 알고리즘 1번 문제 풀어봤는데 리뷰 부탁드립니다.
+                    </a>
+                    <a href = "#" class = "quest-summary">
+                        바이며, 사는가 때까지 구할 넣는 웅대한 없는 못할 산야에 보라. 피가 없는 투명하되 미묘한 것은 구하지 청춘은 위하여 위하여서
+                        <span>...</span>
+                    </a>
+                    <a href = "#" class = "go-to-quest">질문으로 이동</a>
+
+                    <div class = "applicant-count">
+                        에 총 <span>n</span>명의 헌터가 지원했습니다. 
+                    </div>
+                    <div class = "maincontent-footer">
+                        <div class = "deadline">
+                            <div class = "deadline-key">마감</div>
+                            <div class = "deadline-value">D-13</div>
+                        </div>
+                        <div class = "bounty">
+                            <img src = "{% static 'img/money-bag.png'%}">
+                            <div class = "bounty-value">6만 2천원</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class = "box-model applicant-box" id="applicant1">
+                <div class = "applicant-header">
+                    <img src = "{% static 'img/memoji02.jpg'%}" class = "profile-thumbnail">
+                </div>
+                <div class ="applicant-profile">
+                    <div class = "applicant-name">
+                        CAUDEV
+                    </div>
+                    <div class = "go-to-profile">프로필 바로가기</div>
+                </div>
+
+                <div class = "applicant-detail-top">
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            답변 수
+                        </div>
+                        <div class = "applicant-detail-value">
+                            78
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            평균 답변속도
+                        </div>
+                        <div class = "applicant-detail-value">
+                            5D 13H
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            개발경력
+                        </div>
+                        <div class = "applicant-detail-value">
+                            12년
+                        </div>
+                    </div>
+                </div>
+                <div class = "applicant-detail-bottom">
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            스택
+                        </div>
+                        <div class = "applicant-detail-value">
+                            <ul>JavaScript</ul>
+                            <ul>Java</ul>
+                            <ul>Spring</ul>
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            평점
+                        </div>
+                        <div class = "applicant-detail-value">
+                            9.8 / 10
+                        </div>
+                    </div>
+                    <button class = "select-button" onclick="select1()">
+                        선택
+                    </button>
+                </div>
+            </div>
+            <div class = "box-model applicant-box" id="applicant2">
+                <div class = "applicant-header">
+                    <img src = "{% static 'img/memoji02.jpg'%}" class = "profile-thumbnail">
+                </div>
+                <div class ="applicant-profile">
+                    <div class = "applicant-name">
+                        CAUDEV
+                    </div>
+                    <div class = "go-to-profile">프로필 바로가기</div>
+                </div>
+
+                <div class = "applicant-detail-top">
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            답변 수
+                        </div>
+                        <div class = "applicant-detail-value">
+                            78
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            평균 답변속도
+                        </div>
+                        <div class = "applicant-detail-value">
+                            5D 13H
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            개발경력
+                        </div>
+                        <div class = "applicant-detail-value">
+                            12년
+                        </div>
+                    </div>
+                </div>
+                <div class = "applicant-detail-bottom">
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            스택
+                        </div>
+                        <div class = "applicant-detail-value">
+                            <ul>JavaScript</ul>
+                            <ul>Java</ul>
+                            <ul>Spring</ul>
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            평점
+                        </div>
+                        <div class = "applicant-detail-value">
+                            9.8 / 10
+                        </div>
+                    </div>
+                    <button class = "select-button" onclick="select2()">
+                        선택
+                    </button>
+                </div>
+            </div>
+            <div class = "box-model applicant-box" id="applicant3">
+                <div class = "applicant-header">
+                    <img src = "{% static 'img/memoji02.jpg'%}" class = "profile-thumbnail">
+                </div>
+                <div class ="applicant-profile">
+                    <div class = "applicant-name">
+                        CAUDEV
+                    </div>
+                    <div class = "go-to-profile">프로필 바로가기</div>
+                </div>
+
+                <div class = "applicant-detail-top">
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            답변 수
+                        </div>
+                        <div class = "applicant-detail-value">
+                            78
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            평균 답변속도
+                        </div>
+                        <div class = "applicant-detail-value">
+                            5D 13H
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            개발경력
+                        </div>
+                        <div class = "applicant-detail-value">
+                            12년
+                        </div>
+                    </div>
+                </div>
+                <div class = "applicant-detail-bottom">
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            스택
+                        </div>
+                        <div class = "applicant-detail-value">
+                            <ul>JavaScript</ul>
+                            <ul>Java</ul>
+                            <ul>Spring</ul>
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            평점
+                        </div>
+                        <div class = "applicant-detail-value">
+                            9.8 / 10
+                        </div>
+                    </div>
+                    <button class = "select-button" onclick="select3()">
+                        선택
+                    </button>
+                </div>
+            </div>
+            <div class = "box-model applicant-box" id="applicant4">
+                <div class = "applicant-header">
+                    <img src = "{% static 'img/memoji02.jpg'%}" class = "profile-thumbnail">
+                </div>
+                <div class ="applicant-profile">
+                    <div class = "applicant-name">
+                        CAUDEV
+                    </div>
+                    <div class = "go-to-profile">프로필 바로가기</div>
+                </div>
+
+                <div class = "applicant-detail-top">
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            답변 수
+                        </div>
+                        <div class = "applicant-detail-value">
+                            78
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            평균 답변속도
+                        </div>
+                        <div class = "applicant-detail-value">
+                            5D 13H
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            개발경력
+                        </div>
+                        <div class = "applicant-detail-value">
+                            12년
+                        </div>
+                    </div>
+                </div>
+                <div class = "applicant-detail-bottom">
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            스택
+                        </div>
+                        <div class = "applicant-detail-value">
+                            <ul>JavaScript</ul>
+                            <ul>Java</ul>
+                            <ul>Spring</ul>
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            평점
+                        </div>
+                        <div class = "applicant-detail-value">
+                            9.8 / 10
+                        </div>
+                    </div>
+                    <button class = "select-button" onclick="select4()">
+                        선택
+                    </button>
+                </div>
+            </div>
+            <div class = "box-model applicant-box" id="applicant5">
+                <div class = "applicant-header">
+                    <img src = "{% static 'img/memoji02.jpg'%}" class = "profile-thumbnail">
+                </div>
+                <div class ="applicant-profile">
+                    <div class = "applicant-name">
+                        CAUDEV
+                    </div>
+                    <div class = "go-to-profile">프로필 바로가기</div>
+                </div>
+
+                <div class = "applicant-detail-top">
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            답변 수
+                        </div>
+                        <div class = "applicant-detail-value">
+                            78
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            평균 답변속도
+                        </div>
+                        <div class = "applicant-detail-value">
+                            5D 13H
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            개발경력
+                        </div>
+                        <div class = "applicant-detail-value">
+                            12년
+                        </div>
+                    </div>
+                </div>
+                <div class = "applicant-detail-bottom">
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            스택
+                        </div>
+                        <div class = "applicant-detail-value">
+                            <ul>JavaScript</ul>
+                            <ul>Java</ul>
+                            <ul>Spring</ul>
+                        </div>
+                    </div>
+                    <div class = "applicant-details">
+                        <div class = "applicant-detail-key">
+                            평점
+                        </div>
+                        <div class = "applicant-detail-value">
+                            9.8 / 10
+                        </div>
+                    </div>
+                    <button class = "select-button" onclick="select5()" id="button5">
+                        선택
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class = "content-footer">
+            <a href = "{% url 'board'%}" class = "go-back-button">
+                <!-- 수정: board말고 detail + id줘서 -->
+                <img src = "{% static 'img/purple-arrow.png'%}">
+                <span>뒤로가기</span>
+            </a>
+        </div>
+    </div>
+    <button class = "right-side" id="submit">
+        <div class = "submit-text">
+            리뷰요청 제출하기
+        </div>
+        <img src = "{% static 'img/submit.png'%}">
+        <div class = "inform-text">
+            <ul>한 질문 당 1명의 헌터에게 의뢰할 수 있습니다.</ul>
+            <ul>매칭이 완료된 이후에는 취소할 수 없습니다.</ul>
+        </div> 
+    </button>
+</div>
+
+<script>
+    function select5() {
+    document.getElementById('applicant5').style.cssText = 'box-shadow: 0px 0px 5px 5px rgb(220, 100, 200);';
+    document.getElementById('button5').style.cssText = 'background-color:#92009D; color: white; box-shadow: -1px -1px 1px 1px rgb(1,1,1,0); ';
+    document.getElementById('button5').innerText = '선택';
+}
+</script>
+
+<script> //모달
+function modal(id) {
+    var zIndex = 9999;
+    var modal = document.getElementById(id);
+    var bg = document.createElement('div');
+    bg.setStyle({
+        position: 'fixed',
+        zIndex: zIndex,
+        left: '0px',
+        top: '0px',
+        width: '100%',
+        height: '100%',
+        overflow: 'auto',
+        backgroundColor: 'rgba(0,0,0,0.4)'
+    });
+    document.body.append(bg);
+    modal.querySelector('.modal_close_btn').addEventListener('click', function() {
+        bg.remove();
+        modal.style.display = 'none';
+    });
+    modal.setStyle({
+        position: 'fixed',
+        display: 'flex',
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+        zIndex: zIndex + 1,
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        msTransform: 'translate(-50%, -50%)',
+        webkitTransform: 'translate(-50%, -50%)'
+    });
+}
+Element.prototype.setStyle = function(styles) {
+    for (var k in styles) this.style[k] = styles[k];
+    return this;
+};
+document.getElementById("submit").addEventListener('click', function() {
+    modal('my_modal');
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block htmlHead %}
+<link rel="stylesheet" href="{% static 'css/board.css' %}">
+
+
+{% endblock %}
+
+{% block mainContent %}
+<div class="board">
+    <div class="quest-area">
+        <div class="filter-area">
+            <div class="introduction">
+                <span>리뷰</span>를 기다리는 질문들 <img src="{% static 'img/review.png' %}" class="reviewimg">
+            </div>
+            <ul class="filter-box">
+                <li class="filter-item">
+                    <a href="{% url 'board' %}" style="color: #92009D;">최신순</a>
+                </li>
+                <li class="filter-item">
+                    <a href="#">추천순</a>
+                </li>
+                <li class="filter-item">
+                    <a href="#">조회순</a>
+                </li>
+                <li class="filter-item">
+                    <a href="{% url 'sort-bounty' %}">금액순</a>
+                </li>
+                <li class="filter-item">
+                    <a href="#">답변 완료</a>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="quest-list">
+            {% for quest in quests %}
+            <li class="quest-box">
+                <div class="quest-index 
+                {% if quest.bounty < 10000 %} low-price {% endif %}
+                {% if quest.bounty >= 10000 and quest.bounty < 50000 %} middle-price {% endif %}
+                {% if quest.bounty >= 50000 and quest.bounty < 100000 %} high-price {% endif %}
+                {% if quest.bounty >= 100000 %} extreme-high-price {% endif %}
+                {% if quest.status == 'SOLVED' %} solved-quest {% endif %}
+                ">
+                </div>
+                <div class="quest-left">
+                    {% if quest.status == 'SOLVED' %}
+                    <div class="quest-status">
+                        답변완료!
+                    </div>
+                    <img src="{% static 'img/thief.png' %}">
+                    {% endif %}
+                    {% if quest.status == 'UNSOLVED' %}
+                    <div class="quest-status">
+                        마감<br>
+                        <span class="remainingdays-text">D - {{ quest.remainingdays }}</span>
+                        <span class="duedate-text">{{ quest.duedate | date:'Y.m.d' }}</span>
+                    </div>
+                    <img src="{% static 'img/money-bag.png' %}">
+                    {% endif %}
+                    {% if quest.status == 'SOLVING' %}
+                    <div class="quest-status">
+                        답변 작성중
+                    </div>
+                    <img src="{% static 'img/check.png' %}">
+                    {% endif %}
+                    <div class="quest-bounty">
+                        {{ quest.bounty | intcomma }}원
+                    </div>
+                </div>
+                <div class="quest-body">
+                    <div class="quest-date">
+                        {{ quest.date | date:'Y.m.d H:i' }}
+                    </div>
+                    <div class="quest-title">
+                        <a href="{% url 'questdetail' quest.id %}">
+                        {{ quest.title }} [{{ quest.comments.count }}] 
+                    </div>
+                    <p>
+                        {{ quest.body | truncatechars:100 | striptags | cut:"&nbsp;" }}
+                    </p>
+                        </a>                
+                    <div class="quest-tags">
+                        {% for tag in quest.taglist.all %}
+                        <span class="tag">
+                            {{ tag }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="quest-right">
+                    <div class="quest-author">
+                        ID: {{ quest.author }}
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+
+        <div class="explore-area">
+            <div class = "search-box">
+                <div class = "search-nav">
+                    제목
+                </div>
+                <div class = "search-content">
+                    검색어를 입력하세요.
+                </div>
+                <div class = "search-botton">
+                    검색
+                </div>
+            </div>
+            <ul class="pagination">
+                {% if quests.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ quests.previous_page_number }}">이전</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+                </li>
+                {% endif %}
+                {% for page_number in quests.paginator.page_range %}
+                    {% if page_number == quests.number %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+                {% if quests.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ quests.next_page_number }}">다음</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    
+    <div class="tag-area">
+        <a href="{% url 'createquest' %}">
+            <div class="create">
+                코드리뷰 요청하기<br>
+                <img src="{% static 'img/add-file.png' %}"><br>
+                <span>클릭하면 코드리뷰 질문 작성 창으로 넘어갑니다.</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+{% endblock %}
+

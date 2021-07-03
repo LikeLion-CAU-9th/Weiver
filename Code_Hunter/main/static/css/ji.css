@@ -1,0 +1,53 @@
+.box {
+    height : 925px; 
+    width : 87%; 
+    margin : 0px auto; 
+    z-index: 0;
+    position : relative;
+}
+
+
+img.wallpaper2{
+    position : absolute;
+    height: 925px;
+    width : 100%;
+    z-index: -1;
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -o-filter: blur(20px);
+    -ms-filter: blur(20px);
+    filter: blur(20px);
+}
+
+img.wallpaper1 {
+    height: 925px;
+    width : 100%;
+    position: absolute;
+    z-index: 0;
+}
+
+.box .text {
+    position : absolute;
+    left : 5%;
+    bottom : 20%;
+    font-size : 2.8rem;
+    color : rgb(233, 230, 230);
+}
+
+.text p {
+    margin : 15px;
+}
+
+.bigword {
+    position : absolute;
+    bottom : -38%;
+    font-size : 5rem;
+    color : #FFE1AF;
+}
+
+.click span {
+    position : relative;
+    left : 11%;
+    font-size : 2.4rem;
+    text-decoration: none;
+}

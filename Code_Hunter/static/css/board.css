@@ -1,0 +1,261 @@
+.board {
+    display: flex;
+    flex-direction: row;
+    margin: 20px auto 0px auto;
+    font-family: Noto Sans KR;
+    width: 75%;
+}
+
+.filter-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px solid #707070;
+}
+
+.introduction {
+    font-size: 23px;
+    line-height: 54px;
+}
+
+.introduction span {
+    font-weight: bold;
+    color: #92009D;
+}
+
+.reviewimg {
+    height: 25px;
+    vertical-align: middle;
+}
+
+.quest-area {
+    box-sizing: border-box;
+    flex: 1;
+}
+
+.tag-area {
+    width: 256px;
+    padding: 50px 0px 0px 0px;
+    margin-left: 55px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.filter-box {
+    list-style: none;    
+    display: flex;
+    padding: 0
+}
+
+.filter-item {
+    border-right: 1px solid black;
+    padding: 0px 15px;
+    font-size: 15px;
+}
+
+.filter-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.filter-item button, button:active, button:focus, button:hover {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background: none;
+    font-size: 15px;
+    outline: none;
+}
+
+
+
+.filter-item:last-child{
+    border-right: 0px;
+}
+
+.quest-list {
+    list-style: none;
+    color: black;
+    text-decoration: none;
+    padding: 0 0 30px 0;
+    border-bottom: 2px solid #707070;
+    flex-grow: 1;
+}
+
+.quest-box {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 0;
+    margin: 20px 0px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+}
+
+.quest-index {
+    flex: 0 10px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.quest-left {
+    flex: 0 150px;
+    padding-top: 21px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px dashed #707070;
+}    
+
+.quest-status {
+    width: 110px;
+    height: 50px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 27px;
+}    
+
+.quest-status:hover {
+    background-color: #92009D;
+    border-radius: 10px;
+    color: white;
+}
+
+.duedate-text {display: none;}
+
+.quest-status:hover .duedate-text {display: inline}
+.quest-status:hover .remainingdays-text {display: none}
+
+.quest-status span {font-size: 18px;}
+
+.low-price { background-color: rgb(181, 216, 56);}
+.middle-price { background-color: rgb(252, 195, 73);}
+.high-price { background-color: rgb(255, 131, 49);}
+.extreme-high-price { background-color: rgb(255, 50, 50);}
+.solved-quest { background-color: #707070 }
+
+.quest-left img {
+    width: 50px;
+}        
+
+.quest-body {
+    flex: 1;
+    padding: 0px 0px 0px 25px;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}        
+
+.quest-right {
+    flex-basis: 140px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}        
+
+.quest-author {
+    text-align: center;
+    margin-top: 20px;
+    white-space: nowrap;
+}
+
+.quest-date {
+    margin-top: 11px;
+    font-size: 13px;
+    color: #707070;
+}
+
+.quest-title {
+    margin-top: 3px;
+    white-space: nowrap;
+    font-size: 23px;    
+}
+
+.quest-body p {
+    margin: 17px 0px 5px 0px;
+    display: block;
+    height: 67.5px;
+    color: #707070
+}
+
+.quest-bounty {
+    text-align: center;
+    font-size: 23px;
+}
+
+
+.quest-tags {
+    display: flex;
+}
+
+.tag {
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #2793e6ab;
+    border-radius: 30px;
+    vertical-align: middle;
+    padding: 10px auto;
+    margin: 0px 10px 0px 0px;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+}
+
+.quest-box a {
+    color: black;
+    text-decoration: none;
+}
+
+.quest-deadline {
+    width: 120px;
+    height: 45px;
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 5px;
+    font-size: 13px;
+    color: white;
+    background-color: #B11111;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.explore-area {
+    background-color: #F5F5F5;
+    height: 156px;
+    margin: 30px 0 65px 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.create {
+    width: 256px;
+    height: 150px;
+    border: 1px dashed #707070;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px 4px #EEEEEE;
+    font-size: 25px;
+    color: black;
+    text-align: center;
+}
+
+.tag-area a {
+    text-decoration: none;    
+}
+
+
+@media screen and (max-width: 880px) {
+    .board {
+        width: 100%;
+    }
+
+    .tag-area {
+        display: none;
+    }
+    .quest-area {
+        width: 100%;
+    }
+}

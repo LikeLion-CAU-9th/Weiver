@@ -1,0 +1,148 @@
+.community {
+    width: 65%;
+    margin: 37px auto 0px auto;
+    font-family: Noto Sans KR;
+}
+
+.filter-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 3px solid #707070;
+}
+
+.introduction {
+    font-size: 23px;
+    line-height: 54px;
+}
+
+.introduction span {
+    font-weight: bold;
+    color: #92009D;
+}
+
+.community-icon {
+    height: 28px;
+    width: 28px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+
+.dropdown {
+    width: 200px;
+    height: 50px;
+    padding-left: 20px;
+    border: none;
+    background-color: #F5F5F5;
+    font-family: Noto Sans KR;
+    font-size: 20px;
+    /* background: url('../img/dropdownjpg.jpg') no-repeat 95% 50%; */
+    border-radius: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.create-area {
+    display: flex;
+    flex-direction: column;
+    width: 1fr;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+    margin: 20px auto 30px auto;
+    padding-bottom: 20px;
+    box-shadow: 2px 2px 5px #707070;
+}
+
+.post-title input {
+    background-color: #F5F5F5;
+    width: 90%;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    margin: 20px 40px 20px 40px;
+    font-family: Noto Sans KR;
+}
+
+.post-middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+    margin: 0 40px 0 40px; 
+}
+
+.justforborder {
+    width: 140px;
+    border-top: 5px solid #707070 ;
+}
+
+.post-icons {
+    display: flex;
+    flex-direction: row;
+}
+
+.post-icons img {
+    width: 25px;
+    height: 25px;
+    margin-left: 30px;
+}
+
+.post-body {
+    height: 700px;
+}
+
+.post-body textarea {
+    background-color: #F5F5F5;
+    width: 92%;    
+    border: none;
+    resize: none;
+    outline: none;
+    font-size: 20px;
+    height: 90%;
+    margin: 20px 40px 20px 40px;
+    font-family: Noto Sans KR;
+}
+
+.submit-area {
+    width: 1fr;
+    border-top: 3px solid #707070;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin: 0 0 30px 0;
+}
+
+.goback {
+    display: flex;
+    flex-direction: row;    
+    text-decoration: none;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.goback img {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    transform: rotate(135deg);
+}
+
+.goback-text {
+    font-size: 30px;
+}
+
+.submit-button {
+    width: 160px;
+    height: 60px;
+    background-color: #92009D;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 30px;
+    line-height: 60px;
+    box-shadow: 0 0 10px #92009D;
+}

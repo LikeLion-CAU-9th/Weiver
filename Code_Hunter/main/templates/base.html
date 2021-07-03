@@ -7,17 +7,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block htmlHead %}
-    {% endblock  %}
+    <!-- html의 css 부분  -->
+    {% endblock  %} 
     <title>코드헌터</title>
 </head>
 <body>
+    
+    
+    <div class="navbar">
+        <div class="menu">
+            <img src="{% static 'img/menubutton.png' %}">
+        </div>
+        <ul class="nav-box">
+            <li class="nav-item nav-board">
+                <a href="{% url 'board' %}">코드리뷰</a>
+            </li>
+            <li class="nav-item nav-community">
+                <a href="{% url 'community' %}">커뮤니티</a>
+            </li>
+            <li class="nav-item nav-ranking">
+                <a href="{% url 'ranking' %}">랭킹</a>
+            </li>
+        </ul>
+        <div class="logo-box">
+            <a href="{% url 'index' %}">CODE HUNTER</a>
 
-    <div class="header" style="background-color: aqua; height: 80px; text-align: center;">
-        헤더 테스트
+        </div>
+        <div class="user-box">
+            <a href="#">타라큐님</a>
+        </div>
     </div>
     
     {% block mainContent %}
+    <!-- html의 mainContent 부분 -->
     {% endblock %}
 
+    <div class="footer">
+        <div class="footer-title">
+            CODE HUNTER
+        </div>
+        <div class="footer-menu">
+            <li class="footer-menu-left">                
+                <ul class="footer-item">
+                    <a href="#">About</a>
+                </ul>
+                <ul class="footer-item">
+                    <a href="#">Help</a>
+                </ul>
+                <ul class="footer-item">
+                    <a href="#">Advertise</a>
+                </ul>
+                <ul class="footer-item">
+                    <a href="#">Private Policy</a>
+                </ul>
+                <ul class="footer-item">
+                    <a href="#">Service Team</a>
+                </ul>
+            </li>
+            <li class="footer-menu-right">
+                <ul class="footer-item">
+                    <a href="#">Contact Us</a>
+                </ul>
+            </li>
+        </div>
+        <div class="footer-team">
+            LikeLion 9th, CAU<br>
+            Team "너의코드를여기와서맞춰보지않으련"<br>
+            <span>ⓒ2021 CodeHunter</span>
+        </div>
+    </div>
+
+
 </body>
+
+
 </html>
