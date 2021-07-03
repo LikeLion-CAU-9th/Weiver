@@ -101,6 +101,10 @@
                     <div class="review-file-upload">파일 찾기</div>
                 </div>
             </div>
+            <div class="submit-area">
+                <a href="{% url 'questdetail' quest.id %}"><img src="{% static 'img/left.png' %}" style="height: 24px; margin-right: 10px;">나가기</a>
+                <input type="submit" class="submit" value="리뷰 제출">
+            </div>
         </div>
         <div class="tag-area">
             <div class="quest-filebox">

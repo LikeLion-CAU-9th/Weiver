@@ -1,6 +1,11 @@
 body {
     margin: 0;
     width: 100%;
+    font-family: Noto Sans KR;
+}
+
+input {
+    font-family: Noto Sans KR;
 }
 
 .navbar {
