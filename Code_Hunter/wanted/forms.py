@@ -17,7 +17,7 @@ class QuestForm(forms.ModelForm):
         fields = ['title', 'bounty', 'body', 'code', 'duedate', 'taglist', 'file']
         widgets = {
             'body': SummernoteWidget(),
-            'duedate': DateInput(),
+            'duedate': DateInput(attrs={'placeholder':'마감기한'}),
             'file': forms.FileInput()
         }
 
