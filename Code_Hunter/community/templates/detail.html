@@ -35,10 +35,10 @@
                             {{ post_details.title }}
                         </div>
                         <div class = "post-tag
-                        {% if community.tag == '코드질문' %} tag-question {% endif %}
-                        {% if community.tag == '자유' %} tag-free {% endif %}
-                        {% if community.tag == '고민' %} tag-problem {% endif %}
-                        {% if community.tag == '공지' %} tag-notice {% endif %}
+                        {% if post_details.tag == '코드질문' %} tag-question {% endif %}
+                        {% if post_details.tag == '자유' %} tag-free {% endif %}
+                        {% if post_details.tag == '고민' %} tag-problem {% endif %}
+                        {% if post_details.tag == '공지' %} tag-notice {% endif %}
                         ">
                             {{ post_details.tag }}
                         </div>
@@ -86,7 +86,7 @@
                                 댓글수
                             </div>
                             <div class = "post-detail-value">
-                                {{ post_details.comment_count }}
+                                {{ comments.count }}
                             </div>
 
                         </div>
@@ -104,20 +104,22 @@
                 {{ post_details.body | linebreaks }}
             </div>
             <div class = "post-vote">
-                추천비추천
+                <!-- 추천비추천 -->
             </div>
         </div>
         <div class = "comment-area">
             <div class = "comment-area-left">
-                <div class = "comment-head">
-                    <img src = "{% static 'img/chat.png' %}" class = "comment-icon">
-                    <div class = "comment-head-key">
-                        댓글
+                {% if comments.count > 0 %}
+                    <div class = "comment-head">
+                        <img src = "{% static 'img/chat.png' %}" class = "comment-icon">
+                        <div class = "comment-head-key">
+                            댓글
+                        </div>
+                        <div class = "comment-head-value">
+                            {{ comments.count }}
+                        </div>
                     </div>
-                    <div class = "comment-head-value">
-                        3
-                    </div>
-                </div>
+                {% endif %}
                 {% for comment in comments %}
                 <div class = "comment-content">
                     <div class = "comment-content-top">
@@ -153,11 +155,14 @@
                     <div class = "comment-write-area">
                         <div class = "comment-static">댓글쓰기</div>
                         <div class = "comment-write">
-                            
                             <input type = "hidden" name = "post_id" value = "{{post_details.id}}">
-                            <textarea name = "comment-content" id = "" cols = "30" rows = "10" placeholder="댓글을 남겨보세요"></textarea>
+                            {% if comments.count %}
+                                <textarea name = "comment-content" id = "" cols = "30" rows = "10" placeholder="댓글을 남겨보세요"></textarea>
+                            {% endif %}
+                            {% if not comments.count %}
+                            <textarea name = "comment-content" id = "" cols = "30" rows = "10" placeholder="첫 번째로 댓글을 남겨보세요!"></textarea>
+                            {% endif %}
                             <button type = "submit">등록</button>
-                    
                         </div>
                     </div>
                 </form>

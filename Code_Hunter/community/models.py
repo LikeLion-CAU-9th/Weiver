@@ -14,10 +14,8 @@ class Community(models.Model):
     body = models.TextField()
     votes = models.IntegerField(default= 0)
     views = models.IntegerField(default = 0)
-    comment_count = models.IntegerField(default = 0)
     notice_or_not = models.BooleanField(default = False)
     tag = models.CharField(max_length=16, default="공지")
-
 
     def __str__(self):
         return self.title

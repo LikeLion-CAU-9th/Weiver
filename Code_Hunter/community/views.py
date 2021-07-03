@@ -20,6 +20,7 @@ def create(request):
     new_post.tag = request.POST['tag']
     if new_post.tag == '공지':
         new_post.notice_or_not = True
+        new_post.author = "관리자"
     if datetime.datetime.now().date() == new_post.pub_date.date():
         new_post.today_or_not = True
     new_post.save()

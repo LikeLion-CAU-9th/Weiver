@@ -75,7 +75,7 @@
                     </div>
                     <div class="quest-stat">
                         댓글수<br>
-                        0
+                        {{ comments.count }}
                     </div>
                 </div>
             </div>
@@ -90,12 +90,14 @@
             {% if comments %}
             <div class="comment-head">
                 <span>댓글</span>
+                <span style = "color: #92009D; font-weight: bold;">{{ comments.count }}</span>
             </div>
             {% endif %}
             {% for comment in comments %}
             <div class="comment">
                 <div class="comment-left">
                     <div class="comment-author">
+                        <div class = "user-thumb"></div>
                         {{ comment.author }}
                     </div>
                     <div class="comment-body">
