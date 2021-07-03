@@ -260,6 +260,12 @@
     height: 400px;
     background-color: #D5D5D5;  
     margin-right: 100px;  
+    overflow: hidden;
+}
+
+.img-wanted img {
+    width: 650px;
+    margin-top: -10%;
 }
 
 .wanted-main {
@@ -368,8 +374,16 @@
 .img-bounty {
     width: 600px;
     height: 390px;
-    background-color: gray;
+    overflow: hidden;
 }
+
+.img-bounty img {
+    width: 800px;
+    height: 500px;
+    margin-left: -10%;
+    
+}
+
 
 .dev-talk {
     display: flex;
@@ -381,7 +395,12 @@
 .img-talk {
     width: 450px;
     height:600px;
-    background-color: gray;
+    overflow: hidden;
+}
+
+.img-talk img {
+    width: 600px;
+    margin-left: -15%;
 }
 
 .dt-border {
@@ -469,7 +488,7 @@
 }
 
 .team-photos {
-    margin: 80px 150px 100px 150px;
+    margin: 100px 150px 100px 150px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -477,8 +496,20 @@
 
 .team-photo {
     width: 250px;
-    height: 300px;
+    height: 350px;
     background-color: gray;
+}
+
+.aaa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aaa span {
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .meet-our-team > .shortcuts-social {
