@@ -116,11 +116,19 @@
     width: 100px;
     height: 45px;
     border-radius: 15px;
-    background-color: #92009D;
+    /* background-color: #92009D; */
     font-size:  18px;
     color: #F9F9F9;
     text-align: center;
     line-height: 45px;
+}
+
+.post-head-top > .post-edit-delete{
+    background-color: rgb(64, 64, 255);
+}
+
+.post-head-bottom >.post-edit-delete{
+    background-color: rgb(255, 65, 65);
 }
 
 .post-head-bottom {
@@ -262,8 +270,9 @@
     width: 35px;
     height: 35px;
     border-radius: 70%;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-right: 7px;    
+    background-color: gray;
 }
 
 .comment-author-name {

@@ -29,3 +29,7 @@ class CommunityComment(models.Model):
     content = models.TextField()
     pub_datetime = models.DateTimeField(auto_now_add=True)
     origin_post = models.ForeignKey(Community, on_delete=CASCADE, related_name= "comments")
+    def __str__(self):
+        return self.content[:20]
+
+    

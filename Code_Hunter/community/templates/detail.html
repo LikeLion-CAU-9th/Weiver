@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class = "post-edit-delete">
-                    수정
+                    추천
                 </div>
             </div>
             <div class = "post-head-bottom">
@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <div class = "post-edit-delete">
-                    삭제
+                    비추천
                 </div>
 
             </div>
@@ -124,7 +124,7 @@
                 <div class = "comment-content">
                     <div class = "comment-content-top">
                         <div class = "comment-author">
-                            <img class = "comment-author-thumbnail" src = "{% static 'img/memoji01.jpg' %}">
+                            <div class = "comment-author-thumbnail"></div>
                             <div class = "comment-author-name">
                                 {{ comment.author }}
                             </div>
@@ -140,7 +140,7 @@
                     </div>
                     <div class = "comment-content-bottom">
                         <div class = "comment-content-content">
-                            {{ comment.content }} 
+                            {{ comment.content |linebreaks }} 
                         </div>
                         <div class = "comment-edit-area">
                             <a href = "#">댓글</a>
