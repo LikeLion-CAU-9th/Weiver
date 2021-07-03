@@ -11,7 +11,7 @@
 }
 
 .code-box {
-    margin-top: 36px;
+    margin: 36px auto;
     border-bottom: 1.5px solid #C7C4C4;
     width: calc(100% - 40px);
     box-sizing: border-box;
@@ -23,6 +23,8 @@
 
 .review {
     padding: 50px 0;
+    border-top: 1.5px solid #C7C4C4;
+    border-bottom: 3px solid #707070;
 }
 
 .review-title {

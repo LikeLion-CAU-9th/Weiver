@@ -18,10 +18,10 @@
 .wallpaper {
     position: absolute;
     width: 100%;
-    height: 750px;
+    height: 100%;
     background: url(../img/wallpaper.png) no-repeat 0 0;
-    background-size: 100% 100%;
-    
+    background-size: cover;
+    background-position: center;
 }
 
 .mainwall {
