@@ -21,7 +21,7 @@ class Quest(models.Model):
         ('SOLVING', 'SOLVING'),
         ('SOLVED', 'SOLVED'),
     ]
-    author = models.CharField(max_length=8, verbose_name='닉네임', default='익명')
+    author = models.CharField(max_length=8, verbose_name='닉네임', default='코딩뉴비')
     title = models.CharField(max_length=50, verbose_name='제목')
     date = models.DateTimeField(auto_now_add=True)
     show = models.CharField(max_length = 10, choices=SHOW_TYPES, default='PUBLIC', help_text="비공개 여부")
