@@ -19,12 +19,12 @@
 }
 
 .question-title {
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .question-title input {
     width: 90%;
-    font-size: 40px;
+    font-size: 35px;
     background-color: rgba(0, 0, 0, 0);
     border: 0px;
     outline: 0px;
@@ -86,19 +86,37 @@
     font-size: 16px;
 }
 
-.date-input {
-    height: 70px;
+#duedate {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    font-size: 23px;
+    left: 20px;
+    top: -52px;
+    padding: 0px 20px;
+    background-color: #F5F5F5;
+    color: #707070;
+}
+
+.date-box {
     flex: 1 100px;
     border-radius: 10px;
     background-color: #F5F5F5;
+    height: 70px;
+}
+
+.date-input {
+    height: 70px;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 10px;
     border: none;
     outline: none;
     font-family: Noto Sans KR;
-    font-size: 25px;
+    font-size: 23px;
     box-sizing: border-box;
     box-shadow: 2px 2px 5px 2px #cfcfcf;
-    padding: 0 20px;
-    
+    padding: 0 20px;    
 }
 
 .submit-area {
@@ -206,6 +224,7 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
+    font-size: 18px;
 }
 
 #id_file {

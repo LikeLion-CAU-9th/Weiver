@@ -87,10 +87,12 @@
             </div>
         </div>
         <div class="comment-area">
+            {% if comments %}
             <div class="comment-head">
                 <span>댓글</span>
                 <span style = "color: #92009D; font-weight: bold;">{{ comments.count }}</span>
             </div>
+            {% endif %}
             {% for comment in comments %}
             <div class="comment">
                 <div class="comment-left">

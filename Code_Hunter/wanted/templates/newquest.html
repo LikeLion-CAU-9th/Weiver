@@ -33,7 +33,10 @@
             </div>
             <div class="tag-date-area">
                 <input type="text" name="{{ form.taglist.name }}" data-role="tagsinput" class="tag-input" placeholder="태그">
-                <input type="date" name="{{ form.duedate.name }}" class="date-input" required>
+                <div class="date-box">
+                    <input type="date" name="{{ form.duedate.name }}" class="date-input" id="dateinput" required>
+                    <span id="duedate">마감기한</span>
+                </div>
             </div>
             <div class="submit-area">
                 <a href="{% url 'board' %}"><img src="{% static 'img/left.png' %}" style="height: 24px; margin-right: 10px;">나가기</a>
@@ -93,6 +96,19 @@
     });
 
         </script>
+<script>
+var date = document.getElementById("dateinput");
+var placeholder = document.getElementById("duedate");
+date.addEventListener('input', updateValue);
+function updateValue(e) {
+    if (date && date.value) {
+        placeholder.style.display ='none';
+    }
+    else {
+        placeholder.style.display ='inline-block';
+    }
+}
+</script>
 
     
 </form>
