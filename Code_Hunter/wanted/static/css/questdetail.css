@@ -11,6 +11,15 @@
     flex-direction: column;
 }
 
+.user-thumb{
+    width: 30px;
+    height: 30px;
+    border-radius: 70%;
+    background-color: gray;
+    margin:5px 15px 0 0;
+    overflow: hidden;
+}
+
 .quest-top {
     border-radius: 10px 10px 0px 0px;
     height: 60px;
