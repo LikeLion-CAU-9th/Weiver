@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.' %}">
     {% block htmlHead %}
     <!-- html의 css 부분  -->
     {% endblock  %} 
@@ -34,7 +35,9 @@
 
         </div>
         <div class="user-box">
-            <a href="#">타라큐님</a>
+            <!-- 수정: 나중에 img tag로 수정 -->
+            <div class = "user-thumb"><img src="{% static 'img/sproutimg.png' %}"></div>
+            <a href="#">코딩뉴비님</a>
         </div>
     </div>
     

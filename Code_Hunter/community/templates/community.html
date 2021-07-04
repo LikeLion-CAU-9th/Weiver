@@ -83,7 +83,7 @@
                 ">
                 <a href = "{% url 'detail' community.id %}">
                     {{ community.title }}
-                    <span>[{{ community.comment_count }}]</span>
+                    <span>[{{ community.comments.count }}]</span>
                 </a>
             </div>
             <div class = "category-author">

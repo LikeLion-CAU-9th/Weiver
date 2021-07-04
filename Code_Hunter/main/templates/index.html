@@ -25,7 +25,7 @@
 <div class = "landing-page">
     <div class = "shortcuts-social">
         <div class = "shortcuts">
-            <a href = "{% url 'createquest' %}" class = "go-to">질문하러가기
+            <a href = "{% url 'board' %}" class = "go-to">질문하러가기
                 <div class = "go-to-background"></div>
             </a>
             <a href = "{% url 'board' %}" class = "go-to">답변하러가기
@@ -72,7 +72,9 @@
             <span>코드헌터는 이런 서비스를 제공해요</span>
         </div>
         <div class = "wanted">
-            <div class = "img-wanted"></div>
+            <div class = "img-wanted">
+                <img src = "{% static 'img/helpme.jpg' %}">
+            </div>
             <div class = "wanted-main">
                 <div class = "wanted-header">
                     <p>WANTED!</p>
@@ -107,12 +109,14 @@
                 <a href = "{% url 'board' %}" class = "go-to-bounty">질문글 보러가기</a>
             </div>
             <div class = "img-bounty">
-
+                <img src = "{% static 'img/reviewer.jpg' %}">
             </div>
         </div>
         <div class = "blank-experience"></div>
         <div class = "dev-talk">
-            <div class = "img-talk"></div>
+            <div class = "img-talk">
+                <img src = "{% static 'img/saloonjpg.jpg' %}">
+            </div>
             <div class = "dt-border"></div>
             <div class = "dt-main">
                 <div class = "dt-header">
@@ -139,14 +143,43 @@
         </div>
         
         <div class = "team-photos">
-            <div class = "team-photo"></div>
-            <div class = "team-photo"></div>
-            <div class = "team-photo"></div>
-            <div class = "team-photo"></div>
-            <div class = "team-photo"></div>
+            <div class = "aaa">
+                <img src = "{% static 'img/leo.jpg' %}" class = "team-photo"></img >
+                <span>방석진</span>
+            </div>
+            <div class = "aaa">
+                <img src = "{% static 'img/jiwon.jpg' %}" class = "team-photo"></img>
+                <span>정지원</span>
+            </div>
+            <div class = "aaa">
+                <img src = "{% static 'img/junho.jpg' %}" class = "team-photo"></img>
+                <span>송준호</span>
+            </div>
+            <div class = "aaa">
+                <img src = "{% static 'img/yuna.jpg' %}" class = "team-photo"></img>
+                <span>최윤아</span>
+            </div>
+            <div class = "aaa">
+                <img src = "{% static 'img/jiyoung.jpg' %}" class = "team-photo"></img>
+                <span>오지영</span>
+            </div>    
         </div>
 
-
+        <div class = "shortcuts-social">
+            <div class = "shortcuts">
+                <a href = "{% url 'board' %}" class = "go-to">질문하러가기
+                    <div class = "go-to-background"></div>
+                </a>
+                <a href = "{% url 'board' %}" class = "go-to">답변하러가기
+                    <div class = "go-to-background"></div>
+                </a>
+                <a href = "{% url 'community' %}" class = "go-to">커뮤니티
+                    <div class = "go-to-background"></div>
+                </a>
+            </div>
+        </div>
+        
     </div>
+    
 </div>
 {% endblock %}

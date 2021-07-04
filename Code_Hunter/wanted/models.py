@@ -2,7 +2,6 @@ from django.db import models
 from django.conf import settings
 from django.db.models.deletion import CASCADE
 from django.utils import timezone
-from multiselectfield import MultiSelectField
 from taggit.managers import TaggableManager
 import datetime
 
@@ -22,17 +21,16 @@ class Quest(models.Model):
         ('SOLVING', 'SOLVING'),
         ('SOLVED', 'SOLVED'),
     ]
-    author = models.CharField(max_length=8, verbose_name='닉네임', default='익명')
+    author = models.CharField(max_length=8, verbose_name='닉네임', default='코딩뉴비')
     title = models.CharField(max_length=50, verbose_name='제목')
     date = models.DateTimeField(auto_now_add=True)
     show = models.CharField(max_length = 10, choices=SHOW_TYPES, default='PUBLIC', help_text="비공개 여부")
-    tags = MultiSelectField(choices=TAGS, default=[])
     taglist = TaggableManager(blank=True)
     bounty = models.IntegerField(verbose_name='현상금', default=0)
     duedate = models.DateField(verbose_name='마감기한', default=datetime.date.today)
     file = models.FileField(null=True, verbose_name='첨부파일', blank=True)
     body = models.TextField(verbose_name='내용')
-    code = models.TextField(default='')
+    code = models.TextField(default='', blank=True)
     status = models.CharField(max_length=10, choices=STATUS, default='UNSOLVED')
     remainingdays = models.IntegerField(default=0)
 
