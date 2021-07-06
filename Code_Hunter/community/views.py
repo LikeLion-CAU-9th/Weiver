@@ -64,3 +64,8 @@ def updatePost(request, id):
         update_post.today_or_not = True
     update_post.save()
     return redirect('detail', update_post.id)
+
+def deletePost(request, id):
+    delete_post = Community.objects.get(id = id)
+    delete_post.delete()
+    return redirect('community')

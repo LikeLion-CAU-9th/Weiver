@@ -25,10 +25,26 @@
             </div>
             <div class = "post-tag">
                 <select class = "dropdown" name="tag">
-                    <option value = "자유">자유</option>
-                    <option value = "코드질문">코드질문</option>
-                    <option value = "고민">고민</option>
-                    <option value = "공지">공지</option>
+                    {% if post.tag == "자유" %}
+                        <option value = "자유" selected>자유</option>
+                    {% else %}
+                        <option value = "자유">자유</option>
+                    {% endif %}
+                    {% if post.tag == "코드질문" %}
+                        <option value = "코드질문" selected>코드질문</option>
+                    {% else %}
+                        <option value = "코드질문">코드질문</option>
+                    {% endif%}
+                    {% if post.tag == "고민" %}
+                        <option value = "고민"selected>고민</option>
+                    {% else %}
+                        <option value = "고민">고민</option>
+                    {% endif %}
+                    {% if post.tag == "공지"%}
+                        <option value = "공지" selected>공지</option>
+                    {% else %}
+                        <option value = "공지">공지</option>
+                    {% endif %}
                 </select>
             </div>
         </div>
