@@ -45,3 +45,22 @@ def new_comment(request):
             content = content
         )
         return redirect(reverse('detail', kwargs = {"post_id":comment.origin_post_id}) )
+
+def editPost(request, id):
+    edit_post = Community.objects.get(id = id)
+    return render(request, 'editPost.html', {'post': edit_post})
+
+def updatePost(request, id):
+    update_post = Community.objects.get(id = id)
+    update_post.title = request.POST['title']
+    update_post.author = "익명"
+    update_post.body = request.POST['body']
+    update_post.tag = request.POST['tag']
+    update_post.pub_date = timezone.now()
+    if update_post.tag == '공지':
+        update_post.notice_or_not = True
+        update_post.author = "관리자"
+    if datetime.datetime.now().date() == update_post.pub_date.date():
+        update_post.today_or_not = True
+    update_post.save()
+    return redirect('detail', update_post.id)
