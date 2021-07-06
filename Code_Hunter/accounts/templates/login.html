@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block htmlHead %}
+{% endblock %}
+
+{% block mainContent %}
+<form action = "{% url 'login' %}" method = "post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type = "submit">submit</button>
+</form>
+
+
+
+<a href = "{% url 'logout' %}">로그아웃</a>
+
+{% endblock %}

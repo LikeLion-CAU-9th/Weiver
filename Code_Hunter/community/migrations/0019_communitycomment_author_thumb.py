@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='communitycomment',
             name='author_thumb',
-            field=models.ImageField(default=None, upload_to=''),
+            field=models.ImageField(default=None, upload_to='', null = True, blank = True),
         ),
     ]

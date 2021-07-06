@@ -37,7 +37,12 @@
         <div class="user-box">
             <!-- 수정: 나중에 img tag로 수정 -->
             <div class = "user-thumb"><img src="{% static 'img/sproutimg.png' %}"></div>
-            <a href="#">코딩뉴비님</a>
+            {% if user.is_authenticated %}
+                <a href = "{% url 'logout' %}">{{ user.username }}</a>
+            
+            {% else %}
+                <a href="{% url 'login' %}">로그인 / 회원가입</a>
+            {% endif %}
         </div>
     </div>
     
