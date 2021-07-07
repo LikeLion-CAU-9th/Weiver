@@ -1,0 +1,18 @@
+/* .background {
+    width: 100%;
+    height: 1080px;
+    position: relative;
+} */
+.navbar {
+    position: absolute;
+    z-index: 3;
+    left: 12.5%;
+}
+
+
+.background-wall {
+    z-index: -5;
+    background: url(../img/background_account.jpg) no-repeat 0 0;
+    width: max-content;
+    height: max-content;
+}
