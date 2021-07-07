@@ -1,12 +1,12 @@
-{% extends 'base.html' %}
+{% extends 'account_base.html' %}
 {% load static %}
 
 
-{% block htmlHead %}
+{% block headAccount %}
 <link rel = "stylesheet" href = "{% static 'css/login.css' %}">
 {% endblock %}
 
-{% block mainContent %}
+{% block mainAccount %}
 <form action = "{% url 'login' %}" method = "post">
     {% csrf_token %}
     {{form.as_p}}
