@@ -1,14 +1,18 @@
+from django.core import paginator
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Community, CommunityComment
 from django.utils import timezone
 from django.urls import reverse
+from django.core.paginator import Paginator
 from .forms import CommunityCommentForm
+from .models import Community, CommunityComment
 import datetime
 
 def community(request):
     communities = Community.objects.all().order_by('-notice_or_not', '-pub_date')
+    paginator = Paginator(communities, 5)
+    page = request.GET.get('page')
+    communities = paginator.get_page(page)
     date_now = datetime.datetime.now().date()
-    # date_communities = Community.objects.values('pub_dateonly').order_by('-notice_or_not', '-pub_date')
     return render(request,'community.html', {'communities': communities, 'date_now':date_now})
 
 def create(request):
