@@ -8,18 +8,32 @@
 
 {% block mainAccount %}
 <div class = "blank-block"></div>
-<div class = "login-box">
+<form action = "{% url 'login' %}" method = "POST" class = "login-box">
+    {% csrf_token %}
     <div class = "login-text">로그인</div>
     <img src = "{% static 'img/account.png' %}" class = "login-img">
-    <div class = "email-box"></div>
-    <div class = "pwd-box">
-        <input type = "text" placeholder="이메일">
+    <div class = "input-box">
+        <input type = "text" name = "username" placeholder="이메일">
         <img src = "{% static 'img/mail.png' %}">
     </div>
-    <div class = "option-space"></div>
-    <div class = "login-button"></div>
-    <div class = "signin-space"></div>
-</div>
+    <div class = "input-box">
+        <input type = "password" name = "password" placeholder="비밀번호">
+        <img src = "{% static 'img/password.png' %}">
+    </div>
+    <div class = "option-space">
+        <div class = "remember-login">
+            <input type = "checkbox" id = "cb1" class = "remember-check">
+            <span>자동 로그인</span>
+        </div>
+        <a href = "#">아이디 / 비밀번호 찾기</a>
+    </div>
+    <button type = "submit" class = "login-button">Log-in</button>   
+    <div class = "signup-space">
+        <span>아직 회원이 아니신가요?</span>
+        <a href = "{% url 'signup' %}">회원가입</a>
+    </div>
+</form>
+
 
 
 
