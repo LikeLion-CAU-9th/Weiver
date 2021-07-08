@@ -7,6 +7,22 @@
 {% endblock %}
 
 {% block mainAccount %}
+<div class = "blank-block"></div>
+<div class = "login-box">
+    <div class = "login-text">로그인</div>
+    <img src = "{% static 'img/account.png' %}" class = "login-img">
+    <div class = "email-box"></div>
+    <div class = "pwd-box">
+        <input type = "text" placeholder="이메일">
+        <img src = "{% static 'img/mail.png' %}">
+    </div>
+    <div class = "option-space"></div>
+    <div class = "login-button"></div>
+    <div class = "signin-space"></div>
+</div>
+
+
+
 <form action = "{% url 'login' %}" method = "post">
     {% csrf_token %}
     {{form.as_p}}
