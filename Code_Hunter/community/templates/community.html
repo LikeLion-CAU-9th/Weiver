@@ -124,8 +124,21 @@
                     글쓰기
             </a>
         </div>
-
         <div class = "search-box-downside">
+            <div class = "pagination">
+                
+            </div>
+            {% if start_page > 10 %}
+            <a href = "?page={{start_page|add:-1}}">이전</a>
+            {% endif %}
+
+            {%for pages in p_range %}
+            <a href="?page={{pages}}">{{pages}}</a>  
+            {% endfor %}
+
+            {% if communities.paginator.num_pages > end_page %}
+            <a href = "?page={{end_page|add:1}}">다음</a>
+            {% endif %}
         </div>
     </div>
 
@@ -141,6 +154,12 @@
     <a href = "?page={{ communities.paginator.num_pages }}">마지막</a>
     {% endif %}
 
+    <span> current page </span>
+    {{ a }}
+    <span>pagination range</span>
+    {% for i in p_range %}
+        {{i}}
+    {% endfor %}
 
 
 </div>
