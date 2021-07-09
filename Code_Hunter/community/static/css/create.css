@@ -144,5 +144,9 @@
     color: white;
     font-size: 30px;
     line-height: 60px;
+}
+
+.submit-button:hover {
     box-shadow: 0 0 10px #92009D;
+    font-weight: bold;
 }

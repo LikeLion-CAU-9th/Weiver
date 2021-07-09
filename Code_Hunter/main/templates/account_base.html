@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block htmlHead %}
+<link rel="stylesheet" href = "{% static 'css/account_base.css' %}">
+{% block headAccount %}
+{% endblock %}
+{% endblock %}
+
+{% block mainContent%}
+<div class = "background-wall">
+    {% block mainAccount %}
+    {% endblock%}
+</div>
+<div class = "footer-background"></div>
+{% endblock %}
+
+

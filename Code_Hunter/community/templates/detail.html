@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class = "post-edit-delete">
-                    추천
+                    <a href = "{% url 'edit_post' post_details.id %}">수정</a>
                 </div>
             </div>
             <div class = "post-head-bottom">
@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <div class = "post-edit-delete">
-                    비추천
+                    <a href = "{% url 'delete_post' post_details.id %}">삭제</a>
                 </div>
 
             </div>

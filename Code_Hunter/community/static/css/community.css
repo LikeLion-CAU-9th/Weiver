@@ -217,7 +217,7 @@
 }
 
 
-.search-botton {
+.search-button {
     width: 87px;
     height: 45px;
     border-radius: 10px;
@@ -229,7 +229,7 @@
     text-align: center;
 }
 
-.post-botton {
+.post-button {
     width: 120px;
     height: 50px;
     border-radius: 15px;
@@ -241,3 +241,75 @@
     line-height: 50px;
     text-decoration: none;
 }
+
+.display-false {
+    background: none;
+}
+
+.search-box-downside {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 50px 0 50px;
+}
+
+.go-to-page{
+    font-size: 18px;
+    width: 3rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+
+}
+
+.go-to-page:hover {
+    background-color: #e9ecef;
+    color: #92009D;
+}
+
+.go-to-page a:hover {
+    color: #92009D;
+}
+
+.deactive {
+    z-index: -99;
+}
+
+.forloop-pages {
+    width: 40px;
+    height: 40px;
+    font-weight: 18px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    margin: 0 5px 0 5px;
+}
+
+.forloop-pages:hover {
+    background-color: #e9ecef;
+    color: #92009D;
+}
+
+.current-page {
+    background-color: #92009D;
+    color: white;    
+}
+
+.current-page:hover{
+    background-color: #92009D;
+    color: white;    
+}
+

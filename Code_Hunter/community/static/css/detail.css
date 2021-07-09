@@ -116,19 +116,20 @@
     width: 100px;
     height: 45px;
     border-radius: 15px;
-    /* background-color: #92009D; */
+    background-color: #92009D;
     font-size:  18px;
-    color: #F9F9F9;
+    /* color: #F9F9F9; */
     text-align: center;
     line-height: 45px;
 }
 
-.post-head-top > .post-edit-delete{
-    background-color: rgb(64, 64, 255);
+.post-edit-delete a {
+    text-decoration: none;
+    color: white;
 }
 
-.post-head-bottom >.post-edit-delete{
-    background-color: rgb(255, 65, 65);
+.post-edit-delete:hover {
+    box-shadow: 0 0 7px  #92009D;
 }
 
 .post-head-bottom {

@@ -11,25 +11,40 @@
         border-bottom: 2px solid #92009D;
     }
 </style>
-
-
 {% endblock %}
+
 
 {% block mainContent %}
 <div class = "community">
-    <form action="{% url 'create' %}" method="post">
+    <form action="{% url 'update_post' post.id %}" method="post">
         {% csrf_token %}
         <div class = "filter-area">
             <div class = "introduction">
-                <span>커뮤니티</span> 글쓰기
+                <span>커뮤니티</span> 수정하기
                 <img src = "{% static 'img/community_icon.png' %}" class = "community-icon">
             </div>
             <div class = "post-tag">
                 <select class = "dropdown" name="tag">
-                    <option value = "자유">자유</option>
-                    <option value = "코드질문">코드질문</option>
-                    <option value = "고민">고민</option>
-                    <option value = "공지">공지</option>
+                    {% if post.tag == "자유" %}
+                        <option value = "자유" selected>자유</option>
+                    {% else %}
+                        <option value = "자유">자유</option>
+                    {% endif %}
+                    {% if post.tag == "코드질문" %}
+                        <option value = "코드질문" selected>코드질문</option>
+                    {% else %}
+                        <option value = "코드질문">코드질문</option>
+                    {% endif%}
+                    {% if post.tag == "고민" %}
+                        <option value = "고민"selected>고민</option>
+                    {% else %}
+                        <option value = "고민">고민</option>
+                    {% endif %}
+                    {% if post.tag == "공지"%}
+                        <option value = "공지" selected>공지</option>
+                    {% else %}
+                        <option value = "공지">공지</option>
+                    {% endif %}
                 </select>
             </div>
         </div>
@@ -37,7 +52,7 @@
     
         <div class = "create-area">
             <div class = "post-title">
-                <input type = "text" name="title" placeholder = "제목을 입력하세요">
+                <input type = "text" name="title" value= "{{ post.title }}">
                 <!-- <input type="text" name="author"> -->
             </div>
             <div class = "post-middle">
@@ -52,7 +67,7 @@
                 
             </div>
             <div class = "post-body">
-                <textarea name="body" id = "" cols = "30" rows = "10" placeholder = "하고 싶은 이야기를 자유롭게 적어보세요"></textarea>
+                <textarea name="body" id = "" cols = "30" rows = "10">{{ post.body }}</textarea>
             </div>
         </div>
         <div class = "submit-area">
@@ -60,8 +75,8 @@
                 <img src = "{%static 'img/purple-arrow.png'%}">
                 <div class = "goback-text">나가기</div>
             </a>
-            <button type = "submit" class = "submit-button">등록</button>
+            <button type = "submit" class = "submit-button">수정</button>
         </div>
     </form>
-</div>
+</div> 
 {% endblock %}

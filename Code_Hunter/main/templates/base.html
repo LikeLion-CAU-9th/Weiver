@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="shortcut icon" href="{% static 'img/favicon.' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
     {% block htmlHead %}
     <!-- html의 css 부분  -->
     {% endblock  %} 
@@ -37,7 +37,13 @@
         <div class="user-box">
             <!-- 수정: 나중에 img tag로 수정 -->
             <div class = "user-thumb"><img src="{% static 'img/sproutimg.png' %}"></div>
-            <a href="#">코딩뉴비님</a>
+            {% if user.is_authenticated %}
+                <a href = "{% url 'logout' %}">{{ user.username }}</a>
+            
+            {% else %}
+                <a href="{% url 'login' %}">로그인</a>
+                <a href= "{% url 'signup' %}">회원가입</a>
+            {% endif %}
         </div>
     </div>
     
