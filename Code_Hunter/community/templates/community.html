@@ -107,7 +107,7 @@
 
     <div class = "search-area">
         <div class = "search-box-upside">
-            <div></div>
+            <div class = "post-button display-false"></div>
             <div class = "search-box">
                 <div class = "search-nav">
                     제목
@@ -116,28 +116,32 @@
                 <div class = "search-content">
                     검색어를 입력하세요.
                 </div>
-                <div class = "search-botton">
+                <div class = "search-button">
                     검색
                 </div>
             </div>
-            <a class = "post-botton" href = "{% url 'newpost' %}">
+            <a class = "post-button" href = "{% url 'newpost' %}">
                     글쓰기
             </a>
         </div>
         <div class = "search-box-downside">
-            <div class = "pagination">
-                
-            </div>
             {% if start_page > 10 %}
-            <a href = "?page={{start_page|add:-1}}">이전</a>
+            <a href = "?page={{start_page|add:-1}}" class = "go-to-page">이전</a>
+            {% else %}
+            <a href = "?page={{start_page|add:-1}}" class = "go-to-page deactive"></a>
             {% endif %}
-
-            {%for pages in p_range %}
-            <a href="?page={{pages}}">{{pages}}</a>  
-            {% endfor %}
-
+            
+            <div class = "pagination">
+                {%for pages in p_range %}
+                <a href="?page={{pages}}" class = "forloop-pages
+                {%if pages == communities.number %} current-page {%endif%}">{{pages}}</a>  
+                {% endfor %}
+            </div>
+            
             {% if communities.paginator.num_pages > end_page %}
-            <a href = "?page={{end_page|add:1}}">다음</a>
+            <a href = "?page={{end_page|add:1}}" class="go-to-page">다음</a>
+            {% else%}
+            <a href = "?page={{end_page|add:1}}" class="go-to-page deactive"></a>
             {% endif %}
         </div>
     </div>
@@ -161,6 +165,8 @@
         {{i}}
     {% endfor %}
 
+    {{current_page}}
+    {{communities.number}}
 
 </div>
 {% endblock %}
