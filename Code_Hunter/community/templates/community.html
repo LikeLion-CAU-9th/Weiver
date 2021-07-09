@@ -145,28 +145,5 @@
             {% endif %}
         </div>
     </div>
-
-    {% if communities.has_previous %}
-    <a href = "?page=1">처음페이지</a>
-    <a href="?page={{communities.previous_page_number}}">이전</a> 
-    {% endif %}
-    <span>{{ communities.number }}</span>
-    <span>of</span>
-    <span>{{ communities.paginator.num_pages }}</span>
-    {% if communities.has_next %}
-    <a href = "?page={{ communities.next_page_number }}">다음</a>
-    <a href = "?page={{ communities.paginator.num_pages }}">마지막</a>
-    {% endif %}
-
-    <span> current page </span>
-    {{ a }}
-    <span>pagination range</span>
-    {% for i in p_range %}
-        {{i}}
-    {% endfor %}
-
-    {{current_page}}
-    {{communities.number}}
-
 </div>
 {% endblock %}

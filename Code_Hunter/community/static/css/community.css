@@ -303,7 +303,12 @@
     color: #92009D;
 }
 
-.current-page:not(.forloop-pages:hover) {
+.current-page {
+    background-color: #92009D;
+    color: white;    
+}
+
+.current-page:hover{
     background-color: #92009D;
     color: white;    
 }
