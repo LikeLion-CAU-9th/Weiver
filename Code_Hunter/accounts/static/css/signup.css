@@ -41,7 +41,7 @@
 .input-box {
     display: flex;
     flex-direction: column;
-    width: 450px;
+    width: 500px;
     height: 80px;
     border-radius: 30px;
     margin-bottom: 30px;
@@ -96,6 +96,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-top: 10px;
 }
 
 .agree-check {
@@ -111,4 +112,18 @@
 
 .agree-text > span {
     color: #92009D;
+}
+
+.signup-button {
+    margin-top: 30px;
+    width: 185px;
+    height: 65px;
+    border-radius: 30px;
+    background-color: #92009D;
+    border: none;
+    box-shadow: 0 0 7px gray;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    line-height: 65px;
 }
