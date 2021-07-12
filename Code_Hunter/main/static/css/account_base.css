@@ -23,3 +23,8 @@
     border: none;
     opacity: 0.9;
 }
+
+.blank-block {
+    width: 100%;
+    height: 220px;
+}

@@ -1,13 +1,7 @@
-
 .background-wall {
     display: flex;
     flex-direction: column;
     z-index: inherit;
-}
-
-.blank-block {
-    width: 100%;
-    height: 220px;
 }
 
 .login-box {

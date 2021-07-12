@@ -2,12 +2,36 @@
 {% load static %}
 
 {% block headAccount %}
-
+<link rel = "stylesheet" href = "{% static 'css/signup.css' %}">
 {% endblock %}
 
 
 {% block mainAccount %}
-sdfsdfsd
+<form action = "{% url 'signup' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    {% for form_attrib in form %}
+    <p>
+        {{form_attrib.label_tag}}
+        {{form_attrib}}
+
+        {% if form_attrib.help_text%}
+            <small style="color:grey;">{{form_attrib.help_text}}</small>
+        {% endif %}
+
+        {% for error in form_attrib.errors %}
+        <p style="color: red;">{{error}}</p>
+        {% endfor%}
+    </p>
+
+
+    {% endfor %}
+    
+    <button type="submit">등록</button>
+</form>
+
+
+
 {% endblock%}
 
 

@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block mainAccount %}
-<div class = "blank-block"></div>
 <form action = "{% url 'login' %}" method = "POST" class = "login-box">
     {% csrf_token %}
     <div class = "login-text">로그인</div>
@@ -33,18 +32,4 @@
         <a href = "{% url 'signup' %}">회원가입</a>
     </div>
 </form>
-
-
-
-
-<form action = "{% url 'login' %}" method = "post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type = "submit">submit</button>
-</form>
-
-
-
-<a href = "{% url 'logout' %}">로그아웃</a>
-
 {% endblock %}

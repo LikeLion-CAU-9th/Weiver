@@ -38,7 +38,7 @@
             <!-- 수정: 나중에 img tag로 수정 -->
             <div class = "user-thumb"><img src="{% static 'img/sproutimg.png' %}"></div>
             {% if user.is_authenticated %}
-                <a href = "{% url 'logout' %}">{{ user.username }}</a>
+                <a href = "{% url 'logout' %}">{{ user.nickname }}</a>
             
             {% else %}
                 <a href="{% url 'login' %}">로그인</a>

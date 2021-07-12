@@ -1,3 +1,5 @@
-.nav-bar {
-    position: absolute;
+.background-wall {
+    display: flex;
+    flex-direction: column;
+    z-index: inherit;
 }
