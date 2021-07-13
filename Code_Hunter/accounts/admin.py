@@ -16,6 +16,13 @@ class CustomUserAdmin(UserAdmin):
     filter_horizontal = ()
     list_filter = ()
     fieldsets = ()
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'nickname', 'password1', 'password2', 'user_thumbnail'),
+        }),
+    )
+
     # required stuff but don't wanna use
 
 

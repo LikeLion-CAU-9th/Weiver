@@ -1,3 +1,4 @@
+from typing import Type
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 from django.db.models.expressions import Value
@@ -6,7 +7,7 @@ from django.utils import tree
 # Create your models here.
 class CustomUserManager(BaseUserManager):
     # create_user, create_superuser 를 override해서 modify 해줘야
-    def create_user(self, email, nickname, password = None):
+    def create_user(self, email, nickname, user_thumbnail, password = None):
         # param으로 USERNAME_FIELD + REQUIRED_FIELD
         if not email: 
             raise ValueError("Users must have an email address")
@@ -16,7 +17,7 @@ class CustomUserManager(BaseUserManager):
         user = self.model(
             email = self.normalize_email(email), # email을 lowercase
             nickname = nickname,
-            # user_thumbnail = user_thumbnail,
+            user_thumbnail = user_thumbnail,
         )
         user.set_password(password)
         user.save(using=self._db)
@@ -27,7 +28,7 @@ class CustomUserManager(BaseUserManager):
             email = self.normalize_email(email),
             nickname = nickname,
             password = password,
-            # user_thumbnail = None, 
+            user_thumbnail = None, 
         )
         user.is_superuser = True
         user.is_admin = True
@@ -49,7 +50,11 @@ class CustomUser(AbstractBaseUser):
         verbose_name= "가입일자",
         auto_now_add=True
         )
-    # user_thumbnail = models.ImageField(upload_to = "media/", null= True, blank = True)
+    user_thumbnail = models.ImageField(
+        upload_to = "user_thumbnails", 
+        null= True, 
+        blank = True, 
+        default = "./user_thumbnails/default-user.png")
 
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)

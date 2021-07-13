@@ -8,5 +8,5 @@ class SignInForm(UserCreationForm):
     
     class Meta:
         model = CustomUser
-        fields = ("email", "nickname", "password1", "password2", )
+        fields = ("email", "nickname", "password1", "password2", "user_thumbnail" )
         
