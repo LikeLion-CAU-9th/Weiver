@@ -1,7 +1,6 @@
 asgiref==3.3.4
 Django==3.2.3
 django-classy-tags==2.0.0
-django-mathfilters==1.0.0
 django-multiselectfield==0.1.12
 django-summernote==0.8.11.6
 django-taggit==1.4.0

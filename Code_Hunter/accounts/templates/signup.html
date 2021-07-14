@@ -2,12 +2,81 @@
 {% load static %}
 
 {% block headAccount %}
-
+<link rel = "stylesheet" href = "{% static 'css/signup.css' %}">
 {% endblock %}
 
 
 {% block mainAccount %}
-sdfsdfsd
+<form action = "{% url 'signup' %}" method="POST" class = "signup-box" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class = "welcome-text1">환영합니다 !</div>
+    <div class = "welcome-text2">회원가입을 통해 코드헌터의 서비스를 이용해보세요.</div>
+    <div class = "input-box">
+        <span>닉네임</span>
+        <div class = "input-rows">
+            <input type ="text" class = "input-content" name = "nickname" placeholder="닉네임을 입력하세요">
+            <button type ="button" class = "check-button">확인</button>
+        </div>
+        {{form.nickname.ValueError}}
+    </div>
+    <div class = "input-box">
+        <span>이메일</span>
+        <div class = "input-rows">
+            <input type ="text" class = "input-content" name = "email" placeholder="예) code1234@hunter.com">
+            <button type ="button" class = "check-button">확인</button>
+        </div> 
+        {{form.email.errors}}
+    </div>
+    <div class = "input-box">
+        <span>비밀번호</span>
+        <input type = "password" class = "input-content no-button" name = "password1" placeholder="영문, 숫자, 특수문자 조합 8 - 16자">
+        {{form.password1.errors}}
+    </div>
+    <div class = "input-box">
+        <span>비밀번호 확인</span>
+        <input type = "password" class = "input-content no-button" name = "password2" placeholder="비밀번호를 다시 한 번 입력하세요.">
+        {{form.password2.errors}}
+    </div>
+    <div class="input-box">
+        <span>프로필 사진 등록</span>
+        <input type = "file" class = "input-content" name = "user_thumbnail" placeholder="프로필로 이용할 사진을 첨부하세요.">
+    </div>
+
+    <div class = "agree-box">
+        <input type = "checkbox" id = "cb1" class = "agree-check">
+        <div class = "agree-text">
+            코드헌터의 <span>이용약관</span> 및 <span>개인정보 처리방침</span>에 동의합니다.
+        </div>
+    </div>
+    <button type="submit" class = "signup-button">회원가입</button>
+    
+</form>
+
+<!-- <form action = "{% url 'signup' %}" method="POST">
+    {% csrf_token %}
+    
+    {% for form_attrib in form %}
+    <p>
+        {{form_attrib.label_tag}}
+        {{form_attrib}}
+
+        {% if form_attrib.help_text%}
+            <small style="color:grey;">{{form_attrib.help_text}}</small>
+        {% endif %}
+
+        {% for error in form_attrib.errors %}
+        <p style="color: red;">{{error}}</p>
+        {% endfor%}
+    </p>
+
+
+    {% endfor %}
+    
+    <button type="submit">등록</button>
+</form> -->
+
+
+
 {% endblock%}
 
 

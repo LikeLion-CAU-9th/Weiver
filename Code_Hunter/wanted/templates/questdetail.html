@@ -122,7 +122,6 @@
                         댓글쓰기
                         {% csrf_token %}
                         <input type = "hidden" name = "quest_id" value = "{{quest.id}}">
-                            <input class = "newcomment-author" name = "author" placeholder="닉네임" required>
                             <textarea class = "newcomment-body" name = "body" placeholder="댓글을 남겨보세요." required></textarea>
                     </div>
                     <div class="newcomment-right">
@@ -134,14 +133,20 @@
 
     </div>
     
-    <div class="tag-area">
-        <a href="#">
-            <button class="create" id="submit">
+    <div class="menu-area">
+        {% if user == quest.author %}
+        <a href="#" class="update-button">수정</a>
+        <a href="#" class="update-button">삭제</a>
+        {% else %}
+        <a href="{% url 'apply' %}">
+            <button class="apply-button" id="submit">
                 코드리뷰 지원하기<br>
                 <img src="{% static 'img/hand.png' %}"><br>
-                <span>해당 질문의 리뷰어에 지원합니다.</span>
+                <span>해당 질문 리뷰에 지원합니다.</span>
             </button>
         </a>
+        {% endif %}
+
         <div class="quest-filebox">
             <div class="file-head">
                 업로드된 파일 목록

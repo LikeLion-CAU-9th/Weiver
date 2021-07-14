@@ -8,7 +8,7 @@ import datetime
 
 def board(request):
     page = request.GET.get('page', '1')
-    quests = Quest.objects.all().order_by('-id')
+    quests = Quest.objects.filter(duedate__gte=datetime.datetime.now()).order_by('-id')
     for quest in quests:
         quest.remainingdays = (quest.duedate - datetime.datetime.now().date()).days
         quest.save()
@@ -34,10 +34,12 @@ def questdetail(request, quest_id):
     return render(request, 'questdetail.html', context = {'quest':quest_detail, 'comments':comments})
 
 def newcomment(request):
+    if not request.user.is_authenticated:
+        return redirect('/accounts/login/')
     if request.method == 'POST':
         quest_id = request.POST.get('quest_id','').strip()
         body = request.POST.get('body','').strip()
-        author = request.POST.get('author','').strip()
+        author = request.user
         comment = QuestComment.objects.create(
             author = author,
             quest_id = quest_id,
@@ -46,10 +48,13 @@ def newcomment(request):
         return redirect(reverse('questdetail', kwargs={'quest_id':comment.quest_id}))
 
 def createquest(request):
+    if not request.user.is_authenticated:
+        return redirect('/accounts/login/')
     if request.method == 'POST':
         form = QuestForm(request.POST, request.FILES)
         if form.is_valid():
             quest = form.save(commit=False)
+            quest.author = request.user
             quest.save()
             form.save_m2m()
             return redirect('board')
@@ -64,10 +69,13 @@ def matching(request):
     return render(request, 'matching.html', )
 
 def review(request, quest_id):
+    if not request.user.is_authenticated:
+        return redirect('/accounts/login/')
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():
             review = form.save(commit=False)
+            review.author = request.user
             review.save()
             return redirect('board')
         else:
@@ -78,6 +86,11 @@ def review(request, quest_id):
         context = {'quest':quest_detail, 'form':form}
         return render(request, 'createreview.html', context)
     
+def apply(request):
+    if not request.user.is_authenticated:
+        return redirect('/accounts/login/')
+    quest = get_object_or_404(Quest, pk=quest_id)
+    return redirect('index')
     
 
 
