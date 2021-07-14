@@ -88,17 +88,6 @@ input {
     margin-right: 5px;
 }
 
-.user-thumb{
-    width: 35px;
-    height: 35px;
-    border-radius: 70%;
-    background-color: white;
-    margin:5px 10px 0 0;
-    overflow: hidden;
-    padding: 3.5px;
-    box-sizing: border-box;
-}
-
 .logout-link {
     display: flex;
     flex-direction: row;

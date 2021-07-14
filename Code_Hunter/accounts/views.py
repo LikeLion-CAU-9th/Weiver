@@ -1,3 +1,4 @@
+from django.contrib import auth
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
@@ -29,9 +30,9 @@ def logout_view(request):
 
 def signup_view(request):
     if request.method == "POST":
-        print(request.POST)
-        print(SignInForm(request.POST))
-        form = SignInForm(request.POST)
+        print("씨발씨발\n\nPOST: ", request.POST)
+        print("씨발씨발\n\nFILES: ", request.FILES)
+        form = SignInForm(request.POST, request.FILES)
         if form.is_valid():
             # 입력 값에 issue 없으면 
             form.save()
