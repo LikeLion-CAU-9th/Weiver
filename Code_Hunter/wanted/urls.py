@@ -10,7 +10,8 @@ urlpatterns = [
     path('<int:quest_id>/', questdetail, name="questdetail"),
     path('newcomment/', newcomment, name="newcomment"),
     path('createquest/', createquest, name="createquest"),
-    path('matching/', matching, name = "matching"),
-    path('<int:quest_id>/review', review, name="review"),
-    path('apply/', apply, name="apply"),
+    path('<int:quest_id>/matching/', matching, name = "matching"),
+    path('<int:quest_id>/select-reviewer/', select_reviewer, name="select-reviewer"),
+    path('<int:quest_id>/review/', review, name="review"),
+    path('<int:quest_id>/apply/', apply, name="apply"),
 ]

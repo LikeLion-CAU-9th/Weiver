@@ -1,3 +1,4 @@
+from accounts.models import CustomUser
 from django.http import request
 from django.shortcuts import redirect, render, get_object_or_404
 from django.core.paginator import Paginator
@@ -65,8 +66,17 @@ def createquest(request):
         return render(request, 'newquest.html', {'form':form})
 
 
-def matching(request):
-    return render(request, 'matching.html', )
+def matching(request, quest_id):
+    quest = get_object_or_404(Quest, pk=quest_id)
+    return render(request, 'matching.html', {'quest':quest})
+
+def select_reviewer(request, quest_id):
+    if request.method == 'POST':
+        quest = Quest.objects.filter(pk=quest_id)
+        reviewer_id = request.POST.get('reviewer')
+        reviewer = CustomUser.objects.get(pk=reviewer_id)
+        quest.update(reviewer=reviewer, status='SOLVING')
+    return redirect(reverse('questdetail', kwargs={'quest_id':quest_id}))
 
 def review(request, quest_id):
     if not request.user.is_authenticated:
@@ -76,21 +86,26 @@ def review(request, quest_id):
         if form.is_valid():
             review = form.save(commit=False)
             review.author = request.user
+            review.quest_id = quest_id
             review.save()
-            return redirect('board')
+            quest = Quest.objects.filter(pk=quest_id)
+            quest.update(status='SOLVED')
+            return redirect(reverse('questdetail', kwargs={'quest_id':quest_id}))
         else:
-            return redirect('board')
+            return redirect(reverse('questdetail', kwargs={'quest_id':quest_id}))
     else:
         form = ReviewForm()
         quest_detail = get_object_or_404(Quest, pk=quest_id)
         context = {'quest':quest_detail, 'form':form}
         return render(request, 'createreview.html', context)
     
-def apply(request):
+def apply(request, quest_id):
     if not request.user.is_authenticated:
         return redirect('/accounts/login/')
-    quest = get_object_or_404(Quest, pk=quest_id)
-    return redirect('index')
+    current_user = request.user
+    current_quest = Quest.objects.get(id=quest_id)
+    current_quest.applicants.add(CustomUser.objects.get(id=current_user.id))
+    return redirect(reverse('questdetail', kwargs={'quest_id':quest_id}))
     
 
 
