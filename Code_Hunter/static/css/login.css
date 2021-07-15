@@ -1,0 +1,121 @@
+.background-wall {
+    display: flex;
+    flex-direction: column;
+    z-index: inherit;
+}
+
+.login-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 700px;
+    height: 750px;
+    background-color: white;
+    margin: 0 auto 0 auto;
+    box-shadow: 0 0 5px wheat;
+}
+
+.login-text {
+    font-size: 40px;
+    margin: 20px auto 40px auto;
+}
+
+.login-img {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 70px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 410px;
+    height: 30px;
+    border-bottom: 1.5px solid black;
+    margin-bottom: 40px;
+}
+
+.input-box input {
+    font-size: 18px;
+    width: 380px;
+    background-color: white;
+    border: none;
+    outline: none;
+}
+
+.input-box img {
+    margin-right: 5px;
+    width: 24px;
+    height: 24px;
+}
+
+.option-space {
+    width: 410px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 65px;
+}
+
+.remember-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.remember-check {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #92009D;
+    margin-right: 5px;
+}
+
+.remember-login span {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.option-space a {
+    font-size: 18px;
+    font-weight: bold;
+    color: #92009D;
+    text-decoration: none;
+}
+
+.login-button {
+    width: 175px;
+    height: 60px;
+    border-radius: 50px;
+    border: none;
+    background-color: #92009D;
+    font-family: Consolas;
+    color: white;
+    line-height: 60px;
+    text-align: center;
+    font-size: 28px;
+    box-shadow: 0 5px 10px gray;
+}
+
+.login-button:hover {
+    box-shadow: 0 0 10px #92009D;
+    font-weight: bold;
+}
+
+.signup-space {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 330px;
+    font-size: 18px;
+    margin-top: 80px;
+}
+
+.signup-space a {
+    color: #92009D;
+    font-weight: bold;
+    text-decoration: none;
+}
