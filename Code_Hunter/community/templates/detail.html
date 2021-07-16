@@ -59,7 +59,7 @@
             <div class = "post-head-bottom">
                 <div class = "post-head-box-bottom">
                     <div class = "post-author">
-                        <img class = "author-thumbnail" src = "{% static 'img/memoji01.jpg' %}">
+                        <img class = "author-thumbnail" src = "{{ post_details.author.user_thumbnail.url }}">
                         <div class = "author-name">
                             {{ post_details.author }}
                         </div>
@@ -124,7 +124,7 @@
                 <div class = "comment-content">
                     <div class = "comment-content-top">
                         <div class = "comment-author">
-                            <div class = "comment-author-thumbnail"></div>
+                            <img class = "author-thumbnail" src = "{{ post_details.author.user_thumbnail.url }}">
                             <div class = "comment-author-name">
                                 {{ comment.author }}
                             </div>
@@ -162,7 +162,9 @@
                             {% if not comments.count %}
                             <textarea name = "comment-content" id = "" cols = "30" rows = "10" placeholder="첫 번째로 댓글을 남겨보세요!"></textarea>
                             {% endif %}
-                            <button type = "submit">등록</button>
+                            <div class="button-area">
+                                <button type = "submit">등록</button>
+                            </div>
                         </div>
                     </div>
                 </form>
