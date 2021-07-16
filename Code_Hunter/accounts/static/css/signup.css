@@ -92,6 +92,41 @@
     align-items: center;
 }
 
+.input-imagefield {
+    display: flex;
+    flex-direction: row;
+}
+
+.upload-name {
+    display: inline-block;
+    padding: .5em .75em;
+    color: #fff;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #5cb85c;
+    cursor: pointer;
+    border: 1px solid #4cae4c;
+    border-radius: .25em;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+.input-field label:active {    
+    width: 80px;
+    height: 38px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #92009D;
+    border-radius: 35px;
+    margin-right: 15px;
+    border: none;
+}
+
+
 .agree-box {
     display: flex;
     flex-direction: row;

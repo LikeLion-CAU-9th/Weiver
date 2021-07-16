@@ -39,7 +39,11 @@
     </div>
     <div class="input-box">
         <span>프로필 사진 등록</span>
-        <input type = "file" class = "input-content" name = "user_thumbnail" placeholder="프로필로 이용할 사진을 첨부하세요.">
+        <div class = "input-imagefield">
+            <!-- <input class = "upload-name" value = "프로필로 이용할 사진을 첨부하세요." disabled = "disabled"> -->
+            <!-- <label for = "filename">업로드</label> -->
+            <input type = "file" class = "input-content" id = "filename" name = "user_thumbnail">
+        </div>
     </div>
 
     <div class = "agree-box">

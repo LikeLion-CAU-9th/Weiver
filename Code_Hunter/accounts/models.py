@@ -29,7 +29,7 @@ class CustomUserManager(BaseUserManager):
             email = self.normalize_email(email),
             nickname = nickname,
             password = password,
-            user_thumbnail = None, 
+            user_thumbnail= None,
         )
         user.is_superuser = True
         user.is_admin = True
@@ -66,7 +66,7 @@ class CustomUser(AbstractBaseUser):
 
     USERNAME_FIELD = 'email'
     # login에 이용할 field 
-    REQUIRED_FIELDS = ['nickname', 'user_thumbnail']
+    REQUIRED_FIELDS = ['nickname', ]
     # register 시 실제로 fill in 할 attributes 
     # email은 USERNAME_FIELD로 들어갔고, 나머지는 default 값으로 들어감.
 
