@@ -40,7 +40,7 @@
                 
                 <a href = "{% url 'logout' %}" class = "logout-link">
                     {% if user.user_thumbnail %}
-                        <img class = "user-thumbnail" src = "{{user.user_thumbnail.url}}">
+                        <img class = "user-thumbnail" src = "{{ user.user_thumbnail.url }}">
                     {% endif %}
                     <span>{{ user.nickname }}</span>
                     님

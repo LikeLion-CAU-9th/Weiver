@@ -56,6 +56,11 @@ class CustomUser(AbstractBaseUser):
         null= True, 
         blank = True, 
         default = "./user_thumbnails/default-user.png")
+    review_count = models.IntegerField(default=0)
+    average_time = models.CharField(default="0D 0H", max_length=20)
+    career = models.IntegerField(default=0)
+    stack = models.TextField(default="")
+    rating = models.FloatField(default=0)
 
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)

@@ -112,12 +112,7 @@ input {
     /* height: 100%; */
 }
 
-.user-box a:hover {
-    /* border-bottom: 1px solid #92009D; */
-    color: #92009D;
-}
-
-.nav-item a:hover {
+.nav-item a:hover, .user-box a:hover {
     color: #92009D;
   }
 
