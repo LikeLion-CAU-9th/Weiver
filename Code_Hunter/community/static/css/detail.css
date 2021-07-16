@@ -340,7 +340,6 @@
     background-color: #FFFFFF;
     width: 87%;
     height: 115px;
-    margin-right: 20px;
     padding: 10px 20px 5px 20px;
     border: none;
     resize: none;
@@ -349,6 +348,9 @@
     font-family: Noto Sans KR;
 }
 
+.button-area {
+    width: 150px;
+}
 
 .comment-write button {
     border: none;
@@ -361,6 +363,8 @@
     font-size: 20px;
     text-align: center;
     line-height: 45px;
+    margin: 0 auto;
+    display: block;
 }
 
 .comment-empty {
