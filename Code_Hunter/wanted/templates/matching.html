@@ -37,7 +37,7 @@
                         <div class = "quest-title">
                         {{ quest.title }}</div>
                         <div class = "quest-summary">
-                            {{ quest.body | truncatechars:100 | striptags | cut:"&nbsp;" }}
+                            {{ quest.body | striptags | truncatewords:10 | striptags }}
                         </div>
                         <div class = "go-to-quest">질문으로 이동</div>
                     </a>
