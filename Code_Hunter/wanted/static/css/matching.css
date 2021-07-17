@@ -35,10 +35,10 @@
 }
 
 .main-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
 }
 
 .box-model {
@@ -103,13 +103,13 @@
 .go-to-quest {
     font-size: 12px;
     text-align: end;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: black;
 }
 
 .applicant-count {
     font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .applicant-count span {
@@ -196,6 +196,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 105px;
 }
 
 .applicant-detail-key{
@@ -207,13 +208,11 @@
     font-size: 23px;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
-.applicant-detail-value ul {
+.applicant-detail-value span {
     font-size: 10px;
-    margin: 0px;
-    padding: 0px;
-    text-align: center;
 }
 
 .applicant-detail-bottom {
@@ -265,7 +264,7 @@
 
 
 
-.right-side {
+.submit-button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -277,14 +276,20 @@
     border: 1px dashed #707070;
     box-shadow: 2px 2px 7px #707070;
     background-color: white;
+    color: black;
+}
+
+.submit-button:hover {
+    cursor: pointer;
 }
 
 .submit-text {
     font-size: 25px;
     margin-top: 5px;
+    text-decoration: none;
 }
 
-.right-side img {
+.submit-button img {
     width: 45px;
     height: 45px;
 }
@@ -296,11 +301,12 @@
     font-size: 11px;
     color: #707070;
     margin-bottom: 12px;
+    text-align: center;
+    text-decoration: none;
 }
 
-.inform-text ul {
-    padding: 0px;
-    margin: 0px;
+.invisible-input {
+    display: none;
 }
 
 

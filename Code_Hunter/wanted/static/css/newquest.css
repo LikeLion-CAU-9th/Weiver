@@ -1,6 +1,7 @@
 .newquest {
     display: flex;
     margin: 30px 50px;
+    margin-bottom: 100px;
     height: calc(100vh - 180px);
 }
 

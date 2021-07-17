@@ -20,7 +20,6 @@
 {% endblock %}
 
 {% block mainContent %}
-{% csrf_token %}
 <div id="my_modal">
     리뷰가 성공적으로 등록되었습니다!
     <img src="{% static 'img/check.png' %}" class="modal_close_btn">
@@ -28,6 +27,7 @@
 
 
 <form method="POST">
+    {% csrf_token %}
     <div class="board">
         <div class="quest-area">
             <div class="filter-area">

@@ -35,13 +35,13 @@ def make_pagination_range(current_page, paginator):
 def create(request):
     new_post = Community()
     new_post.title = request.POST['title']
-    new_post.author = "익명"
+    new_post.author = request.user
     new_post.body = request.POST['body']
     new_post.pub_date = timezone.now()
     new_post.tag = request.POST['tag']
     if new_post.tag == '공지':
         new_post.notice_or_not = True
-        new_post.author = "관리자"
+        new_post.author = request.user
     if datetime.datetime.now().date() == new_post.pub_date.date():
         new_post.today_or_not = True
     new_post.save()
@@ -61,7 +61,7 @@ def new_comment(request):
         post_id = request.POST.get('post_id', '').strip()
         content = request.POST.get('comment-content', '').strip()
         comment = CommunityComment.objects.create(
-            author = "익명",
+            author = request.user,
             origin_post_id = post_id,
             content = content
         )
